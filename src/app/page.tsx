@@ -112,7 +112,7 @@ function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-lg text-primary-100 max-w-lg drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]"
+              className="text-lg text-white max-w-lg drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
             >
               Welcome to the future of online insurance. Get a real price on
               your auto insurance in less than 10 minutes. All policies under
@@ -150,8 +150,8 @@ function HeroSection() {
             >
               {stats.map((s) => (
                 <div key={s.label} className="text-center">
-                  <p className="text-3xl font-bold text-accent-400">{s.value}</p>
-                  <p className="text-xs text-primary-300 mt-1">{s.label}</p>
+                  <p className="text-3xl font-bold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">{s.value}</p>
+                  <p className="text-xs text-primary-100 mt-1">{s.label}</p>
                 </div>
               ))}
               <div className="h-10 w-px bg-white/20" />
@@ -185,13 +185,13 @@ function HeroSection() {
                     <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-lg bg-accent-400/20 text-accent-400">
                       <feat.icon className="h-5 w-5" />
                     </div>
-                    <span className="text-base text-primary-100 leading-relaxed pt-1.5">
+                    <span className="text-base text-white leading-relaxed pt-1.5">
                       {feat.label}
                     </span>
                   </motion.li>
                 ))}
               </ul>
-              <div className="mt-6 pt-6 border-t border-white/10 flex items-center gap-2 text-sm text-primary-300">
+              <div className="mt-6 pt-6 border-t border-white/10 flex items-center gap-2 text-sm text-primary-100">
                 <CheckCircle2 className="h-4 w-4 text-accent-400" />
                 100% Satisfaction Guaranteed — Free rate revisions anytime
               </div>
