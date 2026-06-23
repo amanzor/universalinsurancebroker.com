@@ -161,7 +161,7 @@ export default function FAQPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative bg-gradient-to-b from-primary-900 to-primary-800 py-24">
+      <section className="relative bg-gradient-to-b from-primary-900 to-primary-800 py-20 md:py-32">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-32 -left-32 h-[400px] w-[400px] rounded-full bg-primary-700/30 blur-3xl" />
           <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-accent-500/10 blur-3xl" />
@@ -179,7 +179,7 @@ export default function FAQPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="mt-4 text-lg text-primary-200"
+            className="mt-6 text-lg text-primary-200 max-w-2xl mx-auto"
           >
             Find answers to common questions about our insurance services.
             Can&apos;t find what you&apos;re looking for? Give us a call!
@@ -188,7 +188,7 @@ export default function FAQPage() {
       </section>
 
       {/* Category tabs + FAQ content */}
-      <section className="bg-white py-16">
+      <section className="bg-white py-20 md:py-24">
         <div className="mx-auto max-w-4xl px-6">
           {/* Category tabs */}
           <motion.div
@@ -238,12 +238,12 @@ export default function FAQPage() {
       <PolicyAccordion />
 
       {/* CTA */}
-      <section className="bg-gray-50 py-16">
+      <section className="bg-gray-50 py-20 md:py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-2xl font-bold heading-silver sm:text-3xl">
+          <h2 className="text-3xl font-bold text-primary-900 sm:text-4xl">
             Still Have Questions?
           </h2>
-          <p className="mt-4 text-gray-600">
+          <p className="mt-4 text-lg text-gray-600">
             Our team is ready to help you find the right coverage. Reach out today!
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
