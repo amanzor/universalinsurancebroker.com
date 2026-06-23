@@ -448,7 +448,7 @@ function LocationsSection() {
           animate={inView ? "visible" : "hidden"}
           variants={fadeUp}
           transition={spring}
-          className="text-center text-3xl font-bold heading-silver sm:text-4xl"
+          className="text-center text-3xl font-bold text-primary-900 sm:text-4xl"
         >
           Visit Us at Our Florida Offices
         </motion.h2>
@@ -523,7 +523,7 @@ function ReviewCTASection() {
         <motion.h2
           variants={fadeUp}
           transition={spring}
-          className="mt-6 text-3xl font-bold heading-silver sm:text-4xl"
+          className="mt-6 text-3xl font-bold text-primary-900 sm:text-4xl"
         >
           Your Opinion Matters!
         </motion.h2>
