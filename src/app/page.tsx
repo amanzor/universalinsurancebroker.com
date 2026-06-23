@@ -150,8 +150,8 @@ function HeroSection() {
             >
               {stats.map((s) => (
                 <div key={s.label} className="text-center">
-                  <p className="text-3xl font-bold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">{s.value}</p>
-                  <p className="text-xs text-primary-100 mt-1">{s.label}</p>
+                  <p className="text-4xl font-black text-white drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)] drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">{s.value}</p>
+                  <p className="text-xs text-white mt-1 font-semibold drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">{s.label}</p>
                 </div>
               ))}
               <div className="h-10 w-px bg-white/20" />
