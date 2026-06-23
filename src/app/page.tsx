@@ -558,10 +558,10 @@ export default function HomePage() {
   return (
     <main>
       <HeroSection />
-      <DealerVentures />
       <InteractiveCalculator />
       <ServicesSection />
       <WhyChooseUsSection />
+      <DealerVentures />
       <LocationsSection />
       <ReviewCTASection />
     </main>
