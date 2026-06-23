@@ -179,7 +179,7 @@ export default function AutoInsurancePage() {
             viewport={{ once: true }}
             variants={fadeIn}
             custom={2}
-            className="max-w-3xl mx-auto mb-12"
+            className="max-w-3xl mx-auto"
           >
             <video
               autoPlay
@@ -192,17 +192,6 @@ export default function AutoInsurancePage() {
               Your browser does not support the video tag.
             </video>
           </motion.div>
-
-          <motion.h3
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-            custom={3}
-            className="text-2xl md:text-3xl font-light text-primary-700"
-          >
-            Some of Our Carrier Partners
-          </motion.h3>
         </div>
       </section>
 
