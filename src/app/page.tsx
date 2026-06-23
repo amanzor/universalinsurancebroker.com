@@ -23,6 +23,7 @@ import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 import InteractiveCalculator from "@/components/InteractiveCalculator";
 import DealerVentures from "@/components/DealerVentures";
+import QuoteEstimatorSection from "@/components/QuoteEstimatorSection";
 
 /* ------------------------------------------------------------------ */
 /*  Animation helpers                                                  */
@@ -562,7 +563,7 @@ export default function HomePage() {
       <ServicesSection />
       <WhyChooseUsSection />
       <DealerVentures />
-      <CTABannerSection />
+      <QuoteEstimatorSection />
       <LocationsSection />
       <ReviewCTASection />
     </main>
