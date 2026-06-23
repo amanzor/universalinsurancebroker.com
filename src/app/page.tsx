@@ -255,7 +255,7 @@ function ServicesSection() {
           <motion.h2
             variants={fadeUp}
             transition={spring}
-            className="text-3xl font-bold heading-silver sm:text-4xl"
+            className="text-3xl font-bold text-primary-900 sm:text-4xl"
           >
             Comprehensive Insurance Solutions
           </motion.h2>
