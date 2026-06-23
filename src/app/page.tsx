@@ -23,6 +23,7 @@ import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 import InteractiveCalculator from "@/components/InteractiveCalculator";
 import PolicyAccordion from "@/components/PolicyAccordion";
+import DealerVentures from "@/components/DealerVentures";
 
 /* ------------------------------------------------------------------ */
 /*  Animation helpers                                                  */
@@ -562,6 +563,7 @@ export default function HomePage() {
       <ServicesSection />
       <WhyChooseUsSection />
       <PolicyAccordion />
+      <DealerVentures />
       <CTABannerSection />
       <LocationsSection />
       <ReviewCTASection />
