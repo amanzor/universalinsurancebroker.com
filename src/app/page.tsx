@@ -5,10 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import {
-  Car,
-  Building2,
-  Home,
-  HeartPulse,
   Shield,
   Award,
   Clock,
@@ -60,10 +56,10 @@ const stats = [
 ];
 
 const heroFeatures = [
-  { icon: Car, label: "Auto Insurance — quotes in under 10 minutes" },
-  { icon: Building2, label: "Commercial Insurance — 10,000+ business types" },
-  { icon: Home, label: "Home Insurance — best-in-class comparisons" },
-  { icon: HeartPulse, label: "Health Insurance — zero cost through ACA" },
+  { icon: "/images/icon-auto.svg", label: "Auto Insurance — quotes in under 10 minutes" },
+  { icon: "/images/icon-commercial.svg", label: "Commercial Insurance — 10,000+ business types" },
+  { icon: "/images/icon-home.svg", label: "Home Insurance — best-in-class comparisons" },
+  { icon: "/images/icon-health.svg", label: "Health Insurance — zero cost through ACA" },
 ];
 
 function HeroSection() {
@@ -177,8 +173,8 @@ function HeroSection() {
                     transition={{ duration: 0.5, delay: 0.7 + index * 0.15 }}
                     className="flex items-start gap-4"
                   >
-                    <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-lg bg-accent-400/20 text-accent-400">
-                      <feat.icon className="h-5 w-5" />
+                    <div className="flex-shrink-0 flex h-12 w-12 items-center justify-center">
+                      <Image src={feat.icon} alt="" width={48} height={48} className="h-12 w-12" />
                     </div>
                     <span className="text-base text-white leading-relaxed pt-1.5">
                       {feat.label}
