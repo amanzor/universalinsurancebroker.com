@@ -102,10 +102,10 @@ function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-5xl md:text-6xl"
+              className="heading-chrome text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl md:text-6xl"
             >
               Protect What{" "}
-              <span className="text-accent-200">Matters Most</span>
+              <span>Matters Most</span>
             </motion.h1>
 
             <motion.p

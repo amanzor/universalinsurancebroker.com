@@ -77,4 +77,26 @@
       inset 0 -2px 4px rgba(0,0,0,0.15),
       0 4px 12px rgba(0,0,0,0.2);
   }
+  /* Bright "plated 3D silver" chrome for headings on dark backgrounds */
+  .heading-chrome {
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #eef2f7 16%,
+      #c2cbd8 34%,
+      #8d99ab 49%,
+      #6f7c8f 52%,
+      #aeb9c8 60%,
+      #e9eef4 82%,
+      #ffffff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.45),
+      0 2px 2px rgba(0, 0, 0, 0.35),
+      0 4px 10px rgba(0, 0, 0, 0.55);
+  }
 }
