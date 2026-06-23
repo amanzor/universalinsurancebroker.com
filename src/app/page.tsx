@@ -102,17 +102,17 @@ function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl"
+              className="text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.75)] sm:text-5xl md:text-6xl"
             >
               Protect What{" "}
-              <span className="text-accent-400">Matters Most</span>
+              <span className="text-accent-200">Matters Most</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-lg text-primary-200 max-w-lg"
+              className="text-lg text-primary-100 max-w-lg drop-shadow-[0_1px_8px_rgba(0,0,0,0.7)]"
             >
               Welcome to the future of online insurance. Get a real price on
               your auto insurance in less than 10 minutes. All policies under
