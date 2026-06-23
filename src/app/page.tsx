@@ -127,15 +127,13 @@ function HeroSection() {
               transition={{ duration: 0.7, delay: 0.6 }}
               className="flex flex-wrap gap-4"
             >
-              <a
-                href="https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/quotes"
                 className="btn-silver-3d inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-semibold text-primary-900 transition-all duration-300 group"
               >
                 Get a Free Quote
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
               <a
                 href={`tel:${COMPANY.phone.replace(/[^\d+]/g, "")}`}
                 className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-lg font-semibold text-white transition hover:border-white hover:bg-white/10"
