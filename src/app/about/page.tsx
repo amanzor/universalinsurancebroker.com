@@ -131,7 +131,7 @@ export default function AboutPage() {
             {COMPANY.name} is a Florida-based insurance brokerage with over 10
             years of experience helping individuals, families, and businesses
             find the right coverage at the best price. With 3 office locations
-            across the state and partnerships with 10+ top-rated carriers, we
+            across the state and partnerships with 100+ top-rated carriers, we
             serve clients from the Keys to the Panhandle. Our independent broker
             model means we work for you — not the insurance companies — comparing
             policies and negotiating rates so you never overpay for protection.

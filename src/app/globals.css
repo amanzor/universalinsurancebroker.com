@@ -82,10 +82,10 @@
     background: linear-gradient(
       180deg,
       #ffffff 0%,
-      #ffffff 44%,
-      #d6dee8 51%,
-      #ffffff 60%,
-      #eef3f8 100%
+      #ffffff 46%,
+      #eef3f8 51%,
+      #ffffff 58%,
+      #f7fafc 100%
     );
     -webkit-background-clip: text;
     background-clip: text;

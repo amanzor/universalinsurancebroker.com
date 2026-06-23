@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "Universal Insurance Brokers | Auto, Home, Commercial & Health Insurance in Florida",
-  description: "Get affordable auto, home, commercial, and health insurance quotes in Florida. 10+ years of experience, 10+ carriers, 100% satisfaction guaranteed. Offices in Boca Raton, Lehigh Acres & Doral.",
+  description: "Get affordable auto, home, commercial, and health insurance quotes in Florida. 10+ years of experience, 100+ carriers, 100% satisfaction guaranteed. Offices in Boca Raton, Lehigh Acres & Doral.",
   keywords: "insurance broker Florida, auto insurance, home insurance, commercial insurance, health insurance, Boca Raton, Lehigh Acres, Doral, affordable insurance quotes",
   openGraph: {
     title: "Universal Insurance Brokers | Florida Insurance Experts",

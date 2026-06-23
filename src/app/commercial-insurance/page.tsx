@@ -32,7 +32,7 @@ const policyTypes = [
     icon: Building2,
     title: "Car Dealer Insurance",
     description:
-      "Garage keeper and bond available with 10+ carriers including A+ to B rated options.",
+      "Garage keeper and bond available with 100+ carriers including A+ to B rated options.",
   },
   {
     icon: Truck,

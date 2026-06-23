@@ -34,7 +34,7 @@ const faqs = [
     questions: [
       {
         q: "How fast can I get an auto insurance quote?",
-        a: "You can get a real price on your auto insurance in under 10 minutes! We provide on-the-spot quotes by comparing rates from 10+ carriers simultaneously.",
+        a: "You can get a real price on your auto insurance in under 10 minutes! We provide on-the-spot quotes by comparing rates from 100+ carriers simultaneously.",
       },
       {
         q: "What factors affect my auto insurance rate?",
