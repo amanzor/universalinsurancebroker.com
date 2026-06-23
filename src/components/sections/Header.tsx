@@ -25,7 +25,7 @@ const TwitterX = ({ className }: { className?: string }) => (
 );
 
 import { COMPANY, NAV_LINKS } from "@/lib/constants";
-import { cn } from "@/lib/utils";
+import { cn, asset } from "@/lib/utils";
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -159,7 +159,7 @@ export default function Header() {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <Image
-                src="/images/logo-hd.png"
+                src={asset("/images/logo-hd.png")}
                 alt="Universal Insurance Brokers"
                 width={260}
                 height={80}
@@ -198,7 +198,7 @@ export default function Header() {
                         initial={{ opacity: 0, y: 8, scale: 0.96 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                        transition={{ duration: 0.2, ease: "easeOut" }}
+                        transition={{ duration: 0.2, ease: "easeOut" as const }}
                         className="absolute top-full left-0 mt-2 w-56 rounded-xl bg-white shadow-xl ring-1 ring-black/5 overflow-hidden"
                       >
                         {link.children.map((child, i) => (
@@ -321,7 +321,7 @@ export default function Header() {
                   className="flex items-center gap-2"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <Image src="/images/logo-hd.png" alt="UIB" width={120} height={40} className="h-8 w-auto object-contain" />
+                  <Image src={asset("/images/logo-hd.png")} alt="UIB" width={120} height={40} className="h-8 w-auto object-contain" />
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}

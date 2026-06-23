@@ -19,7 +19,7 @@ import {
   ExternalLink,
   CheckCircle2,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 
 /* ------------------------------------------------------------------ */
@@ -84,7 +84,7 @@ function HeroSection() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src="/images/hero-globe.mp4" type="video/mp4" />
+          <source src={asset("/images/hero-globe.mp4")} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-primary-900/40 via-primary-900/30 to-primary-950/80" />
       </div>
@@ -156,8 +156,8 @@ function HeroSection() {
               ))}
               <div className="h-10 w-px bg-white/20" />
               <div className="flex items-center gap-4">
-                <Image src="/images/trusted-choice.png" alt="Trusted Choice - Independent Insurance Agents" width={120} height={40} className="h-8 w-auto object-contain brightness-0 invert opacity-70" />
-                <Image src="/images/bbb-badge.png" alt="BBB Accredited Business" width={50} height={60} className="h-10 w-auto object-contain" />
+                <Image src={asset("/images/trusted-choice.png")} alt="Trusted Choice - Independent Insurance Agents" width={120} height={40} className="h-8 w-auto object-contain brightness-0 invert opacity-70" />
+                <Image src={asset("/images/bbb-badge.png")} alt="BBB Accredited Business" width={50} height={60} className="h-10 w-auto object-contain" />
               </div>
             </motion.div>
           </div>
