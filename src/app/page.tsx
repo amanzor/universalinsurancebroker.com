@@ -342,7 +342,7 @@ function WhyChooseUsSection() {
           animate={inView ? "visible" : "hidden"}
           variants={fadeUp}
           transition={spring}
-          className="text-center text-3xl font-bold heading-silver sm:text-4xl"
+          className="text-center text-3xl font-bold text-primary-900 sm:text-4xl"
         >
           Why Choose {COMPANY.name}?
         </motion.h2>
