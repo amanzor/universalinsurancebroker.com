@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
+import InteractiveCalculator from "@/components/InteractiveCalculator";
+import PolicyAccordion from "@/components/PolicyAccordion";
 
 /* ------------------------------------------------------------------ */
 /*  Animation helpers                                                  */
@@ -554,8 +556,10 @@ export default function HomePage() {
   return (
     <main>
       <HeroSection />
+      <InteractiveCalculator />
       <ServicesSection />
       <WhyChooseUsSection />
+      <PolicyAccordion />
       <CTABannerSection />
       <LocationsSection />
       <ReviewCTASection />
