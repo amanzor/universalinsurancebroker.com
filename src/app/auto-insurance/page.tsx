@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { List, Clock, Users, Phone, ArrowRight } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 
 const fadeIn = {
