@@ -312,19 +312,19 @@ function ServicesSection() {
 const reasons = [
   {
     icon: Shield,
-    title: "All Policies Under One Roof",
+    title: "ALL YOUR INSURANCE POLICIES UNDER ONE ROOF",
     description:
       "Manage all your insurance — auto, home, commercial, health — in one place with one trusted team.",
   },
   {
     icon: Award,
-    title: "100% Satisfaction Guaranteed",
+    title: "100% SATISFACTION GUARANTEED AND FREE RATE REVISIONS",
     description:
-      "Free rate revisions anytime. We work for you, not the insurance companies.",
+      "We work for you, not the insurance companies.",
   },
   {
     icon: Clock,
-    title: "10+ Years of Experience",
+    title: "10+ YEARS OF EXPERIENCE IN THE INSURANCE INDUSTRY",
     description:
       "Our deep industry knowledge and carrier relationships mean better coverage at lower prices.",
   },
