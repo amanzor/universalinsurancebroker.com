@@ -47,7 +47,7 @@ export default function AutoInsurancePage() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 "
           >
             Auto Insurance
           </motion.h1>
@@ -73,7 +73,7 @@ export default function AutoInsurancePage() {
             custom={0}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold heading-silver mb-6">
               The Best Auto Rates in Florida
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed">
@@ -112,7 +112,7 @@ export default function AutoInsurancePage() {
             viewport={{ once: true }}
             variants={fadeIn}
             custom={0}
-            className="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12"
+            className="text-3xl md:text-4xl font-bold heading-silver text-center mb-12"
           >
             Why Choose Us for Auto Insurance
           </motion.h2>
@@ -153,7 +153,7 @@ export default function AutoInsurancePage() {
             variants={fadeIn}
             custom={0}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
               Ready to Save on Auto Insurance?
             </h2>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">

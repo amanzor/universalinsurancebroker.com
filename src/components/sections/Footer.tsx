@@ -83,7 +83,7 @@ export default function Footer() {
             variants={fadeIn}
           >
             <div className="flex items-center gap-2 mb-4">
-              <Image src="/images/logo.jpg" alt="Universal Insurance Brokers" width={160} height={53} className="h-12 w-auto object-contain brightness-0 invert" />
+              <Image src="/images/logo-hd.png" alt="Universal Insurance Brokers" width={160} height={53} className="h-12 w-auto object-contain mix-blend-screen" />
             </div>
             <p className="text-sm font-semibold text-gray-300 mb-3">
               All Your Insurance Policies Under One Roof
@@ -212,7 +212,7 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-          <p>&copy; 2024 Universal Insurance Brokers. All Rights Reserved.</p>
+          <p>&copy; 2016 Universal Insurance Brokers&trade;. All Rights Reserved.</p>
           <p className="flex items-center gap-2">
             <Clock className="h-4 w-4" />
             Licensed Insurance Broker - State of Florida

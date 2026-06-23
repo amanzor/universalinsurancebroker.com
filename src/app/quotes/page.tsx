@@ -87,14 +87,14 @@ export default function QuotesPage() {
                     href={qt.href}
                     className={cn(
                       "group flex flex-col items-center rounded-2xl bg-white p-10 shadow-lg",
-                      "border-2 border-transparent transition-all hover:border-accent-500 hover:shadow-xl"
+                      "border-2 border-transparent transition-all hover:border-accent-300 hover:shadow-xl"
                     )}
                   >
                     <motion.div
                       whileHover={{ scale: 1.1 }}
                       className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-accent-100"
                     >
-                      <Icon className="h-10 w-10 text-accent-500" />
+                      <Icon className="h-10 w-10 text-accent-400" />
                     </motion.div>
                     <h3 className="mb-2 text-xl font-bold text-primary-900">
                       {qt.title}
@@ -102,7 +102,7 @@ export default function QuotesPage() {
                     <p className="text-center text-gray-600">
                       {qt.description}
                     </p>
-                    <span className="mt-4 text-sm font-semibold text-accent-500 group-hover:underline">
+                    <span className="mt-4 text-sm font-semibold text-accent-400 group-hover:underline">
                       Get a Quote &rarr;
                     </span>
                   </Link>
@@ -123,7 +123,7 @@ export default function QuotesPage() {
           className="mx-auto max-w-2xl px-4 text-center"
         >
           <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-accent-100">
-            <Phone className="h-7 w-7 text-accent-500" />
+            <Phone className="h-7 w-7 text-accent-400" />
           </div>
           <h3 className="mb-2 text-xl font-bold text-primary-900">
             Prefer to talk?
@@ -132,7 +132,7 @@ export default function QuotesPage() {
             Call us at{" "}
             <a
               href={`tel:${COMPANY.phone.replace(/\D/g, "")}`}
-              className="font-semibold text-accent-500 hover:underline"
+              className="font-semibold text-accent-400 hover:underline"
             >
               {COMPANY.phone}
             </a>

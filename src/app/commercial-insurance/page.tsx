@@ -94,7 +94,7 @@ export default function CommercialInsurancePage() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 "
           >
             Commercial &amp; Business Insurance
           </motion.h1>
@@ -121,7 +121,7 @@ export default function CommercialInsurancePage() {
             custom={0}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold heading-silver mb-6">
               Our Commercial Lines
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -169,7 +169,7 @@ export default function CommercialInsurancePage() {
             variants={fadeIn}
             custom={0}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
               Protect Your Business Today
             </h2>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">

@@ -58,7 +58,7 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="rounded-2xl bg-white p-8 shadow-lg"
             >
-              <h2 className="mb-6 text-2xl font-bold text-primary-900">
+              <h2 className="mb-6 text-2xl font-bold heading-silver">
                 Send Us a Message
               </h2>
               <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
@@ -69,7 +69,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     placeholder="John Doe"
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-200"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-200"
                   />
                 </div>
                 <div>
@@ -79,7 +79,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     placeholder="john@example.com"
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-200"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-200"
                   />
                 </div>
                 <div>
@@ -89,14 +89,14 @@ export default function ContactPage() {
                   <input
                     type="tel"
                     placeholder="(555) 123-4567"
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-200"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-200"
                   />
                 </div>
                 <div>
                   <label className="mb-1 block text-sm font-medium text-gray-700">
                     Insurance Type
                   </label>
-                  <select className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-700 transition-colors focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-200">
+                  <select className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-700 transition-colors focus:border-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-200">
                     <option value="">Select an option</option>
                     <option value="auto">Auto</option>
                     <option value="commercial">Commercial</option>
@@ -112,12 +112,12 @@ export default function ContactPage() {
                   <textarea
                     rows={5}
                     placeholder="Tell us how we can help..."
-                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-accent-500 focus:outline-none focus:ring-2 focus:ring-accent-200"
+                    className="w-full rounded-lg border border-gray-300 px-4 py-3 text-sm transition-colors focus:border-accent-300 focus:outline-none focus:ring-2 focus:ring-accent-200"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-accent-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-600"
+                  className="w-full rounded-lg bg-gradient-to-r from-accent-300 via-accent-200 to-accent-300 px-6 py-3 font-semibold text-primary-900 transition-colors hover:from-accent-400 hover:via-accent-300 hover:to-accent-400"
                 >
                   Send Message
                 </button>
@@ -135,7 +135,7 @@ export default function ContactPage() {
               {/* Phone Numbers */}
               <div className="rounded-2xl bg-white p-6 shadow-lg">
                 <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-primary-900">
-                  <Phone className="h-5 w-5 text-accent-500" />
+                  <Phone className="h-5 w-5 text-accent-400" />
                   Phone Numbers
                 </h3>
                 <ul className="space-y-3">
@@ -149,7 +149,7 @@ export default function ContactPage() {
                       </span>
                       <a
                         href={`tel:${p.number.replace(/\D/g, "")}`}
-                        className="text-primary-600 hover:text-accent-500 transition-colors"
+                        className="text-primary-600 hover:text-accent-400 transition-colors"
                       >
                         {p.number}
                       </a>
@@ -161,12 +161,12 @@ export default function ContactPage() {
               {/* Email */}
               <div className="rounded-2xl bg-white p-6 shadow-lg">
                 <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-primary-900">
-                  <Mail className="h-5 w-5 text-accent-500" />
+                  <Mail className="h-5 w-5 text-accent-400" />
                   Email
                 </h3>
                 <a
                   href={`mailto:${COMPANY.email}`}
-                  className="text-sm text-primary-600 hover:text-accent-500 transition-colors"
+                  className="text-sm text-primary-600 hover:text-accent-400 transition-colors"
                 >
                   {COMPANY.email}
                 </a>
@@ -175,7 +175,7 @@ export default function ContactPage() {
               {/* Hours */}
               <div className="rounded-2xl bg-white p-6 shadow-lg">
                 <h3 className="mb-3 flex items-center gap-2 text-lg font-semibold text-primary-900">
-                  <Clock className="h-5 w-5 text-accent-500" />
+                  <Clock className="h-5 w-5 text-accent-400" />
                   Business Hours
                 </h3>
                 <p className="text-sm text-gray-600">
@@ -186,7 +186,7 @@ export default function ContactPage() {
               {/* Offices */}
               <div className="rounded-2xl bg-white p-6 shadow-lg">
                 <h3 className="mb-4 flex items-center gap-2 text-lg font-semibold text-primary-900">
-                  <MapPin className="h-5 w-5 text-accent-500" />
+                  <MapPin className="h-5 w-5 text-accent-400" />
                   Our Offices
                 </h3>
                 <ul className="space-y-4">

@@ -40,5 +40,6 @@ export const NAV_LINKS = [
     { label: "Health Insurance", href: "/health-insurance" },
   ]},
   { label: "About Us", href: "/about" },
+  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];

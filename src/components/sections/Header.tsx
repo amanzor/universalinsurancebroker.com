@@ -111,26 +111,62 @@ export default function Header() {
       <motion.nav
         initial={false}
         animate={{
-          backgroundColor: scrolled ? "rgba(255,255,255,0.85)" : "rgba(255,255,255,1)",
-          backdropFilter: scrolled ? "blur(12px)" : "blur(0px)",
+          backgroundColor: scrolled ? "rgba(255,255,255,0.92)" : "rgba(255,255,255,1)",
+          backdropFilter: scrolled ? "blur(16px) saturate(180%)" : "blur(0px)",
           boxShadow: scrolled
-            ? "0 4px 30px rgba(0,0,0,0.08)"
-            : "0 1px 3px rgba(0,0,0,0.05)",
+            ? "0 4px 24px rgba(0,0,0,0.06), 0 1px 0 rgba(255,255,255,0.8) inset, 0 -1px 0 rgba(0,0,0,0.04) inset"
+            : "0 1px 0 rgba(255,255,255,0.6) inset, 0 -1px 0 rgba(0,0,0,0.03) inset",
         }}
-        transition={{ duration: 0.3 }}
-        className="border-b border-gray-100"
+        transition={{ duration: 0.35, ease: "easeOut" }}
+        className={cn(
+          "relative border-b transition-all duration-300",
+          scrolled
+            ? "border-accent-200/60"
+            : "border-gray-100"
+        )}
+        style={{
+          backgroundImage: scrolled
+            ? "linear-gradient(180deg, rgba(240,242,245,0.5) 0%, rgba(255,255,255,0.92) 40%, rgba(245,247,250,0.6) 100%)"
+            : "linear-gradient(180deg, rgba(250,251,252,1) 0%, rgba(255,255,255,1) 50%, rgba(245,247,250,0.8) 100%)",
+        }}
       >
-        <div className="mx-auto max-w-7xl flex items-center justify-between px-4 py-3">
+        {/* Animated shimmer sweep */}
+        <motion.div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background: "linear-gradient(105deg, transparent 0%, transparent 35%, rgba(255,255,255,0.7) 45%, rgba(200,210,220,0.3) 50%, rgba(255,255,255,0.7) 55%, transparent 65%, transparent 100%)",
+            backgroundSize: "200% 100%",
+          }}
+          animate={{ backgroundPosition: ["200% 0%", "-200% 0%"] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
+        />
+        {/* Animated bottom silver line */}
+        <motion.div
+          className="absolute bottom-0 left-0 right-0 h-[2px]"
+          style={{
+            background: "linear-gradient(90deg, transparent, rgba(170,180,194,0.5) 20%, rgba(220,225,232,0.8) 40%, rgba(244,245,250,1) 50%, rgba(220,225,232,0.8) 60%, rgba(170,180,194,0.5) 80%, transparent)",
+            backgroundSize: "200% 100%",
+          }}
+          animate={{ backgroundPosition: ["100% 0%", "-100% 0%"] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+        />
+        <div className="relative z-10 mx-auto max-w-7xl flex items-center justify-between px-4 py-3">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <Image
-              src="/images/logo.jpg"
-              alt="Universal Insurance Brokers"
-              width={180}
-              height={60}
-              className="h-10 w-auto object-contain"
-              priority
-            />
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <Image
+                src="/images/logo-hd.png"
+                alt="Universal Insurance Brokers"
+                width={260}
+                height={80}
+                className="h-16 -my-4 w-auto object-contain mix-blend-multiply drop-shadow-sm group-hover:drop-shadow-md transition-all duration-300"
+                priority
+              />
+            </motion.div>
           </Link>
 
           {/* Desktop Links */}
@@ -143,7 +179,7 @@ export default function Header() {
                     className={cn(
                       "flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-colors",
                       dropdownOpen
-                        ? "text-accent-600 bg-accent-50"
+                        ? "text-accent-400 bg-accent-50"
                         : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
                     )}
                   >
@@ -189,9 +225,10 @@ export default function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className="px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-600 hover:bg-gray-50 transition-colors"
+                  className="relative px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-700 transition-colors group"
                 >
                   {link.label}
+                  <span className="absolute bottom-0.5 left-4 right-4 h-0.5 bg-gradient-to-r from-accent-300 via-accent-400 to-accent-300 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
                 </Link>
               )
             )}
@@ -203,16 +240,21 @@ export default function Header() {
               href={`tel:${COMPANY.phone.replace(/\D/g, "")}`}
               className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors"
             >
-              <Phone className="h-4 w-4 text-accent-500" />
+              <motion.span
+                animate={{ scale: [1, 1.15, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Phone className="h-4 w-4 text-primary-600" />
+              </motion.span>
               {COMPANY.phone}
             </a>
             <Link
               href="/quotes"
-              className="relative inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-accent-500 text-white text-sm font-semibold shadow-lg shadow-accent-500/25 hover:bg-accent-600 hover:shadow-accent-500/40 transition-all duration-300 overflow-hidden group"
+              className="btn-silver-3d relative inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-primary-900 text-sm font-semibold transition-all duration-300 overflow-hidden group"
             >
               <span className="relative z-10">Get a Quote</span>
               <motion.span
-                className="absolute inset-0 bg-accent-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 bg-accent-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ filter: "blur(20px)" }}
               />
             </Link>
@@ -279,7 +321,7 @@ export default function Header() {
                   className="flex items-center gap-2"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <Image src="/images/logo.jpg" alt="UIB" width={120} height={40} className="h-8 w-auto object-contain" />
+                  <Image src="/images/logo-hd.png" alt="UIB" width={120} height={40} className="h-8 w-auto object-contain" />
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}
@@ -356,7 +398,7 @@ export default function Header() {
                   href={`tel:${COMPANY.phone.replace(/\D/g, "")}`}
                   className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors"
                 >
-                  <Phone className="h-4 w-4 text-accent-500" />
+                  <Phone className="h-4 w-4 text-accent-400" />
                   <span className="text-sm font-medium">{COMPANY.phone}</span>
                 </a>
                 <a
@@ -369,7 +411,7 @@ export default function Header() {
                 <Link
                   href="/quotes"
                   onClick={() => setMobileOpen(false)}
-                  className="block w-full text-center px-5 py-3 rounded-lg bg-accent-500 text-white font-semibold shadow-lg shadow-accent-500/25 hover:bg-accent-600 transition-all"
+                  className="btn-silver-3d block w-full text-center px-5 py-3 rounded-lg text-primary-900 font-semibold transition-all"
                 >
                   Get a Quote
                 </Link>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
@@ -17,6 +17,7 @@ import {
   Star,
   ArrowRight,
   ExternalLink,
+  CheckCircle2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
@@ -53,91 +54,152 @@ function useAnimateInView() {
 
 const stats = [
   { value: "10+", label: "Years Experience" },
-  { value: "10+", label: "Insurance Carriers" },
+  { value: "100+", label: "Insurance Carriers" },
   { value: "3", label: "Florida Locations" },
   { value: "100%", label: "Satisfaction" },
 ];
 
+const heroFeatures = [
+  { icon: Car, label: "Auto Insurance — quotes in under 10 minutes" },
+  { icon: Building2, label: "Commercial Insurance — 10,000+ business types" },
+  { icon: Home, label: "Home Insurance — best-in-class comparisons" },
+  { icon: HeartPulse, label: "Health Insurance — zero cost through ACA" },
+];
+
 function HeroSection() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary-900 to-primary-950">
-      {/* Hero background image */}
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-primary-900 to-primary-950">
+      {/* Hero background video */}
       <div className="absolute inset-0">
-        <Image src="/images/hero-umbrella.png" alt="" fill className="object-cover object-center opacity-30" priority />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-900/80 via-primary-900/70 to-primary-950" />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/images/hero-globe.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-900/40 via-primary-900/30 to-primary-950/80" />
       </div>
       {/* Decorative orbs */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-primary-700/20 blur-3xl" />
         <div className="absolute top-1/3 right-0 h-[400px] w-[400px] rounded-full bg-accent-500/10 blur-3xl" />
-        <div className="absolute bottom-0 left-1/2 h-[350px] w-[350px] -translate-x-1/2 rounded-full bg-primary-600/15 blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-6 py-32 text-center">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-          className="space-y-6"
-        >
-          <motion.h1
-            variants={fadeUp}
-            transition={spring}
-            className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
-          >
-            Protect What Matters Most
-          </motion.h1>
-
-          <motion.p
-            variants={fadeUp}
-            transition={spring}
-            className="mx-auto max-w-2xl text-lg text-primary-200 sm:text-xl"
-          >
-            Welcome to the future of online insurance. Get a real price on your
-            auto insurance in less than 10 minutes.
-          </motion.p>
-
-          <motion.div
-            variants={fadeUp}
-            transition={spring}
-            className="flex flex-col items-center gap-4 pt-4 sm:flex-row sm:justify-center"
-          >
-            <Link
-              href="/quotes"
-              className="inline-flex items-center gap-2 rounded-full bg-accent-500 px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-accent-500/30 transition hover:bg-accent-600"
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 py-32">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+          {/* Left side — Text & CTAs */}
+          <div className="w-full lg:w-1/2 space-y-8">
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl md:text-6xl"
             >
-              Get a Free Quote
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-            <a
-              href={`tel:${COMPANY.phone.replace(/[^\d+]/g, "")}`}
-              className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-lg font-semibold text-white transition hover:border-white hover:bg-white/10"
-            >
-              <Phone className="h-5 w-5" />
-              Call Us Now
-            </a>
-          </motion.div>
-        </motion.div>
+              Protect What{" "}
+              <span className="text-accent-400">Matters Most</span>
+            </motion.h1>
 
-        {/* Stats bar */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={stagger}
-          className="mt-20 grid grid-cols-2 gap-6 sm:grid-cols-4"
-        >
-          {stats.map((s) => (
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-lg text-primary-200 max-w-lg"
+            >
+              Welcome to the future of online insurance. Get a real price on
+              your auto insurance in less than 10 minutes. All policies under
+              one roof.
+            </motion.p>
+
             <motion.div
-              key={s.label}
-              variants={fadeUp}
-              transition={spring}
-              className="rounded-2xl border border-white/10 bg-white/5 px-4 py-6 backdrop-blur-sm"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.6 }}
+              className="flex flex-wrap gap-4"
             >
-              <p className="text-3xl font-bold text-accent-400">{s.value}</p>
-              <p className="mt-1 text-sm text-primary-200">{s.label}</p>
+              <Link
+                href="/quotes"
+                className="btn-silver-3d inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-semibold text-primary-900 transition-all duration-300 group"
+              >
+                Get a Free Quote
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <a
+                href={`tel:${COMPANY.phone.replace(/[^\d+]/g, "")}`}
+                className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-lg font-semibold text-white transition hover:border-white hover:bg-white/10"
+              >
+                <Phone className="h-5 w-5" />
+                Call Us Now
+              </a>
             </motion.div>
-          ))}
-        </motion.div>
+
+            {/* Stats row + Trust badges */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.8 }}
+              className="flex flex-wrap items-center gap-8 pt-4"
+            >
+              {stats.map((s) => (
+                <div key={s.label} className="text-center">
+                  <p className="text-3xl font-bold text-accent-400">{s.value}</p>
+                  <p className="text-xs text-primary-300 mt-1">{s.label}</p>
+                </div>
+              ))}
+              <div className="h-10 w-px bg-white/20" />
+              <div className="flex items-center gap-4">
+                <Image src="/images/trusted-choice.png" alt="Trusted Choice - Independent Insurance Agents" width={120} height={40} className="h-8 w-auto object-contain brightness-0 invert opacity-70" />
+                <Image src="/images/bbb-badge.png" alt="BBB Accredited Business" width={50} height={60} className="h-10 w-auto object-contain" />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Right side — Feature showcase card */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 1, delay: 0.5 }}
+            className="w-full lg:w-5/12 relative"
+          >
+            <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-2xl">
+              <h3 className="text-xl font-bold text-white mb-6">
+                All Your Insurance, One Place
+              </h3>
+              <ul className="space-y-5">
+                {heroFeatures.map((feat, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={isLoaded ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.5, delay: 0.7 + index * 0.15 }}
+                    className="flex items-start gap-4"
+                  >
+                    <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-lg bg-accent-400/20 text-accent-400">
+                      <feat.icon className="h-5 w-5" />
+                    </div>
+                    <span className="text-base text-primary-100 leading-relaxed pt-1.5">
+                      {feat.label}
+                    </span>
+                  </motion.li>
+                ))}
+              </ul>
+              <div className="mt-6 pt-6 border-t border-white/10 flex items-center gap-2 text-sm text-primary-300">
+                <CheckCircle2 className="h-4 w-4 text-accent-400" />
+                100% Satisfaction Guaranteed — Free rate revisions anytime
+              </div>
+            </div>
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent-500/10 rounded-full blur-2xl" />
+            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary-500/10 rounded-full blur-2xl" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -193,7 +255,7 @@ function ServicesSection() {
           <motion.h2
             variants={fadeUp}
             transition={spring}
-            className="text-3xl font-bold text-primary-900 sm:text-4xl"
+            className="text-3xl font-bold heading-silver sm:text-4xl"
           >
             Comprehensive Insurance Solutions
           </motion.h2>
@@ -232,7 +294,7 @@ function ServicesSection() {
               </p>
               <Link
                 href={s.href}
-                className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-600 transition hover:text-accent-700"
+                className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-400 transition hover:text-accent-700"
               >
                 Learn More <ArrowRight className="h-4 w-4" />
               </Link>
@@ -280,7 +342,7 @@ function WhyChooseUsSection() {
           animate={inView ? "visible" : "hidden"}
           variants={fadeUp}
           transition={spring}
-          className="text-center text-3xl font-bold text-primary-900 sm:text-4xl"
+          className="text-center text-3xl font-bold heading-silver sm:text-4xl"
         >
           Why Choose {COMPANY.name}?
         </motion.h2>
@@ -298,7 +360,7 @@ function WhyChooseUsSection() {
               transition={spring}
               className="text-center"
             >
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-100 text-accent-600">
+              <div className="silver-icon-3d mx-auto flex h-16 w-16 items-center justify-center rounded-full text-accent-600">
                 <r.icon className="h-8 w-8" />
               </div>
               <h3 className="mt-5 text-xl font-semibold text-primary-900">
@@ -323,7 +385,7 @@ function CTABannerSection() {
   return (
     <section
       ref={ref}
-      className="bg-gradient-to-r from-accent-500 to-accent-600 py-20"
+      className="silver-banner-3d py-20"
     >
       <motion.div
         initial="hidden"
@@ -353,7 +415,7 @@ function CTABannerSection() {
         >
           <Link
             href="/quotes"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-semibold text-accent-600 shadow-lg transition hover:bg-gray-50"
+            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-semibold text-primary-900 shadow-lg transition hover:bg-gray-50"
           >
             Quote My Insurance Now!
             <ArrowRight className="h-5 w-5" />
@@ -386,7 +448,7 @@ function LocationsSection() {
           animate={inView ? "visible" : "hidden"}
           variants={fadeUp}
           transition={spring}
-          className="text-center text-3xl font-bold text-primary-900 sm:text-4xl"
+          className="text-center text-3xl font-bold heading-silver sm:text-4xl"
         >
           Visit Us at Our Florida Offices
         </motion.h2>
@@ -423,7 +485,7 @@ function LocationsSection() {
                   href={`https://www.google.com/maps/search/?api=1&query=${q}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-600 transition hover:text-accent-700"
+                  className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-400 transition hover:text-accent-700"
                 >
                   Get Directions <ExternalLink className="h-4 w-4" />
                 </a>
@@ -461,7 +523,7 @@ function ReviewCTASection() {
         <motion.h2
           variants={fadeUp}
           transition={spring}
-          className="mt-6 text-3xl font-bold text-primary-900 sm:text-4xl"
+          className="mt-6 text-3xl font-bold heading-silver sm:text-4xl"
         >
           Your Opinion Matters!
         </motion.h2>

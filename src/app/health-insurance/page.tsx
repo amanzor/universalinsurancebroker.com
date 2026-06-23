@@ -26,7 +26,7 @@ export default function HealthInsurancePage() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 "
           >
             Health Insurance
           </motion.h1>
@@ -52,7 +52,7 @@ export default function HealthInsurancePage() {
             custom={0}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold heading-silver mb-6">
               Affordable Care Act Programs
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
@@ -127,7 +127,7 @@ export default function HealthInsurancePage() {
             variants={fadeIn}
             custom={0}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
               Get Covered Today
             </h2>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">

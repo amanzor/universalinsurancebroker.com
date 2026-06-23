@@ -68,7 +68,7 @@ export default function AboutPage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mb-12 text-center text-3xl font-bold text-primary-900"
+            className="mb-12 text-center text-3xl font-bold heading-silver"
           >
             The {COMPANY.shortName} Team
           </motion.h2>
@@ -93,7 +93,7 @@ export default function AboutPage() {
                 <h3 className="text-xl font-semibold text-primary-900">
                   {member.name}
                 </h3>
-                <p className="mt-1 text-sm font-medium text-accent-500">
+                <p className="mt-1 text-sm font-medium text-accent-400">
                   {member.role}
                 </p>
                 <a
@@ -117,7 +117,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-8 text-3xl font-bold text-primary-900"
+            className="mb-8 text-3xl font-bold heading-silver"
           >
             Our Story
           </motion.h2>
@@ -146,7 +146,7 @@ export default function AboutPage() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="mb-12 text-center text-3xl font-bold text-primary-900"
+            className="mb-12 text-center text-3xl font-bold heading-silver"
           >
             Our Values
           </motion.h2>
@@ -164,7 +164,7 @@ export default function AboutPage() {
                   className="rounded-2xl bg-white p-8 text-center shadow-lg"
                 >
                   <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-accent-100">
-                    <Icon className="h-8 w-8 text-accent-500" />
+                    <Icon className="h-8 w-8 text-accent-400" />
                   </div>
                   <h3 className="mb-2 text-xl font-semibold text-primary-900">
                     {value.title}
