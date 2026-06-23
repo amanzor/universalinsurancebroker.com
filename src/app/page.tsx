@@ -156,8 +156,8 @@ function HeroSection() {
               ))}
               <div className="h-10 w-px bg-white/20" />
               <div className="flex items-center gap-4">
-                <Image src={asset("/images/trusted-choice.png")} alt="Trusted Choice - Independent Insurance Agents" width={120} height={40} className="h-8 w-auto object-contain brightness-0 invert opacity-70" />
-                <Image src={asset("/images/bbb-badge.png")} alt="BBB Accredited Business" width={50} height={60} className="h-10 w-auto object-contain" />
+                <Image src={asset("/images/trusted-choice.png")} alt="Trusted Choice - Independent Insurance Agents" width={180} height={60} className="h-12 w-auto object-contain brightness-0 invert opacity-70" />
+                <Image src={asset("/images/bbb-badge.png")} alt="BBB Accredited Business" width={80} height={96} className="h-16 w-auto object-contain" />
               </div>
             </motion.div>
           </div>
