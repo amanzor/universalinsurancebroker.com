@@ -23,7 +23,7 @@ const policyItems: AccordionItem[] = [
       <div className="space-y-3 text-gray-600 leading-relaxed">
         <p>
           Our auto insurance policies cover liability, collision, comprehensive, and uninsured motorist protection.
-          We work with 100+ carriers to find the best rates for your vehicle and driving profile.
+          We work with 20+ carriers to find the best rates for your vehicle and driving profile.
         </p>
         <ul className="list-disc list-inside space-y-2 text-sm">
           <li>Liability Coverage (Bodily Injury & Property Damage)</li>
