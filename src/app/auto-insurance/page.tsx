@@ -188,7 +188,7 @@ export default function AutoInsurancePage() {
               playsInline
               className="w-full rounded-2xl shadow-lg"
             >
-              <source src="/images/dealer-ventures.mp4" type="video/mp4" />
+              <source src={asset("/images/insurance-verification.mp4")} type="video/mp4" />
               Your browser does not support the video tag.
             </video>
           </motion.div>

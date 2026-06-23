@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { asset } from "@/lib/utils";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -57,7 +58,7 @@ export default function DealerVentures() {
             playsInline
             className="w-full rounded-2xl shadow-lg"
           >
-            <source src="/images/dealer-ventures.mp4" type="video/mp4" />
+            <source src={asset("/images/insurance-verification.mp4")} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </motion.div>
