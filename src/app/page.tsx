@@ -22,7 +22,6 @@ import {
 import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 import InteractiveCalculator from "@/components/InteractiveCalculator";
-import PolicyAccordion from "@/components/PolicyAccordion";
 import DealerVentures from "@/components/DealerVentures";
 
 /* ------------------------------------------------------------------ */
@@ -562,7 +561,6 @@ export default function HomePage() {
       <InteractiveCalculator />
       <ServicesSection />
       <WhyChooseUsSection />
-      <PolicyAccordion />
       <DealerVentures />
       <CTABannerSection />
       <LocationsSection />

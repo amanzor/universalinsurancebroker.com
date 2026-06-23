@@ -6,6 +6,7 @@ import { ChevronDown, Phone, Mail } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
+import PolicyAccordion from "@/components/PolicyAccordion";
 
 const faqs = [
   {
@@ -232,6 +233,9 @@ export default function FAQPage() {
           </AnimatePresence>
         </div>
       </section>
+
+      {/* Coverage Types */}
+      <PolicyAccordion />
 
       {/* CTA */}
       <section className="bg-gray-50 py-16">
