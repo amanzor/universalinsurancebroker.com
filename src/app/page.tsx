@@ -18,7 +18,7 @@ import {
   ArrowRight,
   ExternalLink,
 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 
 /* ------------------------------------------------------------------ */
@@ -63,7 +63,7 @@ function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary-900 to-primary-950">
       {/* Hero background image */}
       <div className="absolute inset-0">
-        <Image src="/images/hero-umbrella.png" alt="" fill className="object-cover object-center opacity-30" priority />
+        <Image src={asset("/images/hero-umbrella.png")} alt="" fill className="object-cover object-center opacity-30" priority />
         <div className="absolute inset-0 bg-gradient-to-b from-primary-900/80 via-primary-900/70 to-primary-950" />
       </div>
       {/* Decorative orbs */}

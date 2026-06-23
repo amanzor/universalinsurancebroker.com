@@ -22,6 +22,7 @@ const Twitter = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
 );
 import { COMPANY } from "@/lib/constants";
+import { asset } from "@/lib/utils";
 
 const insuranceLinks = [
   { label: "Auto Insurance", href: "/auto-insurance" },
@@ -64,7 +65,7 @@ export default function Footer() {
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
-      transition: { delay: i * 0.15, duration: 0.5, ease: "easeOut" },
+      transition: { delay: i * 0.15, duration: 0.5, ease: "easeOut" as const },
     }),
   };
 
@@ -83,7 +84,7 @@ export default function Footer() {
             variants={fadeIn}
           >
             <div className="flex items-center gap-2 mb-4">
-              <Image src="/images/logo.jpg" alt="Universal Insurance Brokers" width={160} height={53} className="h-12 w-auto object-contain brightness-0 invert" />
+              <Image src={asset("/images/logo.jpg")} alt="Universal Insurance Brokers" width={160} height={53} className="h-12 w-auto object-contain brightness-0 invert" />
             </div>
             <p className="text-sm font-semibold text-gray-300 mb-3">
               All Your Insurance Policies Under One Roof
