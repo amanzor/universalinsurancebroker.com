@@ -18,7 +18,8 @@ export default function InteractiveCalculator() {
   const estimatedMonthly = calculatePrice();
 
   const handleGetQuote = () => {
-    window.location.href = "/quotes";
+    window.location.href =
+      "https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1";
   };
 
   const fadeUp = {
