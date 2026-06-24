@@ -63,7 +63,7 @@ export default function HomeInsurancePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-white border-b border-gray-100">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
@@ -72,10 +72,10 @@ export default function HomeInsurancePage() {
             variants={fadeIn}
             custom={0}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Get Your Home Insurance Quote
             </h2>
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
               Let us compare rates for you and find the best coverage for your
               home. It only takes a few minutes.
             </p>
@@ -83,8 +83,8 @@ export default function HomeInsurancePage() {
               <Link
                 href="/home-insurance/form"
                 className={cn(
-                  "inline-flex items-center gap-2 bg-primary-900 text-white px-8 py-4 rounded-full",
-                  "font-semibold text-lg hover:bg-primary-800 transition-colors"
+                  "inline-flex items-center gap-2 bg-white text-primary-900 px-8 py-4 rounded-full",
+                  "font-semibold text-lg hover:bg-gray-100 transition-colors"
                 )}
               >
                 Get Your Home Quote
@@ -93,8 +93,8 @@ export default function HomeInsurancePage() {
               <a
                 href={`tel:${COMPANY.phone.replace(/[^0-9]/g, "")}`}
                 className={cn(
-                  "inline-flex items-center gap-2 border-2 border-primary-900 text-primary-900 px-8 py-4 rounded-full",
-                  "font-semibold text-lg hover:bg-primary-50 transition-colors"
+                  "inline-flex items-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-full",
+                  "font-semibold text-lg hover:bg-white/10 transition-colors"
                 )}
               >
                 <Phone className="w-5 h-5" />
@@ -106,7 +106,7 @@ export default function HomeInsurancePage() {
       </section>
 
       {/* Policy Cards */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800">
         <div className="container mx-auto px-4">
           <motion.div
             initial="hidden"
@@ -116,10 +116,10 @@ export default function HomeInsurancePage() {
             custom={0}
             className="text-center mb-16 max-w-3xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold heading-silver mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Coverage for Every Home Situation
             </h2>
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <p className="text-lg text-white/80 leading-relaxed">
               Whether you own, rent, or invest in property, {COMPANY.name} has
               the right policy for you. We compare rates across multiple carriers
               to make sure you get the best coverage at the best price.
@@ -136,17 +136,17 @@ export default function HomeInsurancePage() {
                 variants={fadeIn}
                 custom={i + 1}
                 className={cn(
-                  "bg-white rounded-2xl shadow-lg p-8 border border-gray-100 text-center",
-                  "hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  "bg-white/10 rounded-2xl p-8 border border-white/20 text-center",
+                  "hover:bg-white/20 hover:-translate-y-1 transition-all duration-300"
                 )}
               >
-                <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <card.icon className="w-8 h-8 text-primary-700" />
+                <div className="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center mx-auto mb-6">
+                  <card.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-white mb-3">
                   {card.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-white/80 leading-relaxed">
                   {card.description}
                 </p>
               </motion.div>
