@@ -121,7 +121,7 @@ export default function CommercialInsurancePage() {
             custom={0}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold heading-silver mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-6">
               Our Commercial Lines
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
