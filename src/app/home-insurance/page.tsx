@@ -62,6 +62,49 @@ export default function HomeInsurancePage() {
         </div>
       </section>
 
+      {/* CTA */}
+      <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            custom={0}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
+              Get Your Home Insurance Quote
+            </h2>
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+              Let us compare rates for you and find the best coverage for your
+              home. It only takes a few minutes.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link
+                href="/home-insurance/form"
+                className={cn(
+                  "inline-flex items-center gap-2 bg-white text-primary-900 px-8 py-4 rounded-full",
+                  "font-semibold text-lg hover:bg-gray-100 transition-colors"
+                )}
+              >
+                Get Your Home Quote
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+              <a
+                href={`tel:${COMPANY.phone.replace(/[^0-9]/g, "")}`}
+                className={cn(
+                  "inline-flex items-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-full",
+                  "font-semibold text-lg hover:bg-white/10 transition-colors"
+                )}
+              >
+                <Phone className="w-5 h-5" />
+                {COMPANY.phone}
+              </a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Policy Cards */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
@@ -140,48 +183,6 @@ export default function HomeInsurancePage() {
       </section>
 
 
-      {/* CTA */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-            custom={0}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
-              Get Your Home Insurance Quote
-            </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Let us compare rates for you and find the best coverage for your
-              home. It only takes a few minutes.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/home-insurance/form"
-                className={cn(
-                  "inline-flex items-center gap-2 bg-white text-primary-900 px-8 py-4 rounded-full",
-                  "font-semibold text-lg hover:bg-gray-100 transition-colors"
-                )}
-              >
-                Get Your Home Quote
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <a
-                href={`tel:${COMPANY.phone.replace(/[^0-9]/g, "")}`}
-                className={cn(
-                  "inline-flex items-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-full",
-                  "font-semibold text-lg hover:bg-white/10 transition-colors"
-                )}
-              >
-                <Phone className="w-5 h-5" />
-                {COMPANY.phone}
-              </a>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </>
   );
 }
