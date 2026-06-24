@@ -63,7 +63,7 @@ export default function HomeInsurancePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800 text-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
@@ -72,20 +72,17 @@ export default function HomeInsurancePage() {
             variants={fadeIn}
             custom={0}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">
               Get Your Home Insurance Quote
             </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Let us compare rates for you and find the best coverage for your
               home. It only takes a few minutes.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/home-insurance/form"
-                className={cn(
-                  "inline-flex items-center gap-2 bg-white text-primary-900 px-8 py-4 rounded-full",
-                  "font-semibold text-lg hover:bg-gray-100 transition-colors"
-                )}
+                className="btn-silver-3d inline-flex items-center gap-2 px-8 py-4 rounded-full text-primary-900 font-semibold text-lg transition-all duration-300"
               >
                 Get Your Home Quote
                 <ArrowRight className="w-5 h-5" />
@@ -93,8 +90,8 @@ export default function HomeInsurancePage() {
               <a
                 href={`tel:${COMPANY.phone.replace(/[^0-9]/g, "")}`}
                 className={cn(
-                  "inline-flex items-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-full",
-                  "font-semibold text-lg hover:bg-white/10 transition-colors"
+                  "inline-flex items-center gap-2 border-2 border-primary-900 text-primary-900 px-8 py-4 rounded-full",
+                  "font-semibold text-lg hover:bg-primary-50 transition-colors"
                 )}
               >
                 <Phone className="w-5 h-5" />
