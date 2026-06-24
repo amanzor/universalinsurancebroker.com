@@ -84,18 +84,19 @@ Remarks: ${formData.remarks}
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-gradient-to-br from-primary-900 to-primary-800 text-white py-16">
-        <div className="container mx-auto px-4">
+      <section className="bg-gradient-to-br from-primary-900 to-primary-800 text-white py-24 md:py-32">
+        <div className="container mx-auto px-4 text-center relative">
           <Link
             href="/home-insurance"
-            className="inline-flex items-center gap-2 mb-6 text-white/80 hover:text-white transition-colors"
+            className="absolute left-0 top-0 inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Home Insurance
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold">
+          <h1 className="text-4xl md:text-5xl font-bold mt-8">
             Home Owner Quote Request
           </h1>
+          <p className="mt-4 text-xl text-white/80">We will be contacting you as soon as possible</p>
         </div>
       </section>
 
@@ -123,10 +124,6 @@ Remarks: ${formData.remarks}
               </div>
             ) : (
               <>
-                <p className="text-center text-gray-600 mb-8">
-                  We will be contacting you as soon as possible
-                </p>
-
                 <form onSubmit={handleSubmit} className="space-y-6">
                   {/* Full Name */}
                   <div>
