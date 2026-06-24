@@ -18,7 +18,7 @@ const phoneNumbers = [
   { label: "Current Policy", number: COMPANY.phone },
   { label: "New Quotes", number: COMPANY.phoneNew },
   { label: "Text Only", number: COMPANY.textOnly },
-  { label: "Doral Office", number: COMPANY.doralPhone },
+  { label: "Homestead - Spitzer", number: COMPANY.spitzerPhone },
 ];
 
 export default function ContactPage() {

@@ -22,7 +22,7 @@ const faqs = [
       },
       {
         q: "What areas do you serve?",
-        a: "We serve all of Florida with office locations in Boca Raton, Lehigh Acres, and Doral. We can also assist clients remotely via phone and email.",
+        a: "We serve all of Florida with office locations in Boca Raton, Lehigh Acres, and Homestead. We can also assist clients remotely via phone and email.",
       },
       {
         q: "What makes you different from other insurance agencies?",

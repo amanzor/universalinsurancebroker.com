@@ -50,9 +50,9 @@ const offices = [
     state: "FL 33936",
   },
   {
-    city: "Doral",
-    address: "2500 NW 79th Ave #266",
-    state: "FL 33122",
+    city: "Homestead",
+    address: "30101 S Dixie Hwy",
+    state: "FL 33033",
   },
 ];
 
