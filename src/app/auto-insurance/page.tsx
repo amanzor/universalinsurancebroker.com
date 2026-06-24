@@ -77,7 +77,7 @@ export default function AutoInsurancePage() {
               The Best Auto Rates in Florida
             </h2>
             <p className="text-lg text-primary-800 font-medium leading-relaxed">
-              At {COMPANY.name}, we work with over 100 insurance carriers to find
+              At {COMPANY.name}, we work with 20+ insurance carriers to find
               you the best possible rate on your auto policy. Whether you drive a
               sedan, truck, SUV, motorcycle, or exotic vehicle — we can insure
               it. Our deep relationships with dealerships across the state mean
