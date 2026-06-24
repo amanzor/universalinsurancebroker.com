@@ -248,8 +248,10 @@ export default function Header() {
               </motion.span>
               {COMPANY.phone}
             </a>
-            <Link
-              href="/quotes"
+            <a
+              href="https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-silver-3d relative inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-primary-900 text-sm font-semibold transition-all duration-300 overflow-hidden group"
             >
               <span className="relative z-10">Get a Quote</span>
@@ -257,7 +259,7 @@ export default function Header() {
                 className="absolute inset-0 bg-accent-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ filter: "blur(20px)" }}
               />
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Hamburger */}
@@ -408,13 +410,15 @@ export default function Header() {
                   <Mail className="h-4 w-4 text-primary-500" />
                   <span className="text-sm font-medium truncate">{COMPANY.email}</span>
                 </a>
-                <Link
-                  href="/quotes"
+                <a
+                  href="https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
                   className="btn-silver-3d block w-full text-center px-5 py-3 rounded-lg text-primary-900 font-semibold transition-all"
                 >
                   Get a Quote
-                </Link>
+                </a>
               </div>
 
               <div className="flex items-center justify-center gap-6 p-4 border-t border-gray-100">
