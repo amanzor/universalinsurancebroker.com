@@ -86,7 +86,7 @@ function HeroSection() {
           playsInline
           className="absolute inset-0 h-full w-full object-cover"
         >
-          <source src={asset("/images/hero-globe.mp4")} type="video/mp4" />
+          <source src={asset("/images/hero-loop.mp4")} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-primary-900/40 via-primary-900/30 to-primary-950/80" />
       </div>
