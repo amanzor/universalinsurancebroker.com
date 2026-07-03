@@ -19,6 +19,7 @@ export const COMPANY = {
     { name: "Boca Raton Office", address: "3200 N Federal Hwy Suite 224", city: "Boca Raton", state: "FL", zip: "33431" },
     { name: "Lehigh Acres Office", address: "111 Lee Blvd", city: "Lehigh Acres", state: "FL", zip: "33936" },
     { name: "Spitzer Homestead", address: "30101 S Dixie Hwy", city: "Homestead", state: "FL", zip: "33033" },
+    { name: "Hialeah Office", address: "1943 W 68th St", city: "Hialeah", state: "FL", zip: "33014" },
   ],
 };
 

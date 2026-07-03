@@ -56,7 +56,7 @@ function useAnimateInView() {
 const stats = [
   { value: "10+", label: "Years Experience" },
   { value: "100+", label: "Insurance Carriers" },
-  { value: "3", label: "Florida Locations" },
+  { value: "4", label: "Florida Locations" },
   { value: "100%", label: "Satisfaction" },
 ];
 
@@ -103,7 +103,7 @@ function HeroSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isLoaded ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="heading-gloss text-4xl font-semibold leading-tight tracking-tight sm:text-5xl md:text-6xl"
+              className="text-4xl font-semibold leading-tight tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] sm:text-5xl md:text-6xl"
             >
               Protect What{" "}
               <span>Matters Most</span>
@@ -535,7 +535,7 @@ function ReviewCTASection() {
         </motion.p>
         <motion.div variants={fadeUp} transition={spring} className="mt-8">
           <a
-            href="https://g.page/r/universalinsurancebroker/review"
+            href="https://g.page/r/Ca_MqKD5ujKsEAE/review"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-primary-800 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-primary-900"
