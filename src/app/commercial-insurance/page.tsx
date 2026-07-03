@@ -159,6 +159,35 @@ export default function CommercialInsurancePage() {
         </div>
       </section>
 
+      {/* Coterie General Liability */}
+      <section className="py-16 md:py-24 bg-white">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            custom={0}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">
+              Get An Instant General Liability Quote Below
+            </h2>
+            <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+              Powered by Coterie Insurance — get a fast, affordable General Liability quote online in minutes.
+            </p>
+            <a
+              href="https://app.coterieinsurance.com/quote?p=universalinsurancebroker%40gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-silver-3d inline-flex items-center gap-2 px-10 py-4 rounded-full text-primary-900 font-semibold text-lg transition-all duration-300"
+            >
+              Coterie Insurance
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800 text-white">
         <div className="container mx-auto px-4 text-center">
