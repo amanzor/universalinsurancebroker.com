@@ -213,7 +213,7 @@ const services = [
     title: "Auto Insurance",
     href: "/auto-insurance",
     description:
-      "On-the-spot quotes in under 10 minutes with 20+ carriers to find you the lowest rate.",
+      "On-the-spot quotes in under 10 minutes with 100+ carriers to find you the lowest rate.",
   },
   {
     icon: Building2,
@@ -263,7 +263,7 @@ function ServicesSection() {
             className="mx-auto mt-4 max-w-2xl text-lg text-gray-600"
           >
             From auto to health, we&apos;ve got you covered with the best rates
-            from 20+ carriers.
+            from 100+ carriers.
           </motion.p>
         </motion.div>
 

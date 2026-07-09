@@ -139,6 +139,35 @@ export default function CommercialInsurancePage() {
         </div>
       </section>
 
+      {/* Bond Portal CTA */}
+      <section className="py-16 md:py-24 bg-gradient-to-b from-primary-900 to-primary-950">
+        <div className="container mx-auto px-4 text-center">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeIn}
+            custom={0}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Need A Bond Fast?
+            </h2>
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+              You can apply and get a bond with us in minutes.
+            </p>
+            <a
+              href="https://universalbrokers.propeller.insure/axelerator-public/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-silver-3d inline-flex items-center gap-2 px-10 py-4 rounded-full text-primary-900 font-semibold text-lg transition-all duration-300"
+            >
+              Bond Quote/Purchase
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Policy Types Grid */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">

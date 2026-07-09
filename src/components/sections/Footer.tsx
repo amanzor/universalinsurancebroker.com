@@ -54,6 +54,11 @@ const offices = [
     address: "30101 S Dixie Hwy",
     state: "FL 33033",
   },
+  {
+    city: "Hialeah",
+    address: "1943 W 68th St",
+    state: "FL 33014",
+  },
 ];
 
 export default function Footer() {
