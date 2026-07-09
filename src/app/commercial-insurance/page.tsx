@@ -134,7 +134,7 @@ export default function CommercialInsurancePage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800 text-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
@@ -143,10 +143,10 @@ export default function CommercialInsurancePage() {
             variants={fadeIn}
             custom={0}
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-6 ">
               Protect Your Business Today
             </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
               Our commercial lines team will build a custom insurance package for
               your business. Get started with a free consultation.
             </p>
@@ -154,8 +154,8 @@ export default function CommercialInsurancePage() {
               <Link
                 href="/quotes"
                 className={cn(
-                  "inline-flex items-center gap-2 bg-white text-primary-900 px-8 py-4 rounded-full",
-                  "font-semibold text-lg hover:bg-gray-100 transition-colors"
+                  "inline-flex items-center gap-2 bg-primary-900 text-white px-8 py-4 rounded-full",
+                  "font-semibold text-lg hover:bg-primary-800 transition-colors"
                 )}
               >
                 Get a Commercial Quote
@@ -164,8 +164,8 @@ export default function CommercialInsurancePage() {
               <a
                 href={`tel:${COMPANY.phone.replace(/[^0-9]/g, "")}`}
                 className={cn(
-                  "inline-flex items-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-full",
-                  "font-semibold text-lg hover:bg-white/10 transition-colors"
+                  "inline-flex items-center gap-2 border-2 border-primary-900/30 text-primary-900 px-8 py-4 rounded-full",
+                  "font-semibold text-lg hover:bg-primary-900/5 transition-colors"
                 )}
               >
                 <Phone className="w-5 h-5" />
