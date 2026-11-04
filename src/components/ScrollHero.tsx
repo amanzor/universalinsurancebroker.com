@@ -181,7 +181,7 @@ export default function ScrollHero() {
   /* Act 1 — title over the nebula */
   const introOpacity = useTransform(smooth, [0, 0.14, 0.24], [1, 1, 0]);
   const introScale = useTransform(smooth, [0, 0.24], [1, 1.18]);
-  const introBlur = useTransform(smooth, [0.1, 0.24], ["blur(0px)", "blur(12px)"]);
+  const introBlur = useTransform(smooth, [0.1, 0.24], ["blur(0px)", "blur(6px)"]);
   const cueOpacity = useTransform(smooth, [0, 0.05], [1, 0]);
   // Fully hide faded layers so blurred/transparent layers don't cost
   // compositing work (or leave tiling artifacts) over the film.
@@ -201,6 +201,7 @@ export default function ScrollHero() {
 
   /* Atmosphere — purple/orange cosmic wash fades into Earth's blue */
   const nebulaGlow = useTransform(smooth, [0, 0.5], [1, 0]);
+  const nebulaVisibility = useTransform(nebulaGlow, (v) => (v < 0.01 ? "hidden" : "visible"));
   const earthGlow = useTransform(smooth, [0.55, 0.85], [0, 1]);
   const scrim = useTransform(smooth, [0.6, 0.85], [0, 1]);
   const progressScale = useTransform(smooth, [0, 1], [0, 1]);
@@ -233,11 +234,11 @@ export default function ScrollHero() {
         {/* Color grading layers */}
         <motion.div
           aria-hidden
-          style={{ opacity: nebulaGlow }}
-          className="pointer-events-none absolute inset-0 mix-blend-screen"
+          style={{ opacity: nebulaGlow, visibility: nebulaVisibility }}
+          className="pointer-events-none absolute inset-0"
         >
-          <div className="absolute -left-[10%] top-[10%] h-[60vmax] w-[60vmax] rounded-full bg-nebula-600/25 blur-[120px] animate-drift" />
-          <div className="absolute -right-[15%] bottom-[-10%] h-[55vmax] w-[55vmax] rounded-full bg-ember-500/20 blur-[120px] animate-drift-slow" />
+          <div className="absolute -left-[10%] top-[10%] h-[60vmax] w-[60vmax] rounded-full bg-nebula-600/20 blur-[100px] animate-drift will-change-transform" />
+          <div className="absolute -right-[15%] bottom-[-10%] h-[55vmax] w-[55vmax] rounded-full bg-ember-500/15 blur-[100px] animate-drift-slow will-change-transform" />
         </motion.div>
         <motion.div
           aria-hidden
