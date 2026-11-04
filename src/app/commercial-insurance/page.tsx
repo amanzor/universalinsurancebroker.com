@@ -424,7 +424,7 @@ function FaqItem({
   const panelId = `${id}-answer`;
 
   return (
-    <div className="border-b border-gray-200">
+    <div className="border-b border-gray-200 last:border-b-0">
       <h3>
         <button
           type="button"
