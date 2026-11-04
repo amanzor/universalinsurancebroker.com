@@ -152,8 +152,6 @@ export default function RotatingGlobe({ className }: { className?: string }) {
         ctx.closePath();
 
         // Terrain gradient based on average position (simulate sun lighting)
-        const avgX = visiblePoints.reduce((s, p) => s + p[0], 0) / visiblePoints.length;
-        const avgY = visiblePoints.reduce((s, p) => s + p[1], 0) / visiblePoints.length;
         const avgZ = visiblePoints.reduce((s, p) => s + p[2], 0) / visiblePoints.length;
         const sunFactor = 0.4 + 0.6 * (avgZ / R);
 

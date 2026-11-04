@@ -70,7 +70,7 @@ const policyItems: AccordionItem[] = [
         <ul className="list-disc list-inside space-y-2 text-sm">
           <li>General Liability for third-party claims</li>
           <li>Commercial Property Coverage</li>
-          <li>Workers' Compensation for employees</li>
+          <li>Workers&apos; Compensation for employees</li>
           <li>Commercial Auto for business vehicles</li>
           <li>Professional Liability (Errors & Omissions)</li>
           <li>Umbrella Policies for extra protection</li>

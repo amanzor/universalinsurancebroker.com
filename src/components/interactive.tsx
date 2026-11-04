@@ -80,7 +80,7 @@ export function ParallaxHero({ children, className }: { children: ReactNode; cla
   return (
     <div ref={ref} className={`relative overflow-hidden ${className ?? ""}`}>
       <motion.div style={{ y }} className="absolute inset-0">
-        {(children as any)?.props?.backgroundElement ?? null}
+        {(children as { props?: { backgroundElement?: ReactNode } } | undefined)?.props?.backgroundElement ?? null}
       </motion.div>
       {children}
     </div>

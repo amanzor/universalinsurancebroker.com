@@ -24,7 +24,6 @@ export default function HomeInsuranceQuotePage() {
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData);
 
     try {
       const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
