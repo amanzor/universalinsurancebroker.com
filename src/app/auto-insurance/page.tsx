@@ -18,9 +18,9 @@ const fadeIn = {
 const features = [
   {
     icon: List,
-    title: "20+ Carriers",
+    title: "100+ Carriers",
     description:
-      "We shop your policy across more than 20 top-rated insurance carriers to find the absolute best rate for your vehicle.",
+      "We shop your policy across more than 100 top-rated insurance carriers to find the absolute best rate for your vehicle.",
   },
   {
     icon: Clock,
@@ -80,7 +80,7 @@ export default function AutoInsurancePage() {
               The Best Auto Rates in Florida
             </h2>
             <p className="text-lg text-primary-800 font-medium leading-relaxed">
-              At {COMPANY.name}, we work with 20+ insurance carriers to find
+              At {COMPANY.name}, we work with 100+ insurance carriers to find
               you the best possible rate on your auto policy. Whether you drive a
               sedan, truck, SUV, motorcycle, or exotic vehicle — we can insure
               it. Our deep relationships with dealerships across the state mean
