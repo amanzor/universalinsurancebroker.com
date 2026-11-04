@@ -28,6 +28,13 @@ const fadeUp = {
   }),
 };
 
+// Above-the-fold hero text starts partly visible so it paints before
+// hydration (better LCP); scroll reveals below use fadeUp.
+const heroFade = {
+  hidden: { opacity: 0.25, y: 24 },
+  visible: fadeUp.visible,
+};
+
 const copy = {
   en: {
     eyebrow: "Insurance agency in",
@@ -108,7 +115,7 @@ export default function LocationView({ slug }: { slug: string }) {
           <motion.p
             initial="hidden"
             animate="visible"
-            variants={fadeUp}
+            variants={heroFade}
             className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary-200"
           >
             {t.eyebrow} {office.city}, FL
@@ -116,7 +123,7 @@ export default function LocationView({ slug }: { slug: string }) {
           <motion.h1
             initial="hidden"
             animate="visible"
-            variants={fadeUp}
+            variants={heroFade}
             custom={1}
             className="text-4xl font-bold tracking-tight sm:text-5xl"
           >
@@ -125,7 +132,7 @@ export default function LocationView({ slug }: { slug: string }) {
           <motion.p
             initial="hidden"
             animate="visible"
-            variants={fadeUp}
+            variants={heroFade}
             custom={2}
             className="mt-5 max-w-2xl text-lg text-primary-100"
           >
@@ -134,7 +141,7 @@ export default function LocationView({ slug }: { slug: string }) {
           <motion.div
             initial="hidden"
             animate="visible"
-            variants={fadeUp}
+            variants={heroFade}
             custom={3}
             className="mt-8 flex flex-wrap gap-3"
           >

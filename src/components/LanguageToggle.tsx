@@ -33,7 +33,6 @@ export default function LanguageToggle({
       hrefLang={target}
       lang={target}
       onClick={onNavigate}
-      aria-label={target === "es" ? "Ver esta página en español" : "View this page in English"}
       title={target === "es" ? "Ver en español" : "View in English"}
       className={cn(
         "group inline-flex items-center gap-1.5 rounded-full border border-primary-200 bg-white px-1 py-1 text-xs font-semibold text-primary-800 shadow-sm transition-colors hover:border-primary-400",
@@ -58,6 +57,10 @@ export default function LanguageToggle({
         >
           ES
         </span>
+      </span>
+      {/* Accessible name starts with the visible "EN ES" text, then the action. */}
+      <span className="sr-only">
+        {target === "es" ? ": ver esta página en español" : ": view this page in English"}
       </span>
     </Link>
   );
