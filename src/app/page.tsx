@@ -34,6 +34,7 @@ const copy = {
     whyTitle: (name: string) => `Why Choose ${name}?`,
     locationsTitle: "Visit Us at Our Florida Offices",
     getDirections: "Get Directions",
+    officeDetails: "Office details →",
     reviewTitle: "Your Opinion Matters!",
     reviewText:
       "We love hearing from our clients. Your feedback helps us serve you better.",
@@ -47,6 +48,7 @@ const copy = {
     whyTitle: (name: string) => `¿Por Qué Elegir ${name}?`,
     locationsTitle: "Visítenos en Nuestras Oficinas de Florida",
     getDirections: "Cómo Llegar",
+    officeDetails: "Ver oficina →",
     reviewTitle: "¡Su Opinión Es Importante!",
     reviewText:
       "Nos encanta saber de nuestros clientes. Sus comentarios nos ayudan a servirle mejor.",
@@ -279,6 +281,7 @@ function WhyChooseUsSection() {
 function LocationsSection() {
   const { ref, inView } = useAnimateInView();
   const lang = useLang();
+  const lp = useLocalizePath();
   const t = useT(copy);
 
   return (
@@ -330,6 +333,12 @@ function LocationsSection() {
                 >
                   {t.getDirections} <ExternalLink className="h-4 w-4" />
                 </a>
+                <Link
+                  href={lp(`/locations/${loc.city.toLowerCase().replace(/\s+/g, "-")}`)}
+                  className="mt-2 block text-sm font-semibold text-primary-700 hover:underline"
+                >
+                  {t.officeDetails}
+                </Link>
               </motion.div>
             );
           })}
