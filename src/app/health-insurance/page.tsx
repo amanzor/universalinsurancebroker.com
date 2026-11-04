@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { HeartPulse, Phone, ArrowRight, ShieldCheck, DollarSign } from "lucide-react";
 import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
+import { useT, useLocalizePath } from "@/lib/useLang";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -15,7 +16,80 @@ const fadeIn = {
   }),
 };
 
+const copy = {
+  en: {
+    heroTitle: "Health Insurance",
+    heroSubtitle: "Individual health insurance at zero cost to you",
+    acaTitle: "Affordable Care Act Programs",
+    acaP1a:
+      "Through the Affordable Care Act (ACA), millions of Americans qualify for subsidized or even free health insurance coverage.",
+    acaP1b:
+      "helps you navigate the marketplace to find best-in-class health policies that fit your needs and budget.",
+    acaP2:
+      "Our licensed agents guide you through the enrollment process at absolutely no cost to you. We are compensated directly by the insurance carriers, so you get expert help without paying a dime out of pocket.",
+    cards: [
+      {
+        title: "Zero Cost to You",
+        description:
+          "Our services are completely free. Insurance carriers compensate us directly so you pay nothing extra.",
+      },
+      {
+        title: "Best-in-Class Policies",
+        description:
+          "We compare plans from all major carriers on the marketplace to find the coverage that fits your life.",
+      },
+      {
+        title: "Full ACA Support",
+        description:
+          "From enrollment to claims, our team walks you through every step of the Affordable Care Act process.",
+      },
+    ],
+    ctaTitle: "Get Covered Today",
+    ctaText:
+      "Call us or request a quote online. Our licensed agents will help you find the right health plan at no cost to you.",
+    ctaButton: "Get a Health Quote",
+  },
+  es: {
+    heroTitle: "Seguro Médico",
+    heroSubtitle: "Seguro médico individual sin costo para usted",
+    acaTitle: "Programas de la Ley de Cuidado de Salud Asequible",
+    acaP1a:
+      "Gracias a la Ley de Cuidado de Salud Asequible (ACA), millones de personas en EE. UU. califican para un seguro médico subsidiado o incluso gratuito.",
+    acaP1b:
+      "le ayuda a navegar el Mercado de Seguros Médicos para encontrar las mejores pólizas de salud que se ajusten a sus necesidades y presupuesto.",
+    acaP2:
+      "Nuestros agentes con licencia lo guían durante todo el proceso de inscripción sin ningún costo para usted. Las aseguradoras nos pagan directamente, así que usted recibe asesoría experta sin pagar un centavo de su bolsillo.",
+    cards: [
+      {
+        title: "Sin Costo para Usted",
+        description:
+          "Nuestros servicios son completamente gratuitos. Las aseguradoras nos pagan directamente, así que usted no paga nada adicional.",
+      },
+      {
+        title: "Las Mejores Pólizas",
+        description:
+          "Comparamos planes de todas las aseguradoras principales del Mercado para encontrar la cobertura que se ajuste a su vida.",
+      },
+      {
+        title: "Apoyo Completo con ACA",
+        description:
+          "Desde la inscripción hasta las reclamaciones, nuestro equipo lo acompaña en cada paso del proceso de la Ley de Cuidado de Salud Asequible.",
+      },
+    ],
+    ctaTitle: "Obtenga Cobertura Hoy",
+    ctaText:
+      "Llámenos o solicite una cotización en línea. Nuestros agentes con licencia le ayudarán a encontrar el plan de salud adecuado sin costo para usted.",
+    ctaButton: "Cotizar Seguro Médico",
+  },
+};
+
+// Icons for the three cards, in the same order as copy.*.cards.
+const cardIcons = [DollarSign, ShieldCheck, HeartPulse];
+
 export default function HealthInsurancePage() {
+  const t = useT(copy);
+  const lp = useLocalizePath();
+
   return (
     <>
       {/* Hero */}
@@ -31,7 +105,7 @@ export default function HealthInsurancePage() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 "
           >
-            Health Insurance
+            {t.heroTitle}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -39,7 +113,7 @@ export default function HealthInsurancePage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto"
           >
-            Individual health insurance at zero cost to you
+            {t.heroSubtitle}
           </motion.p>
         </div>
       </section>
@@ -56,45 +130,20 @@ export default function HealthInsurancePage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold heading-silver mb-6">
-              Affordable Care Act Programs
+              {t.acaTitle}
             </h2>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Through the Affordable Care Act (ACA), millions of Americans
-              qualify for subsidized or even free health insurance coverage.{" "}
-              {COMPANY.name} helps you navigate the marketplace to find
-              best-in-class health policies that fit your needs and budget.
+              {t.acaP1a} {COMPANY.name} {t.acaP1b}
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Our licensed agents guide you through the enrollment process at
-              absolutely no cost to you. We are compensated directly by the
-              insurance carriers, so you get expert help without paying a dime
-              out of pocket.
+              {t.acaP2}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                icon: DollarSign,
-                title: "Zero Cost to You",
-                description:
-                  "Our services are completely free. Insurance carriers compensate us directly so you pay nothing extra.",
-              },
-              {
-                icon: ShieldCheck,
-                title: "Best-in-Class Policies",
-                description:
-                  "We compare plans from all major carriers on the marketplace to find the coverage that fits your life.",
-              },
-              {
-                icon: HeartPulse,
-                title: "Full ACA Support",
-                description:
-                  "From enrollment to claims, our team walks you through every step of the Affordable Care Act process.",
-              },
-            ].map((card, i) => (
+            {cardIcons.map((Icon, i) => (
               <motion.div
-                key={card.title}
+                key={i}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -106,13 +155,13 @@ export default function HealthInsurancePage() {
                 )}
               >
                 <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center mx-auto mb-6">
-                  <card.icon className="w-8 h-8 text-primary-700" />
+                  <Icon className="w-8 h-8 text-primary-700" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {card.title}
+                  {t.cards[i].title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {card.description}
+                  {t.cards[i].description}
                 </p>
               </motion.div>
             ))}
@@ -131,21 +180,20 @@ export default function HealthInsurancePage() {
             custom={0}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 ">
-              Get Covered Today
+              {t.ctaTitle}
             </h2>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Call us or request a quote online. Our licensed agents will help
-              you find the right health plan at no cost to you.
+              {t.ctaText}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                href="/quotes"
+                href={lp("/quotes")}
                 className={cn(
                   "inline-flex items-center gap-2 bg-white text-primary-900 px-8 py-4 rounded-full",
                   "font-semibold text-lg hover:bg-gray-100 transition-colors"
                 )}
               >
-                Get a Health Quote
+                {t.ctaButton}
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a

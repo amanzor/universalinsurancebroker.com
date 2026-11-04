@@ -4,14 +4,13 @@ import "./globals.css";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import JsonLd from "@/components/JsonLd";
-import { OG_IMAGE, SITE_URL, organizationJsonLd } from "@/lib/seo";
+import { OG_IMAGE, SITE_URL, hreflangAlternates, organizationJsonLd } from "@/lib/seo";
+import { HOME_SEO } from "@/lib/routeSeo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
-const homeTitle =
-  "Universal Insurance Brokers | Florida Auto, Home & Business Insurance";
-const homeDescription =
-  "Independent Florida insurance broker comparing 100+ carriers for auto, home, business and health insurance. Get a real quote in under 10 minutes.";
+const homeTitle = HOME_SEO.en.title;
+const homeDescription = HOME_SEO.en.description;
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -25,6 +24,7 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Universal Insurance Brokers",
     locale: "en_US",
+    alternateLocale: "es_US",
     type: "website",
     images: [OG_IMAGE],
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     images: [OG_IMAGE.url],
   },
   robots: { index: true, follow: true },
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: hreflangAlternates("/") },
   formatDetection: { telephone: false },
 };
 

@@ -23,7 +23,9 @@ const TwitterX = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
 );
 
-import { COMPANY, NAV_LINKS } from "@/lib/constants";
+import { COMPANY, NAV_LINKS, QUOTE_URL } from "@/lib/constants";
+import { useLang, useLocalizePath } from "@/lib/useLang";
+import LanguageToggle from "@/components/LanguageToggle";
 import { cn, asset } from "@/lib/utils";
 
 export default function Header() {
@@ -32,6 +34,12 @@ export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const lang = useLang();
+  const lp = useLocalizePath();
+  const t = {
+    en: { quote: "Get a Quote", toggleMenu: "Toggle menu", closeMenu: "Close menu", hours: "Mon–Fri" },
+    es: { quote: "Cotizar Ahora", toggleMenu: "Abrir o cerrar menú", closeMenu: "Cerrar menú", hours: "Lun–Vie" },
+  }[lang];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -63,7 +71,7 @@ export default function Header() {
           <div className="flex items-center gap-6">
             <span className="hidden sm:flex items-center gap-1.5">
               <Clock className="h-3.5 w-3.5 text-primary-300" />
-              {COMPANY.hours}
+              {t.hours} {COMPANY.hours}
             </span>
             <a
               href={`mailto:${COMPANY.email}`}
@@ -151,7 +159,7 @@ export default function Header() {
         />
         <div className="relative z-10 mx-auto max-w-7xl flex items-center justify-between px-4 py-3">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
+          <Link href={lp("/")} className="flex items-center gap-2 group">
             <motion.div
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
@@ -172,7 +180,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-1">
             {NAV_LINKS.map((link) =>
               link.children ? (
-                <div key={link.label} className="relative" ref={dropdownRef}>
+                <div key={link.href} className="relative" ref={dropdownRef}>
                   <button
                     onClick={() => setDropdownOpen(!dropdownOpen)}
                     className={cn(
@@ -182,7 +190,7 @@ export default function Header() {
                         : "text-gray-700 hover:text-primary-600 hover:bg-gray-50"
                     )}
                   >
-                    {link.label}
+                    {link.label[lang]}
                     <motion.span
                       animate={{ rotate: dropdownOpen ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
@@ -208,11 +216,11 @@ export default function Header() {
                             transition={{ delay: i * 0.05 }}
                           >
                             <Link
-                              href={child.href}
+                              href={lp(child.href)}
                               onClick={() => setDropdownOpen(false)}
                               className="block px-4 py-3 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-700 transition-colors"
                             >
-                              {child.label}
+                              {child.label[lang]}
                             </Link>
                           </motion.div>
                         ))}
@@ -222,11 +230,11 @@ export default function Header() {
                 </div>
               ) : (
                 <Link
-                  key={link.label}
-                  href={link.href}
+                  key={link.href}
+                  href={lp(link.href)}
                   className="relative px-4 py-2 rounded-lg text-sm font-medium text-gray-700 hover:text-primary-700 transition-colors group"
                 >
-                  {link.label}
+                  {link.label[lang]}
                   <span className="absolute bottom-0.5 left-4 right-4 h-0.5 bg-gradient-to-r from-accent-300 via-accent-400 to-accent-300 rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
                 </Link>
               )
@@ -235,6 +243,7 @@ export default function Header() {
 
           {/* Right Side */}
           <div className="hidden lg:flex items-center gap-4">
+            <LanguageToggle />
             <a
               href={`tel:${COMPANY.phone.replace(/\D/g, "")}`}
               className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors"
@@ -248,12 +257,12 @@ export default function Header() {
               {COMPANY.phone}
             </a>
             <a
-              href="https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1"
+              href={QUOTE_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-silver-3d relative inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-primary-900 text-sm font-semibold transition-all duration-300 overflow-hidden group"
             >
-              <span className="relative z-10">Get a Quote</span>
+              <span className="relative z-10">{t.quote}</span>
               <motion.span
                 className="absolute inset-0 bg-accent-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ filter: "blur(20px)" }}
@@ -261,11 +270,13 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile: language switch + hamburger */}
+          <div className="flex items-center gap-2 lg:hidden">
+          <LanguageToggle />
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            aria-label="Toggle menu"
+            aria-label={t.toggleMenu}
           >
             <AnimatePresence mode="wait" initial={false}>
               {mobileOpen ? (
@@ -291,6 +302,7 @@ export default function Header() {
               )}
             </AnimatePresence>
           </button>
+          </div>
         </div>
       </motion.nav>
 
@@ -318,7 +330,7 @@ export default function Header() {
             >
               <div className="flex items-center justify-between p-4 border-b border-gray-100">
                 <Link
-                  href="/"
+                  href={lp("/")}
                   className="flex items-center gap-2"
                   onClick={() => setMobileOpen(false)}
                 >
@@ -327,7 +339,7 @@ export default function Header() {
                 <button
                   onClick={() => setMobileOpen(false)}
                   className="p-2 rounded-lg hover:bg-gray-100 transition-colors"
-                  aria-label="Close menu"
+                  aria-label={t.closeMenu}
                 >
                   <X className="h-5 w-5 text-gray-500" />
                 </button>
@@ -336,7 +348,7 @@ export default function Header() {
               <nav className="p-4 space-y-1">
                 {NAV_LINKS.map((link, i) =>
                   link.children ? (
-                    <div key={link.label}>
+                    <div key={link.href}>
                       <motion.button
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
@@ -344,7 +356,7 @@ export default function Header() {
                         onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
                         className="flex items-center justify-between w-full px-3 py-3 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors"
                       >
-                        {link.label}
+                        {link.label[lang]}
                         <motion.span
                           animate={{ rotate: mobileDropdownOpen ? 180 : 0 }}
                           transition={{ duration: 0.2 }}
@@ -364,11 +376,11 @@ export default function Header() {
                             {link.children.map((child) => (
                               <Link
                                 key={child.href}
-                                href={child.href}
+                                href={lp(child.href)}
                                 onClick={() => setMobileOpen(false)}
                                 className="block px-4 py-2.5 text-sm text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-r-lg transition-colors"
                               >
-                                {child.label}
+                                {child.label[lang]}
                               </Link>
                             ))}
                           </motion.div>
@@ -377,17 +389,17 @@ export default function Header() {
                     </div>
                   ) : (
                     <motion.div
-                      key={link.label}
+                      key={link.href}
                       initial={{ opacity: 0, x: 20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.07 }}
                     >
                       <Link
-                        href={link.href}
+                        href={lp(link.href)}
                         onClick={() => setMobileOpen(false)}
                         className="block px-3 py-3 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors"
                       >
-                        {link.label}
+                        {link.label[lang]}
                       </Link>
                     </motion.div>
                   )
@@ -410,13 +422,13 @@ export default function Header() {
                   <span className="text-sm font-medium truncate">{COMPANY.email}</span>
                 </a>
                 <a
-                  href="https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1"
+                  href={QUOTE_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
                   className="btn-silver-3d block w-full text-center px-5 py-3 rounded-lg text-primary-900 font-semibold transition-all"
                 >
-                  Get a Quote
+                  {t.quote}
                 </a>
               </div>
 

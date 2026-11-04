@@ -4,6 +4,9 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useT } from "@/lib/useLang";
+import { COMPANY } from "@/lib/constants";
+import type { Bilingual } from "@/lib/i18n";
 
 interface AccordionItem {
   id: string;
@@ -13,7 +16,7 @@ interface AccordionItem {
   icon: string;
 }
 
-const policyItems: AccordionItem[] = [
+const policyItemsEn: AccordionItem[] = [
   {
     id: "auto",
     title: "Auto Insurance Coverage",
@@ -101,7 +104,123 @@ const policyItems: AccordionItem[] = [
   },
 ];
 
+const policyItemsEs: AccordionItem[] = [
+  {
+    id: "auto",
+    title: "Cobertura de Seguro de Auto",
+    description: "Protéjase en la carretera",
+    icon: "🚗",
+    content: (
+      <div className="space-y-3 text-gray-600 leading-relaxed">
+        <p>
+          Nuestras pólizas de seguro de auto cubren responsabilidad civil, choque, cobertura amplia y protección contra conductores sin seguro.
+          Trabajamos con más de 100 aseguradoras para encontrar las mejores tarifas para su vehículo y su perfil de conductor.
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-sm">
+          <li>Cobertura de Responsabilidad Civil (Lesiones Corporales y Daños a la Propiedad)</li>
+          <li>Cobertura de Choque para reparaciones por accidentes</li>
+          <li>Cobertura Amplia para robo, fenómenos climáticos y otros incidentes</li>
+          <li>Protección contra Conductores Sin Seguro o con Seguro Insuficiente</li>
+          <li>Cobertura de Gastos Médicos</li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    id: "home",
+    title: "Protección de Seguro de Hogar",
+    description: "Tranquilidad para su hogar",
+    icon: "🏠",
+    content: (
+      <div className="space-y-3 text-gray-600 leading-relaxed">
+        <p>
+          Seguro de hogar integral que cubre su vivienda, sus bienes personales y su responsabilidad civil.
+          Coberturas específicas para Florida disponibles para protección contra inundaciones y huracanes.
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-sm">
+          <li>Cobertura de Vivienda para la estructura de su casa</li>
+          <li>Protección de Bienes Personales para sus pertenencias</li>
+          <li>Cobertura de Responsabilidad Civil por accidentes en su propiedad</li>
+          <li>Gastos de Vida Adicionales si tiene que desalojar su hogar</li>
+          <li>Cobertura Opcional contra Inundaciones y Huracanes</li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    id: "commercial",
+    title: "Planes de Seguro Comercial",
+    description: "Protección para su negocio a su medida",
+    icon: "💼",
+    content: (
+      <div className="space-y-3 text-gray-600 leading-relaxed">
+        <p>
+          Cobertura personalizada para empresas de todos los tamaños. Desde negocios que recién comienzan hasta empresas establecidas,
+          ofrecemos soluciones integrales de seguro comercial.
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-sm">
+          <li>Responsabilidad Civil General para reclamaciones de terceros</li>
+          <li>Cobertura de Propiedad Comercial</li>
+          <li>Compensación Laboral para sus empleados</li>
+          <li>Auto Comercial para vehículos de la empresa</li>
+          <li>Responsabilidad Civil Profesional (Errores y Omisiones)</li>
+          <li>Pólizas Paraguas para protección adicional</li>
+        </ul>
+      </div>
+    ),
+  },
+  {
+    id: "health",
+    title: "Opciones de Seguro de Salud",
+    description: "Cobertura médica asequible",
+    icon: "❤️",
+    content: (
+      <div className="space-y-3 text-gray-600 leading-relaxed">
+        <p>
+          Le ofrecemos seguro de salud del Mercado de Seguros Médicos de la ACA (Ley de Cuidado de Salud Asequible) sin ningún costo para usted. Nuestro equipo le ayuda con la inscripción
+          y a encontrar planes que se ajusten a sus necesidades médicas y a su presupuesto.
+        </p>
+        <ul className="list-disc list-inside space-y-2 text-sm">
+          <li>Planes del Mercado de la ACA (sin cargo por asesoría)</li>
+          <li>Opciones de Medicare y Medicare Suplementario</li>
+          <li>Planes Individuales y Familiares</li>
+          <li>Comparación de coberturas y asistencia con la inscripción</li>
+          <li>Orientación sobre el Período de Inscripción Especial</li>
+        </ul>
+      </div>
+    ),
+  },
+];
+
+const copy: Bilingual<{
+  items: AccordionItem[];
+  heading: string;
+  subheading: string;
+  ctaTitle: string;
+  ctaText: string;
+  ctaButton: string;
+}> = {
+  en: {
+    items: policyItemsEn,
+    heading: "Coverage Types Explained",
+    subheading: "Understand what each insurance type covers and how we can protect your assets",
+    ctaTitle: "Not sure which coverage you need?",
+    ctaText: "Our insurance experts can recommend the right coverage for your situation",
+    ctaButton: "Call Our Team Today",
+  },
+  es: {
+    items: policyItemsEs,
+    heading: "Tipos de Cobertura Explicados",
+    subheading: "Entienda qué cubre cada tipo de seguro y cómo podemos proteger su patrimonio",
+    ctaTitle: "¿No está seguro de qué cobertura necesita?",
+    ctaText: "Nuestros expertos en seguros pueden recomendarle la cobertura adecuada para su situación",
+    ctaButton: "Llame a Nuestro Equipo Hoy",
+  },
+};
+
 export default function PolicyAccordion() {
+  const t = useT(copy);
+  const policyItems = t.items;
   const [expandedId, setExpandedId] = useState<string | null>(null);
 
   const toggleAccordion = (id: string) => {
@@ -118,10 +237,10 @@ export default function PolicyAccordion() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold text-primary-900 mb-4">
-            Coverage Types Explained
+            {t.heading}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Understand what each insurance type covers and how we can protect your assets
+            {t.subheading}
           </p>
         </motion.div>
 
@@ -227,16 +346,16 @@ export default function PolicyAccordion() {
           className="mt-12 p-8 bg-white rounded-xl border-2 border-primary-200 text-center"
         >
           <h3 className="text-xl font-semibold text-primary-900 mb-2">
-            Not sure which coverage you need?
+            {t.ctaTitle}
           </h3>
           <p className="text-gray-600 mb-5">
-            Our insurance experts can recommend the right coverage for your situation
+            {t.ctaText}
           </p>
           <a
-            href="tel:+1234567890"
+            href={`tel:${COMPANY.phone.replace(/\D/g, "")}`}
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary-800 text-white rounded-full font-semibold hover:bg-primary-900 transition"
           >
-            Call Our Team Today
+            {t.ctaButton}
           </a>
         </motion.div>
       </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { COMPANY } from "@/lib/constants";
+import { localizePath, type Lang } from "@/lib/i18n";
 
 /** Canonical production origin. Every canonical URL and sitemap entry uses it,
  *  so mirrors (Vercel previews, GitHub Pages) never compete with the real site. */
@@ -18,13 +19,16 @@ export const OG_IMAGE = {
  */
 export function pageMetadata({
   path,
+  lang = "en",
   title,
   description,
   noindex = false,
   canonicalPath,
   absoluteTitle = false,
 }: {
+  /** English path of the page ("/auto-insurance"); localized for `lang`. */
   path: string;
+  lang?: Lang;
   title: string;
   description: string;
   noindex?: boolean;
@@ -34,17 +38,23 @@ export function pageMetadata({
    *  root "%s | brand" template no longer applies. */
   absoluteTitle?: boolean;
 }): Metadata {
-  const url = canonicalPath ?? path;
+  const base = canonicalPath ?? path;
+  const url = localizePath(base, lang);
   return {
     title: absoluteTitle ? { absolute: `${title} | ${COMPANY.name}` } : title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      // hreflang: each page points at itself and its other-language twin.
+      ...(noindex ? {} : { languages: hreflangAlternates(base) }),
+    },
     openGraph: {
       title: `${title} | ${COMPANY.name}`,
       description,
       url,
       siteName: COMPANY.name,
-      locale: "en_US",
+      locale: lang === "es" ? "es_US" : "en_US",
+      alternateLocale: lang === "es" ? "en_US" : "es_US",
       type: "website",
       images: [OG_IMAGE],
     },
@@ -55,6 +65,15 @@ export function pageMetadata({
       images: [OG_IMAGE.url],
     },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
+  };
+}
+
+/** hreflang map for a page given its English path. */
+export function hreflangAlternates(path: string) {
+  return {
+    "en-US": localizePath(path, "en"),
+    "es-US": localizePath(path, "es"),
+    "x-default": localizePath(path, "en"),
   };
 }
 
@@ -85,6 +104,7 @@ export function organizationJsonLd() {
         telephone: phoneE164(COMPANY.phone),
         email: COMPANY.email,
         foundingDate: "2016",
+        knowsLanguage: ["en", "es"],
         areaServed: { "@type": "State", name: "Florida" },
         priceRange: "$$",
         address: {
@@ -121,35 +141,43 @@ export function organizationJsonLd() {
         url: SITE_URL,
         name: COMPANY.name,
         publisher: { "@id": `${SITE_URL}/#organization` },
-        inLanguage: "en-US",
+        inLanguage: ["en-US", "es-US"],
       },
     ],
   };
 }
 
 /** Service structured data for an insurance line page. */
-export function serviceJsonLd(path: string, name: string, description: string) {
+export function serviceJsonLd(path: string, name: string, description: string, lang: Lang = "en") {
+  const url = `${SITE_URL}${localizePath(path, lang)}`;
   return {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}${path}#service`,
+    "@id": `${url}#service`,
     name,
     serviceType: name,
     description,
-    url: `${SITE_URL}${path}`,
+    url,
+    inLanguage: lang === "es" ? "es-US" : "en-US",
     provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: { "@type": "State", name: "Florida" },
   };
 }
 
-/** Breadcrumb trail: Home › Page. */
-export function breadcrumbJsonLd(path: string, name: string) {
+/** Breadcrumb trail: Home › Page (path is the English path). */
+export function breadcrumbJsonLd(path: string, name: string, lang: Lang = "en") {
+  const home = localizePath("/", lang);
   return {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name, item: `${SITE_URL}${path}` },
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: lang === "es" ? "Inicio" : "Home",
+        item: home === "/" ? SITE_URL : `${SITE_URL}${home}`,
+      },
+      { "@type": "ListItem", position: 2, name, item: `${SITE_URL}${localizePath(path, lang)}` },
     ],
   };
 }

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
+import { localizePath } from "@/lib/i18n";
 
 export const dynamic = "force-static";
 
@@ -15,12 +16,21 @@ const routes: { path: string; priority: number; changeFrequency: "weekly" | "mon
   { path: "/contact", priority: 0.6, changeFrequency: "yearly" },
 ];
 
+const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
+
+// Every page in English and Spanish, each listing its hreflang alternates.
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
-  return routes.map((r) => ({
-    url: `${SITE_URL}${r.path === "/" ? "" : r.path}`,
-    lastModified,
-    changeFrequency: r.changeFrequency,
-    priority: r.priority,
-  }));
+  return routes.flatMap((r) => {
+    const en = localizePath(r.path, "en");
+    const es = localizePath(r.path, "es");
+    const alternates = { languages: { "en-US": abs(en), "es-US": abs(es) } };
+    return [en, es].map((p) => ({
+      url: abs(p),
+      lastModified,
+      changeFrequency: r.changeFrequency,
+      priority: r.priority,
+      alternates,
+    }));
+  });
 }

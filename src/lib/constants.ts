@@ -16,10 +16,10 @@ export const COMPANY = {
     instagram: "https://instagram.com/universalinsurancebroker/",
   },
   locations: [
-    { name: "Boca Raton Office", address: "3200 N Federal Hwy Suite 224", city: "Boca Raton", state: "FL", zip: "33431" },
-    { name: "Lehigh Acres Office", address: "111 Lee Blvd", city: "Lehigh Acres", state: "FL", zip: "33936" },
-    { name: "Spitzer Homestead", address: "30101 S Dixie Hwy", city: "Homestead", state: "FL", zip: "33033" },
-    { name: "Hialeah Office", address: "1943 W 68th St", city: "Hialeah", state: "FL", zip: "33014" },
+    { name: "Boca Raton Office", nameEs: "Oficina de Boca Raton", address: "3200 N Federal Hwy Suite 224", city: "Boca Raton", state: "FL", zip: "33431" },
+    { name: "Lehigh Acres Office", nameEs: "Oficina de Lehigh Acres", address: "111 Lee Blvd", city: "Lehigh Acres", state: "FL", zip: "33936" },
+    { name: "Spitzer Homestead", nameEs: "Spitzer Homestead", address: "30101 S Dixie Hwy", city: "Homestead", state: "FL", zip: "33033" },
+    { name: "Hialeah Office", nameEs: "Oficina de Hialeah", address: "1943 W 68th St", city: "Hialeah", state: "FL", zip: "33014" },
   ],
 };
 
@@ -28,23 +28,29 @@ export const QUOTE_URL =
   "https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1";
 
 export const TEAM = [
-  { name: "Alberto Manzor", role: "CEO", email: "admin@universalinsurancebroker.com", image: "/images/team/alberto.jpg" },
-  { name: "Randy Diaz", role: "COO", email: "randy@universalinsurancebroker.com", image: "/images/team/randy.jpg" },
-  { name: "Uriel Rendon", role: "Marketing Manager", email: "uri@universalinsurancebroker.com", image: "/images/team/uriel.jpg" },
-  { name: "Amanda Montano", role: "Customer Service", email: "amanda@universalinsurancebroker.com", image: "/images/team/amanda.jpg" },
-  { name: "Lazaro Reigosa", role: "Commercial Lines", email: "lazaro@universalinsurancebroker.com", image: "/images/team/lazaro.jpg" },
-  { name: "Jorge Castro", role: "Franchisee", email: "doral@universalinsurancebroker.com", image: "/images/team/jorge.jpg" },
+  { name: "Alberto Manzor", role: "CEO", roleEs: "Director Ejecutivo", email: "admin@universalinsurancebroker.com", image: "/images/team/alberto.jpg" },
+  { name: "Randy Diaz", role: "COO", roleEs: "Director de Operaciones", email: "randy@universalinsurancebroker.com", image: "/images/team/randy.jpg" },
+  { name: "Uriel Rendon", role: "Marketing Manager", roleEs: "Gerente de Mercadeo", email: "uri@universalinsurancebroker.com", image: "/images/team/uriel.jpg" },
+  { name: "Amanda Montano", role: "Customer Service", roleEs: "Servicio al Cliente", email: "amanda@universalinsurancebroker.com", image: "/images/team/amanda.jpg" },
+  { name: "Lazaro Reigosa", role: "Commercial Lines", roleEs: "Líneas Comerciales", email: "lazaro@universalinsurancebroker.com", image: "/images/team/lazaro.jpg" },
+  { name: "Jorge Castro", role: "Franchisee", roleEs: "Franquiciado", email: "doral@universalinsurancebroker.com", image: "/images/team/jorge.jpg" },
 ];
 
-export const NAV_LINKS = [
-  { label: "Home", href: "/" },
-  { label: "Insurance", href: "#", children: [
-    { label: "Auto Insurance", href: "/auto-insurance" },
-    { label: "Commercial Insurance", href: "/commercial-insurance" },
-    { label: "Home Insurance", href: "/home-insurance" },
-    { label: "Health Insurance", href: "/health-insurance" },
+// Nav labels in both languages; hrefs are English paths and are localized
+// at render time (see useLocalizePath).
+export const NAV_LINKS: {
+  label: { en: string; es: string };
+  href: string;
+  children?: { label: { en: string; es: string }; href: string }[];
+}[] = [
+  { label: { en: "Home", es: "Inicio" }, href: "/" },
+  { label: { en: "Insurance", es: "Seguros" }, href: "#", children: [
+    { label: { en: "Auto Insurance", es: "Seguro de Auto" }, href: "/auto-insurance" },
+    { label: { en: "Commercial Insurance", es: "Seguro Comercial" }, href: "/commercial-insurance" },
+    { label: { en: "Home Insurance", es: "Seguro de Hogar" }, href: "/home-insurance" },
+    { label: { en: "Health Insurance", es: "Seguro de Salud" }, href: "/health-insurance" },
   ]},
-  { label: "About Us", href: "/about" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Contact", href: "/contact" },
+  { label: { en: "About Us", es: "Nosotros" }, href: "/about" },
+  { label: { en: "FAQ", es: "Preguntas" }, href: "/faq" },
+  { label: { en: "Contact", es: "Contacto" }, href: "/contact" },
 ];

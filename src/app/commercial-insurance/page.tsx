@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
+import { useLang, useT, useLocalizePath } from "@/lib/useLang";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -34,18 +35,22 @@ const fadeIn = {
 const onlineProducts = [
   {
     icon: Shield,
-    title: "General Liability",
-    description:
-      "Powered by Coterie Insurance — get a fast, affordable General Liability quote online in minutes.",
-    buttonLabel: "Coterie Insurance",
+    title: { en: "General Liability", es: "Responsabilidad General" },
+    description: {
+      en: "Powered by Coterie Insurance — get a fast, affordable General Liability quote online in minutes.",
+      es: "Con la tecnología de Coterie Insurance — obtenga en minutos una cotización de Responsabilidad General rápida y económica en línea.",
+    },
+    buttonLabel: { en: "Coterie Insurance", es: "Coterie Insurance" },
     href: "https://app.coterieinsurance.com/quote?p=universalinsurancebroker%40gmail.com",
   },
   {
     icon: FileCheck,
-    title: "Surety & Fidelity Bonds",
-    description:
-      "Powered by Propeller — apply and get your bond issued in minutes, with the widest selection of instant-issue bonds on the market.",
-    buttonLabel: "Bond Quote/Purchase",
+    title: { en: "Surety & Fidelity Bonds", es: "Fianzas de Garantía y Fidelidad" },
+    description: {
+      en: "Powered by Propeller — apply and get your bond issued in minutes, with the widest selection of instant-issue bonds on the market.",
+      es: "Con la tecnología de Propeller — solicite y obtenga su fianza emitida en minutos, con la mayor selección de fianzas de emisión inmediata del mercado.",
+    },
+    buttonLabel: { en: "Bond Quote/Purchase", es: "Cotizar/Comprar Fianza" },
     href: "https://universalbrokers.propeller.insure/axelerator-public/",
   },
 ];
@@ -53,60 +58,116 @@ const onlineProducts = [
 const policyTypes = [
   {
     icon: Truck,
-    title: "Commercial Auto & Fleet",
-    description:
-      "Any type of commercial auto, fleet and non-fleet with no experience requirement. Only A-rated carriers for fleets.",
+    title: { en: "Commercial Auto & Fleet", es: "Auto Comercial y Flotas" },
+    description: {
+      en: "Any type of commercial auto, fleet and non-fleet with no experience requirement. Only A-rated carriers for fleets.",
+      es: "Cualquier tipo de auto comercial, con o sin flota, sin requisito de experiencia. Solo aseguradoras con calificación A para flotas.",
+    },
   },
   {
     icon: Briefcase,
-    title: "Professional Liability",
-    description:
-      "Doctors malpractice, Errors & Omissions, and all professional liabilities with top-rated carriers.",
+    title: { en: "Professional Liability", es: "Responsabilidad Profesional" },
+    description: {
+      en: "Doctors malpractice, Errors & Omissions, and all professional liabilities with top-rated carriers.",
+      es: "Negligencia médica, Errores y Omisiones (E&O) y todo tipo de responsabilidad profesional con aseguradoras de primer nivel.",
+    },
   },
   {
     icon: ChefHat,
-    title: "Restaurants & Bars",
-    description:
-      "Liquor liability and full commercial package policies at the lowest rates.",
+    title: { en: "Restaurants & Bars", es: "Restaurantes y Bares" },
+    description: {
+      en: "Liquor liability and full commercial package policies at the lowest rates.",
+      es: "Responsabilidad por venta de alcohol y pólizas comerciales completas con las tarifas más bajas.",
+    },
   },
   {
     icon: HardHat,
-    title: "Workers Compensation",
-    description:
-      "Available for every occupation with flexible pay plans. Can merge with ADP payroll.",
+    title: { en: "Workers Compensation", es: "Compensación Laboral" },
+    description: {
+      en: "Available for every occupation with flexible pay plans. Can merge with ADP payroll.",
+      es: "Disponible para todas las ocupaciones con planes de pago flexibles. Se puede integrar con la nómina de ADP.",
+    },
   },
   {
     icon: Shield,
-    title: "General Liability",
-    description: "Instant quotes from Hiscox and Next Insurance.",
+    title: { en: "General Liability", es: "Responsabilidad General" },
+    description: {
+      en: "Instant quotes from Hiscox and Next Insurance.",
+      es: "Cotizaciones instantáneas de Hiscox y Next Insurance.",
+    },
   },
   {
     icon: Building,
-    title: "Commercial Property",
-    description:
-      "Package or standalone policies. Dedicated team for large accounts.",
+    title: { en: "Commercial Property", es: "Propiedad Comercial" },
+    description: {
+      en: "Package or standalone policies. Dedicated team for large accounts.",
+      es: "Pólizas combinadas o independientes. Equipo dedicado para cuentas grandes.",
+    },
   },
   {
     icon: Wrench,
-    title: "Contractors Equipment",
-    description:
-      "Floater policies for all tools and equipment covering job sites and vehicles.",
+    title: { en: "Contractors Equipment", es: "Equipo de Contratistas" },
+    description: {
+      en: "Floater policies for all tools and equipment covering job sites and vehicles.",
+      es: "Pólizas flotantes para todas sus herramientas y equipos, con cobertura en obras y vehículos.",
+    },
   },
   {
     icon: Umbrella,
-    title: "Umbrella Policies",
-    description:
-      "Personal and commercial umbrellas with the nation's largest umbrella carrier.",
+    title: { en: "Umbrella Policies", es: "Pólizas Paraguas" },
+    description: {
+      en: "Personal and commercial umbrellas with the nation's largest umbrella carrier.",
+      es: "Pólizas paraguas personales y comerciales con la aseguradora de pólizas paraguas más grande del país.",
+    },
   },
   {
     icon: Building2,
-    title: "Car Dealer Insurance",
-    description:
-      "Garage keeper and bond available with 100+ carriers including A+ to B rated options.",
+    title: { en: "Car Dealer Insurance", es: "Seguro para Concesionarios" },
+    description: {
+      en: "Garage keeper and bond available with 100+ carriers including A+ to B rated options.",
+      es: "Cobertura de garage keeper y fianzas disponibles con más de 100 aseguradoras, con opciones de calificación A+ a B.",
+    },
   },
 ];
 
+const copy = {
+  en: {
+    heroTitle: "Commercial & Business Insurance",
+    heroSubtitle:
+      "Comprehensive coverage for every type of business — from startups to established enterprises",
+    ctaTitle: "Protect Your Business Today",
+    ctaText:
+      "Our commercial lines team will build a custom insurance package for your business. Get started with a free consultation.",
+    ctaButton: "Get a Commercial Quote",
+    onlineTitle: "Get Your Business Insured Online Now!",
+    onlineText:
+      "Buy coverage directly online — fast quotes, instant issue, no waiting. Choose a product below to get started in minutes.",
+    linesTitle: "Our Commercial Lines",
+    linesText:
+      "provides tailored commercial insurance solutions for businesses of all sizes. Explore our coverage options below.",
+  },
+  es: {
+    heroTitle: "Seguros Comerciales y para Negocios",
+    heroSubtitle:
+      "Cobertura integral para todo tipo de negocio — desde empresas nuevas hasta compañías establecidas",
+    ctaTitle: "Proteja su Negocio Hoy",
+    ctaText:
+      "Nuestro equipo de líneas comerciales diseñará un paquete de seguros a la medida de su negocio. Comience con una consulta gratuita.",
+    ctaButton: "Cotizar Seguro Comercial",
+    onlineTitle: "¡Asegure su Negocio en Línea Ahora!",
+    onlineText:
+      "Compre su cobertura directamente en línea — cotizaciones rápidas, emisión inmediata, sin esperas. Elija un producto a continuación y comience en minutos.",
+    linesTitle: "Nuestras Líneas Comerciales",
+    linesText:
+      "ofrece soluciones de seguros comerciales a la medida para negocios de todos los tamaños. Explore nuestras opciones de cobertura a continuación.",
+  },
+};
+
 export default function CommercialInsurancePage() {
+  const lang = useLang();
+  const t = useT(copy);
+  const lp = useLocalizePath();
+
   return (
     <>
       {/* Hero */}
@@ -122,7 +183,7 @@ export default function CommercialInsurancePage() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 "
           >
-            Commercial &amp; Business Insurance
+            {t.heroTitle}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 10 }}
@@ -130,8 +191,7 @@ export default function CommercialInsurancePage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto"
           >
-            Comprehensive coverage for every type of business — from startups to
-            established enterprises
+            {t.heroSubtitle}
           </motion.p>
         </div>
       </section>
@@ -147,21 +207,20 @@ export default function CommercialInsurancePage() {
             custom={0}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-6 ">
-              Protect Your Business Today
+              {t.ctaTitle}
             </h2>
             <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Our commercial lines team will build a custom insurance package for
-              your business. Get started with a free consultation.
+              {t.ctaText}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
-                href="/quotes"
+                href={lp("/quotes")}
                 className={cn(
                   "inline-flex items-center gap-2 bg-primary-900 text-white px-8 py-4 rounded-full",
                   "font-semibold text-lg hover:bg-primary-800 transition-colors"
                 )}
               >
-                Get a Commercial Quote
+                {t.ctaButton}
                 <ArrowRight className="w-5 h-5" />
               </Link>
               <a
@@ -195,18 +254,17 @@ export default function CommercialInsurancePage() {
             className="text-center mb-14"
           >
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-              Get Your Business Insured Online Now!
+              {t.onlineTitle}
             </h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              Buy coverage directly online — fast quotes, instant issue, no
-              waiting. Choose a product below to get started in minutes.
+              {t.onlineText}
             </p>
           </motion.div>
 
           <div className="flex flex-wrap justify-center gap-8 max-w-6xl mx-auto">
             {onlineProducts.map((product, i) => (
               <motion.div
-                key={product.title}
+                key={product.title.en}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -220,10 +278,10 @@ export default function CommercialInsurancePage() {
                   <product.icon className="h-8 w-8 text-primary-900" />
                 </div>
                 <h3 className="mb-2 text-xl font-bold text-white">
-                  {product.title}
+                  {product.title[lang]}
                 </h3>
                 <p className="mb-6 text-sm leading-relaxed text-gray-300">
-                  {product.description}
+                  {product.description[lang]}
                 </p>
                 <a
                   href={product.href}
@@ -231,7 +289,7 @@ export default function CommercialInsurancePage() {
                   rel="noopener noreferrer"
                   className="btn-silver-3d mt-auto inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 font-semibold text-primary-900 transition-all duration-300"
                 >
-                  {product.buttonLabel}
+                  {product.buttonLabel[lang]}
                   <ArrowRight className="h-5 w-5" />
                 </a>
               </motion.div>
@@ -252,18 +310,17 @@ export default function CommercialInsurancePage() {
             className="text-center mb-16"
           >
             <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-6">
-              Our Commercial Lines
+              {t.linesTitle}
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              {COMPANY.name} provides tailored commercial insurance solutions
-              for businesses of all sizes. Explore our coverage options below.
+              {COMPANY.name} {t.linesText}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {policyTypes.map((policy, i) => (
               <motion.div
-                key={policy.title}
+                key={policy.title.en}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -278,10 +335,10 @@ export default function CommercialInsurancePage() {
                   <policy.icon className="w-7 h-7 text-primary-700" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
-                  {policy.title}
+                  {policy.title[lang]}
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  {policy.description}
+                  {policy.description[lang]}
                 </p>
               </motion.div>
             ))}
