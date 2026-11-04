@@ -5,6 +5,7 @@ import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import JsonLd from "@/components/JsonLd";
 import MobileCtaBar from "@/components/MobileCtaBar";
+import Analytics from "@/components/Analytics";
 import { OG_IMAGE, SITE_URL, hreflangAlternates, organizationJsonLd } from "@/lib/seo";
 import { HOME_SEO } from "@/lib/routeSeo";
 
@@ -53,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="min-h-screen">{children}</main>
         <Footer />
         <MobileCtaBar />
+        <Analytics />
       </body>
     </html>
   );
