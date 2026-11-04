@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowLeft } from "lucide-react";
+import { AlertCircle, ArrowLeft, CheckCircle2, Phone } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { COMPANY } from "@/lib/constants";
+import { submitLead } from "@/lib/leads";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -15,84 +17,78 @@ const fadeIn = {
   },
 };
 
-export default function HomeInsuranceFormPage() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    dateOfBirth: "",
-    phoneNumber: "",
-    email: "",
-    fullAddress: "",
-    apartmentNumber: "",
-    yearBuilt: "",
-    currentCarrier: "",
-    typeOfOwnership: "",
-    remarks: "",
-  });
+const inputClass =
+  "w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all";
+const labelClass = "block text-sm font-semibold text-primary-900 mb-2";
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+// Field order and labels as they appear in the email the office receives.
+const FIELD_LABELS: Record<string, string> = {
+  fullName: "Full Name",
+  dateOfBirth: "Date of Birth",
+  phoneNumber: "Phone Number",
+  email: "Email",
+  fullAddress: "Full Address",
+  apartmentNumber: "Apartment/Unit #",
+  yearBuilt: "Year Built",
+  currentCarrier: "Current Carrier",
+  typeOfOwnership: "Type of Ownership",
+  remarks: "Remarks",
+};
+
+type Status = "idle" | "submitting" | "sent" | "error";
+
+export default function HomeInsuranceFormPage() {
+  const [status, setStatus] = useState<Status>("idle");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    const form = e.currentTarget;
+    const data = new FormData(form);
 
-    try {
-      const emailBody = `
-Home Owner Quote Request
+    // Honeypot: real visitors never see or fill this field.
+    if (data.get("_honey")) {
+      setStatus("sent");
+      return;
+    }
 
-Full Name: ${formData.fullName}
-Date of Birth: ${formData.dateOfBirth}
-Phone Number: ${formData.phoneNumber}
-Email: ${formData.email}
-Full Address: ${formData.fullAddress}
-Apartment/Unit #: ${formData.apartmentNumber}
-Year Built: ${formData.yearBuilt}
-Current Carrier: ${formData.currentCarrier}
-Type of Ownership: ${formData.typeOfOwnership}
-Remarks: ${formData.remarks}
-      `.trim();
+    const fields: Record<string, string> = {};
+    for (const [key, label] of Object.entries(FIELD_LABELS)) {
+      const value = String(data.get(key) ?? "").trim();
+      // Keep the key `email` so the relay sets Reply-To to the customer.
+      fields[key === "email" ? "email" : label] = value || "—";
+    }
 
-      window.location.href = `mailto:universalinsurancebroker@gmail.com?subject=Home Owner Quote Request&body=${encodeURIComponent(emailBody)}`;
-
-      setSubmitted(true);
-      setTimeout(() => {
-        setFormData({
-          fullName: "",
-          dateOfBirth: "",
-          phoneNumber: "",
-          email: "",
-          fullAddress: "",
-          apartmentNumber: "",
-          yearBuilt: "",
-          currentCarrier: "",
-          typeOfOwnership: "",
-          remarks: "",
-        });
-        setSubmitted(false);
-      }, 2000);
-    } catch (error) {
-      console.error("Error:", error);
-    } finally {
-      setIsSubmitting(false);
+    setStatus("submitting");
+    const result = await submitLead(
+      `Home Owner Quote Request — ${fields["Full Name"]}`,
+      fields,
+    );
+    if (result.ok) {
+      setStatus("sent");
+      form.reset();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      console.error("Quote request failed:", result.error);
+      setStatus("error");
     }
   };
+
+  const tel = `tel:${COMPANY.phone.replace(/[^\d+]/g, "")}`;
 
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Header */}
       <section className="bg-gradient-to-br from-primary-900 to-primary-800 text-white py-24 md:py-32">
-        <div className="container mx-auto px-4 text-center relative">
-          <Link
-            href="/home-insurance"
-            className="absolute left-0 top-0 inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home Insurance
-          </Link>
+        <div className="container mx-auto px-4 text-center">
+          <div className="text-left">
+            <Link
+              href="/home-insurance"
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home Insurance
+            </Link>
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold mt-8">
             Home Owner Quote Request
           </h1>
@@ -109,201 +105,226 @@ Remarks: ${formData.remarks}
             variants={fadeIn}
             className="bg-white rounded-2xl shadow-lg p-8 md:p-12"
           >
-            {submitted ? (
-              <div className="text-center py-12">
-                <div className="text-5xl mb-4">✓</div>
+            {status === "sent" ? (
+              <div className="text-center py-12" role="status">
+                <CheckCircle2 className="mx-auto mb-4 h-14 w-14 text-green-600" />
                 <h2 className="text-2xl font-bold text-primary-900 mb-2">
                   Thank You!
                 </h2>
-                <p className="text-gray-600 mb-4">
-                  We will be contacting you as soon as possible
+                <p className="text-gray-600 mb-8">
+                  We received your request and will be contacting you as soon
+                  as possible.
                 </p>
-                <p className="text-sm text-gray-500">
-                  Your email client is opening...
-                </p>
+                <Link
+                  href="/home-insurance"
+                  className="inline-flex items-center gap-2 rounded-lg bg-primary-900 px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-800"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                  Back to Home Insurance
+                </Link>
               </div>
             ) : (
-              <>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  {/* Full Name */}
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Honeypot (hidden from people, catches bots) */}
+                <input
+                  type="text"
+                  name="_honey"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
+
+                <div>
+                  <label htmlFor="fullName" className={labelClass}>
+                    Full Name
+                  </label>
+                  <input
+                    id="fullName"
+                    type="text"
+                    name="fullName"
+                    autoComplete="name"
+                    required
+                    className={inputClass}
+                    placeholder="John Doe"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="dateOfBirth" className={labelClass}>
+                    Date of Birth
+                  </label>
+                  <input
+                    id="dateOfBirth"
+                    type="date"
+                    name="dateOfBirth"
+                    autoComplete="bday"
+                    required
+                    className={inputClass}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phoneNumber" className={labelClass}>
+                    Phone Number
+                  </label>
+                  <input
+                    id="phoneNumber"
+                    type="tel"
+                    name="phoneNumber"
+                    autoComplete="tel"
+                    required
+                    className={inputClass}
+                    placeholder="(239) 555-0000"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className={labelClass}>
+                    E-mail
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    autoComplete="email"
+                    required
+                    className={inputClass}
+                    placeholder="john@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="fullAddress" className={labelClass}>
+                    Full Address
+                  </label>
+                  <textarea
+                    id="fullAddress"
+                    name="fullAddress"
+                    autoComplete="street-address"
+                    required
+                    rows={3}
+                    className={inputClass}
+                    placeholder="123 Main St"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-semibold text-primary-900 mb-2">
-                      Full Name
+                    <label htmlFor="apartmentNumber" className={labelClass}>
+                      Apartment#
                     </label>
                     <input
+                      id="apartmentNumber"
                       type="text"
-                      name="fullName"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                      placeholder="John Doe"
+                      name="apartmentNumber"
+                      className={inputClass}
                     />
                   </div>
 
-                  {/* Date of Birth */}
                   <div>
-                    <label className="block text-sm font-semibold text-primary-900 mb-2">
-                      Date of Birth
+                    <label htmlFor="yearBuilt" className={labelClass}>
+                      Year Built
                     </label>
                     <input
-                      type="date"
-                      name="dateOfBirth"
-                      value={formData.dateOfBirth}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                      id="yearBuilt"
+                      type="number"
+                      name="yearBuilt"
+                      min={1800}
+                      max={new Date().getFullYear() + 1}
+                      className={inputClass}
+                      placeholder="2020"
                     />
                   </div>
+                </div>
 
-                  {/* Phone Number */}
-                  <div>
-                    <label className="block text-sm font-semibold text-primary-900 mb-2">
-                      Phone Number
-                    </label>
-                    <input
-                      type="tel"
-                      name="phoneNumber"
-                      value={formData.phoneNumber}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                      placeholder="(239) 555-0000"
-                    />
-                  </div>
+                <div>
+                  <label htmlFor="currentCarrier" className={labelClass}>
+                    Current Carrier Name
+                  </label>
+                  <input
+                    id="currentCarrier"
+                    type="text"
+                    name="currentCarrier"
+                    className={inputClass}
+                    placeholder="State Farm, Allstate, etc."
+                  />
+                </div>
 
-                  {/* Email */}
-                  <div>
-                    <label className="block text-sm font-semibold text-primary-900 mb-2">
-                      E-mail
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                      placeholder="john@example.com"
-                    />
-                  </div>
-
-                  {/* Full Address */}
-                  <div>
-                    <label className="block text-sm font-semibold text-primary-900 mb-2">
-                      Full Address
-                    </label>
-                    <textarea
-                      name="fullAddress"
-                      value={formData.fullAddress}
-                      onChange={handleChange}
-                      required
-                      rows={3}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                      placeholder="123 Main St"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    {/* Apartment */}
-                    <div>
-                      <label className="block text-sm font-semibold text-primary-900 mb-2">
-                        Apartment#
-                      </label>
-                      <input
-                        type="text"
-                        name="apartmentNumber"
-                        value={formData.apartmentNumber}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                      />
-                    </div>
-
-                    {/* Year Built */}
-                    <div>
-                      <label className="block text-sm font-semibold text-primary-900 mb-2">
-                        Year Built
-                      </label>
-                      <input
-                        type="number"
-                        name="yearBuilt"
-                        value={formData.yearBuilt}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                        placeholder="2020"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Current Carrier */}
-                  <div>
-                    <label className="block text-sm font-semibold text-primary-900 mb-2">
-                      Current Carrier Name
-                    </label>
-                    <input
-                      type="text"
-                      name="currentCarrier"
-                      value={formData.currentCarrier}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                      placeholder="State Farm, Allstate, etc."
-                    />
-                  </div>
-
-                  {/* Type of Ownership */}
-                  <div>
-                    <label className="block text-sm font-semibold text-primary-900 mb-2">
-                      Type of Ownership
-                    </label>
-                    <select
-                      name="typeOfOwnership"
-                      value={formData.typeOfOwnership}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                    >
-                      <option value="">Select an option</option>
-                      <option value="Landlord/Second Home">
-                        Landlord/Second Home
-                      </option>
-                      <option value="Primary Residence">Primary Residence</option>
-                      <option value="Investment Property">
-                        Investment Property
-                      </option>
-                      <option value="Rental Property">Rental Property</option>
-                    </select>
-                  </div>
-
-                  {/* Remarks */}
-                  <div>
-                    <label className="block text-sm font-semibold text-primary-900 mb-2">
-                      Any Remarks
-                    </label>
-                    <textarea
-                      name="remarks"
-                      value={formData.remarks}
-                      onChange={handleChange}
-                      rows={4}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
-                      placeholder="Tell us anything else you'd like us to know..."
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className={cn(
-                      "w-full py-3 px-6 rounded-lg font-semibold text-white transition-all duration-300",
-                      isSubmitting
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-gradient-to-r from-accent-300 via-accent-200 to-accent-300 hover:from-accent-400 hover:via-accent-300 hover:to-accent-400 text-primary-900"
-                    )}
+                <div>
+                  <label htmlFor="typeOfOwnership" className={labelClass}>
+                    Type of Ownership
+                  </label>
+                  <select
+                    id="typeOfOwnership"
+                    name="typeOfOwnership"
+                    required
+                    defaultValue=""
+                    className={inputClass}
                   >
-                    {isSubmitting ? "Submitting..." : "Submit"}
-                  </button>
-                </form>
-              </>
+                    <option value="">Select an option</option>
+                    <option value="Landlord/Second Home">Landlord/Second Home</option>
+                    <option value="Primary Residence">Primary Residence</option>
+                    <option value="Investment Property">Investment Property</option>
+                    <option value="Rental Property">Rental Property</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label htmlFor="remarks" className={labelClass}>
+                    Any Remarks
+                  </label>
+                  <textarea
+                    id="remarks"
+                    name="remarks"
+                    rows={4}
+                    className={inputClass}
+                    placeholder="Tell us anything else you'd like us to know..."
+                  />
+                </div>
+
+                {status === "error" && (
+                  <div
+                    role="alert"
+                    className="flex gap-3 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800"
+                  >
+                    <AlertCircle className="mt-0.5 h-5 w-5 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold">
+                        We couldn&apos;t send your request.
+                      </p>
+                      <p className="mt-1">
+                        Please try again, or call us at{" "}
+                        <a href={tel} className="font-semibold underline">
+                          {COMPANY.phone}
+                        </a>{" "}
+                        and we&apos;ll get your quote started right away.
+                      </p>
+                    </div>
+                  </div>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className={cn(
+                    "w-full py-3 px-6 rounded-lg font-semibold transition-all duration-300",
+                    status === "submitting"
+                      ? "bg-gray-400 text-white cursor-not-allowed"
+                      : "bg-gradient-to-r from-accent-300 via-accent-200 to-accent-300 hover:from-accent-400 hover:via-accent-300 hover:to-accent-400 text-primary-900"
+                  )}
+                >
+                  {status === "submitting" ? "Submitting..." : "Submit"}
+                </button>
+
+                <p className="flex items-center justify-center gap-2 text-sm text-gray-500">
+                  <Phone className="h-4 w-4" />
+                  Prefer to talk?{" "}
+                  <a href={tel} className="font-semibold text-primary-800 hover:underline">
+                    {COMPANY.phone}
+                  </a>
+                </p>
+              </form>
             )}
           </motion.div>
         </div>
