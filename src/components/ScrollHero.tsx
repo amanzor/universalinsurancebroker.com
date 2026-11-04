@@ -107,38 +107,96 @@ function useFrameSequence(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [enabled]);
 
-  // Load frames: first + last immediately, then the rest in order.
+  // Progressive loading, so the hero never competes with the rest of the
+  // page for bandwidth:
+  //   1. now: only the frame that is on screen
+  //   2. after the page has loaded: every 8th frame (coarse but scrubbable)
+  //   3. once the visitor starts scrolling (or after a few idle seconds):
+  //      the remaining frames, a few at a time
+  // With Data Saver on, stage 3 is skipped.
   useEffect(() => {
     const set = window.innerWidth < 768 ? "sm" : "lg";
-    const order = enabled
-      ? [0, FRAME_COUNT - 1, ...Array.from({ length: FRAME_COUNT - 2 }, (_, i) => i + 1)]
-      : [FRAME_COUNT - 1];
     let cancelled = false;
-    order.forEach((i, n) => {
-      const load = () => {
-        if (cancelled) return;
+    const timers: number[] = [];
+
+    const loadFrame = (i: number) =>
+      new Promise<void>((resolve) => {
+        if (cancelled || images.current[i]) return resolve();
         const img = new Image();
         img.decoding = "async";
-        img.src = frameSrc(set, i);
-        img.onload = () => {
-          if (cancelled) return;
-          const want = enabled ? frameFor(progress.get()) : FRAME_COUNT - 1;
-          // Redraw if this frame is closer to what we want than what's shown.
-          if (
-            current.current === -1 ||
-            Math.abs(i - want) < Math.abs(current.current - want)
-          ) {
-            draw(want);
+        img.onload = img.onerror = () => {
+          if (!cancelled && img.naturalWidth) {
+            const want = enabled ? frameFor(progress.get()) : FRAME_COUNT - 1;
+            // Redraw if this frame is closer to what we want than what's shown.
+            if (
+              current.current === -1 ||
+              Math.abs(i - want) < Math.abs(current.current - want)
+            ) {
+              draw(want);
+            }
           }
+          resolve();
         };
+        img.src = frameSrc(set, i);
         images.current[i] = img;
+      });
+
+    // Load a list of frames with limited concurrency.
+    const loadAll = async (frames: number[], concurrency: number) => {
+      const queue = [...frames];
+      const worker = async () => {
+        while (queue.length && !cancelled) await loadFrame(queue.shift()!);
       };
-      // Let the first two frames go out before queuing the rest.
-      if (n < 2) load();
-      else setTimeout(load, 150 + n * 8);
-    });
+      await Promise.all(Array.from({ length: concurrency }, worker));
+    };
+
+    if (!enabled) {
+      loadFrame(FRAME_COUNT - 1);
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    const all = Array.from({ length: FRAME_COUNT }, (_, i) => i);
+    const keyframes = all.filter((i) => i % 8 === 0 || i === FRAME_COUNT - 1);
+    const rest = all.filter((i) => !keyframes.includes(i));
+    const saveData =
+      (navigator as Navigator & { connection?: { saveData?: boolean } }).connection
+        ?.saveData === true;
+
+    let restStarted = false;
+    const startRest = () => {
+      if (restStarted || saveData || cancelled) return;
+      restStarted = true;
+      window.removeEventListener("scroll", startRest);
+      loadAll(rest, 4);
+    };
+
+    const startKeyframes = () => {
+      loadAll(keyframes, 4).then(() => {
+        if (cancelled) return;
+        if (window.scrollY > 0) startRest();
+        else {
+          window.addEventListener("scroll", startRest, { passive: true });
+          timers.push(window.setTimeout(startRest, 4000));
+        }
+      });
+    };
+
+    // Stage 1
+    loadFrame(0);
+    // Stage 2 (after load, so it never delays the page's own resources)
+    if (document.readyState === "complete") {
+      timers.push(window.setTimeout(startKeyframes, 300));
+    } else {
+      window.addEventListener("load", startKeyframes, { once: true });
+    }
+
     return () => {
       cancelled = true;
+      timers.forEach(clearTimeout);
+      window.removeEventListener("load", startKeyframes);
+      window.removeEventListener("scroll", startRest);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [enabled]);

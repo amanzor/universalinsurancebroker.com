@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { asset } from "@/lib/utils";
+import LazyVideo from "@/components/LazyVideo";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -51,16 +52,12 @@ export default function DealerVentures() {
           custom={2}
           className="max-w-3xl mx-auto"
         >
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <LazyVideo
+            src={asset("/images/insurance-verification.mp4")}
+            poster={asset("/images/insurance-verification-poster.jpg")}
+            label="An agent verifying new car insurance coverage on a tablet"
             className="w-full rounded-2xl shadow-lg"
-          >
-            <source src={asset("/images/insurance-verification.mp4")} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+          />
         </motion.div>
       </div>
     </section>

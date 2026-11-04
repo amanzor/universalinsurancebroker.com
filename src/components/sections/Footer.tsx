@@ -87,7 +87,7 @@ export default function Footer() {
             variants={fadeIn}
           >
             <div className="flex items-center gap-2 mb-4">
-              <Image src={asset("/images/logo-hd.png")} alt="Universal Insurance Brokers" width={160} height={53} className="h-12 w-auto object-contain mix-blend-screen" />
+              <Image src={asset("/images/logo.webp")} alt="Universal Insurance Brokers" width={160} height={53} className="h-12 w-auto object-contain mix-blend-screen" />
             </div>
             <p className="text-sm font-semibold text-gray-300 mb-3">
               All Your Insurance Policies Under One Roof
