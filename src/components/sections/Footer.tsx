@@ -22,19 +22,44 @@ const Twitter = ({ className }: { className?: string }) => (
 );
 import { asset } from "@/lib/utils";
 import { COMPANY, QUOTE_URL } from "@/lib/constants";
+import { useLang, useLocalizePath } from "@/lib/useLang";
 
 const insuranceLinks = [
-  { label: "Auto Insurance", href: "/auto-insurance" },
-  { label: "Commercial Insurance", href: "/commercial-insurance" },
-  { label: "Home Insurance", href: "/home-insurance" },
-  { label: "Health Insurance", href: "/health-insurance" },
+  { label: { en: "Auto Insurance", es: "Seguro de Auto" }, href: "/auto-insurance" },
+  { label: { en: "Commercial Insurance", es: "Seguro Comercial" }, href: "/commercial-insurance" },
+  { label: { en: "Home Insurance", es: "Seguro de Hogar" }, href: "/home-insurance" },
+  { label: { en: "Health Insurance", es: "Seguro de Salud" }, href: "/health-insurance" },
 ];
 
 const companyLinks = [
-  { label: "About Us", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Get a Quote", href: QUOTE_URL },
+  { label: { en: "About Us", es: "Nosotros" }, href: "/about" },
+  { label: { en: "FAQ", es: "Preguntas Frecuentes" }, href: "/faq" },
+  { label: { en: "Contact", es: "Contacto" }, href: "/contact" },
+  { label: { en: "Get a Quote", es: "Cotizar Ahora" }, href: QUOTE_URL },
 ];
+
+const copy = {
+  en: {
+    tagline: "All Your Insurance Policies Under One Roof",
+    blurb:
+      "Your trusted insurance partner in Florida. We help individuals and businesses find the right coverage at competitive rates with personalized service you can count on.",
+    services: "Insurance Services",
+    company: "Company",
+    contact: "Contact Info",
+    rights: "All Rights Reserved.",
+    licensed: "Licensed Insurance Broker - State of Florida",
+  },
+  es: {
+    tagline: "Todas Sus Pólizas de Seguro Bajo un Mismo Techo",
+    blurb:
+      "Su aliado de confianza en seguros en Florida. Ayudamos a personas y negocios a encontrar la cobertura adecuada a precios competitivos, con un servicio personalizado en el que puede confiar.",
+    services: "Seguros",
+    company: "Compañía",
+    contact: "Contacto",
+    rights: "Todos los derechos reservados.",
+    licensed: "Corredor de Seguros con Licencia - Estado de Florida",
+  },
+};
 
 const offices = [
   {
@@ -62,6 +87,9 @@ const offices = [
 export default function Footer() {
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const lang = useLang();
+  const lp = useLocalizePath();
+  const t = copy[lang];
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -90,12 +118,10 @@ export default function Footer() {
               <Image src={asset("/images/logo.webp")} alt="Universal Insurance Brokers" width={160} height={53} className="h-12 w-auto object-contain mix-blend-screen" />
             </div>
             <p className="text-sm font-semibold text-gray-300 mb-3">
-              All Your Insurance Policies Under One Roof
+              {t.tagline}
             </p>
             <p className="text-sm text-gray-400 mb-6 leading-relaxed">
-              Your trusted insurance partner in Florida. We help individuals and
-              businesses find the right coverage at competitive rates with
-              personalized service you can count on.
+              {t.blurb}
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -136,28 +162,17 @@ export default function Footer() {
             variants={fadeIn}
           >
             <h3 className="text-lg font-semibold text-white mb-4">
-              Insurance Services
+              {t.services}
             </h3>
             <ul className="space-y-3">
               {insuranceLinks.map((link) => (
                 <li key={link.href}>
-                  {link.href.startsWith("http") ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-gray-400 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gray-400 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={lp(link.href)}
+                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                  >
+                    {link.label[lang]}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -170,16 +185,27 @@ export default function Footer() {
             animate={isInView ? "visible" : "hidden"}
             variants={fadeIn}
           >
-            <h3 className="text-lg font-semibold text-white mb-4">Company</h3>
+            <h3 className="text-lg font-semibold text-white mb-4">{t.company}</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.href.startsWith("http") ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-gray-400 hover:text-white transition-colors"
+                    >
+                      {link.label[lang]}
+                    </a>
+                  ) : (
+                    <Link
+                      href={lp(link.href)}
+                      className="text-sm text-gray-400 hover:text-white transition-colors"
+                    >
+                      {link.label[lang]}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -193,7 +219,7 @@ export default function Footer() {
             variants={fadeIn}
           >
             <h3 className="text-lg font-semibold text-white mb-4">
-              Contact Info
+              {t.contact}
             </h3>
             <div className="space-y-4">
               {offices.map((office) => (
@@ -233,10 +259,10 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
-          <p>&copy; 2016 Universal Insurance Brokers&trade;. All Rights Reserved.</p>
+          <p>&copy; 2016 Universal Insurance Brokers&trade;. {t.rights}</p>
           <p className="flex items-center gap-2">
             <Clock className="h-4 w-4" />
-            Licensed Insurance Broker - State of Florida
+            {t.licensed}
           </p>
         </div>
       </div>
