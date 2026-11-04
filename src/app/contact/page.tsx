@@ -237,6 +237,7 @@ const formCopy = {
 };
 
 function ContactForm() {
+  const lp = useLocalizePath();
   const [status, setStatus] = useState<Status>("idle");
   const lang = useLang();
   const t = useT(formCopy);
@@ -415,6 +416,13 @@ function ContactForm() {
       >
         {status === "submitting" ? t.sending : t.send}
       </button>
+      <p className="text-center text-xs text-gray-500">
+        {lang === "es" ? "Al enviar este formulario, acepta nuestra " : "By submitting this form, you agree to our "}
+        <Link href={lp("/privacy")} className="underline hover:text-primary-700">
+          {lang === "es" ? "Política de Privacidad" : "Privacy Policy"}
+        </Link>
+        .
+      </p>
     </form>
   );
 }

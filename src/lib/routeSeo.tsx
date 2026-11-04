@@ -40,7 +40,8 @@ export type RouteKey =
   | "about"
   | "faq"
   | "contact"
-  | "home-insurance/form";
+  | "home-insurance/form"
+  | "privacy";
 
 const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
   "auto-insurance": {
@@ -139,6 +140,20 @@ const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
       description:
         "Llámenos, envíenos un mensaje de texto o correo, o visite nuestras oficinas en Boca Raton, Lehigh Acres, Homestead y Hialeah. Lunes a viernes, 9:30 AM a 7 PM.",
       crumb: "Contacto",
+    },
+  },
+  privacy: {
+    en: {
+      title: "Privacy Policy",
+      description:
+        "How Universal Insurance Brokers collects, uses and shares information when you visit our website or request an insurance quote.",
+      crumb: "Privacy Policy",
+    },
+    es: {
+      title: "Política de Privacidad",
+      description:
+        "Cómo Universal Insurance Brokers recopila, usa y comparte información cuando visita nuestro sitio web o solicita una cotización de seguro.",
+      crumb: "Política de Privacidad",
     },
   },
   "home-insurance/form": {
