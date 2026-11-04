@@ -21,6 +21,7 @@ const Twitter = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
 );
 import { asset } from "@/lib/utils";
+import { COMPANY, QUOTE_URL } from "@/lib/constants";
 
 const insuranceLinks = [
   { label: "Auto Insurance", href: "/auto-insurance" },
@@ -32,8 +33,7 @@ const insuranceLinks = [
 const companyLinks = [
   { label: "About Us", href: "/about" },
   { label: "Contact", href: "/contact" },
-  { label: "Client Entry", href: "/client-entry" },
-  { label: "Get a Quote", href: "/quote" },
+  { label: "Get a Quote", href: QUOTE_URL },
 ];
 
 const offices = [
@@ -99,21 +99,27 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="#"
+                href={COMPANY.social.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Facebook"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Facebook className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href={COMPANY.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="text-gray-400 hover:text-white transition-colors"
               >
                 <Instagram className="h-5 w-5" />
               </a>
               <a
-                href="#"
+                href={COMPANY.social.twitter}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Twitter"
                 className="text-gray-400 hover:text-white transition-colors"
               >
@@ -135,12 +141,23 @@ export default function Footer() {
             <ul className="space-y-3">
               {insuranceLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.href.startsWith("http") ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-gray-400 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-sm text-gray-400 hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>

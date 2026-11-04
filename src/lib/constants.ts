@@ -23,6 +23,10 @@ export const COMPANY = {
   ],
 };
 
+// Online quote portal used by every "Get a Quote" call to action.
+export const QUOTE_URL =
+  "https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1";
+
 export const TEAM = [
   { name: "Alberto Manzor", role: "CEO", email: "admin@universalinsurancebroker.com", image: "/images/team/alberto.jpg" },
   { name: "Randy Diaz", role: "COO", email: "randy@universalinsurancebroker.com", image: "/images/team/randy.jpg" },

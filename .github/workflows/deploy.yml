@@ -34,18 +34,23 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build static site
-        run: npm run build
-
-      - name: Disable Jekyll processing
-        run: touch out/.nojekyll
-
       - name: Configure Pages
+        id: pages
         uses: actions/configure-pages@v5
         with:
           # Enable GitHub Pages (with Actions as the source) automatically,
           # so no manual repo setting change is required.
           enablement: true
+
+      - name: Build static site
+        run: npm run build
+        env:
+          # Project Pages are served from /<repo>/ (empty with a custom
+          # domain), so assets and links must be prefixed with it.
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+
+      - name: Disable Jekyll processing
+        run: touch out/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
