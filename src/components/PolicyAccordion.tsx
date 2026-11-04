@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useT } from "@/lib/useLang";
+import { COMPANY } from "@/lib/constants";
 import type { Bilingual } from "@/lib/i18n";
 
 interface AccordionItem {
@@ -351,7 +352,7 @@ export default function PolicyAccordion() {
             {t.ctaText}
           </p>
           <a
-            href="tel:+1234567890"
+            href={`tel:${COMPANY.phone.replace(/\D/g, "")}`}
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary-800 text-white rounded-full font-semibold hover:bg-primary-900 transition"
           >
             {t.ctaButton}
