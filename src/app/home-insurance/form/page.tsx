@@ -7,6 +7,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 import { submitLead } from "@/lib/leads";
+import { useLang, useLocalizePath, useT } from "@/lib/useLang";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -37,8 +38,82 @@ const FIELD_LABELS: Record<string, string> = {
 
 type Status = "idle" | "submitting" | "sent" | "error";
 
+const copy = {
+  en: {
+    back: "Back to Home Insurance",
+    title: "Home Owner Quote Request",
+    subtitle: "We will be contacting you as soon as possible",
+    thanksTitle: "Thank You!",
+    thanksBody:
+      "We received your request and will be contacting you as soon as possible.",
+    fullName: "Full Name",
+    namePlaceholder: "John Doe",
+    dateOfBirth: "Date of Birth",
+    phoneNumber: "Phone Number",
+    email: "E-mail",
+    emailPlaceholder: "john@example.com",
+    fullAddress: "Full Address",
+    addressPlaceholder: "123 Main St",
+    apartment: "Apartment#",
+    yearBuilt: "Year Built",
+    currentCarrier: "Current Carrier Name",
+    carrierPlaceholder: "State Farm, Allstate, etc.",
+    ownership: "Type of Ownership",
+    selectOption: "Select an option",
+    ownLandlord: "Landlord/Second Home",
+    ownPrimary: "Primary Residence",
+    ownInvestment: "Investment Property",
+    ownRental: "Rental Property",
+    remarks: "Any Remarks",
+    remarksPlaceholder: "Tell us anything else you'd like us to know...",
+    errorTitle: "We couldn't send your request.",
+    errorBefore: "Please try again, or call us at",
+    errorAfter: "and we'll get your quote started right away.",
+    submitting: "Submitting...",
+    submit: "Submit",
+    preferTalk: "Prefer to talk?",
+  },
+  es: {
+    back: "Volver a Seguro de Hogar",
+    title: "Solicitud de Cotización de Seguro de Hogar",
+    subtitle: "Nos comunicaremos con usted lo antes posible",
+    thanksTitle: "¡Gracias!",
+    thanksBody:
+      "Recibimos su solicitud y nos comunicaremos con usted lo antes posible.",
+    fullName: "Nombre Completo",
+    namePlaceholder: "Juan Pérez",
+    dateOfBirth: "Fecha de Nacimiento",
+    phoneNumber: "Número de Teléfono",
+    email: "Correo Electrónico",
+    emailPlaceholder: "juan@ejemplo.com",
+    fullAddress: "Dirección Completa",
+    addressPlaceholder: "123 Main St",
+    apartment: "Apartamento #",
+    yearBuilt: "Año de Construcción",
+    currentCarrier: "Aseguradora Actual",
+    carrierPlaceholder: "State Farm, Allstate, etc.",
+    ownership: "Tipo de Propiedad",
+    selectOption: "Seleccione una opción",
+    ownLandlord: "Arrendador/Segunda Vivienda",
+    ownPrimary: "Residencia Principal",
+    ownInvestment: "Propiedad de Inversión",
+    ownRental: "Propiedad de Alquiler",
+    remarks: "Comentarios Adicionales",
+    remarksPlaceholder: "Cuéntenos cualquier otra cosa que desee que sepamos...",
+    errorTitle: "No pudimos enviar su solicitud.",
+    errorBefore: "Por favor, inténtelo de nuevo o llámenos al",
+    errorAfter: "y comenzaremos su cotización de inmediato.",
+    submitting: "Enviando...",
+    submit: "Enviar",
+    preferTalk: "¿Prefiere hablar con nosotros?",
+  },
+};
+
 export default function HomeInsuranceFormPage() {
   const [status, setStatus] = useState<Status>("idle");
+  const lang = useLang();
+  const t = useT(copy);
+  const lp = useLocalizePath();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -58,9 +133,14 @@ export default function HomeInsuranceFormPage() {
       fields[key === "email" ? "email" : label] = value || "—";
     }
 
+    const isEs = lang === "es";
+    if (isEs) {
+      fields["Language"] = "Spanish (Español) — please reply in Spanish";
+    }
+
     setStatus("submitting");
     const result = await submitLead(
-      `Home Owner Quote Request — ${fields["Full Name"]}`,
+      `${isEs ? "[ES] " : ""}Home Owner Quote Request — ${fields["Full Name"]}`,
       fields,
     );
     if (result.ok) {
@@ -82,17 +162,17 @@ export default function HomeInsuranceFormPage() {
         <div className="container mx-auto px-4 text-center">
           <div className="text-left">
             <Link
-              href="/home-insurance"
+              href={lp("/home-insurance")}
               className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              Back to Home Insurance
+              {t.back}
             </Link>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mt-8">
-            Home Owner Quote Request
+            {t.title}
           </h1>
-          <p className="mt-4 text-xl text-white/80">We will be contacting you as soon as possible</p>
+          <p className="mt-4 text-xl text-white/80">{t.subtitle}</p>
         </div>
       </section>
 
@@ -109,18 +189,17 @@ export default function HomeInsuranceFormPage() {
               <div className="text-center py-12" role="status">
                 <CheckCircle2 className="mx-auto mb-4 h-14 w-14 text-green-600" />
                 <h2 className="text-2xl font-bold text-primary-900 mb-2">
-                  Thank You!
+                  {t.thanksTitle}
                 </h2>
                 <p className="text-gray-600 mb-8">
-                  We received your request and will be contacting you as soon
-                  as possible.
+                  {t.thanksBody}
                 </p>
                 <Link
-                  href="/home-insurance"
+                  href={lp("/home-insurance")}
                   className="inline-flex items-center gap-2 rounded-lg bg-primary-900 px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-800"
                 >
                   <ArrowLeft className="h-4 w-4" />
-                  Back to Home Insurance
+                  {t.back}
                 </Link>
               </div>
             ) : (
@@ -137,7 +216,7 @@ export default function HomeInsuranceFormPage() {
 
                 <div>
                   <label htmlFor="fullName" className={labelClass}>
-                    Full Name
+                    {t.fullName}
                   </label>
                   <input
                     id="fullName"
@@ -146,13 +225,13 @@ export default function HomeInsuranceFormPage() {
                     autoComplete="name"
                     required
                     className={inputClass}
-                    placeholder="John Doe"
+                    placeholder={t.namePlaceholder}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="dateOfBirth" className={labelClass}>
-                    Date of Birth
+                    {t.dateOfBirth}
                   </label>
                   <input
                     id="dateOfBirth"
@@ -166,7 +245,7 @@ export default function HomeInsuranceFormPage() {
 
                 <div>
                   <label htmlFor="phoneNumber" className={labelClass}>
-                    Phone Number
+                    {t.phoneNumber}
                   </label>
                   <input
                     id="phoneNumber"
@@ -181,7 +260,7 @@ export default function HomeInsuranceFormPage() {
 
                 <div>
                   <label htmlFor="email" className={labelClass}>
-                    E-mail
+                    {t.email}
                   </label>
                   <input
                     id="email"
@@ -190,13 +269,13 @@ export default function HomeInsuranceFormPage() {
                     autoComplete="email"
                     required
                     className={inputClass}
-                    placeholder="john@example.com"
+                    placeholder={t.emailPlaceholder}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="fullAddress" className={labelClass}>
-                    Full Address
+                    {t.fullAddress}
                   </label>
                   <textarea
                     id="fullAddress"
@@ -205,14 +284,14 @@ export default function HomeInsuranceFormPage() {
                     required
                     rows={3}
                     className={inputClass}
-                    placeholder="123 Main St"
+                    placeholder={t.addressPlaceholder}
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="apartmentNumber" className={labelClass}>
-                      Apartment#
+                      {t.apartment}
                     </label>
                     <input
                       id="apartmentNumber"
@@ -224,7 +303,7 @@ export default function HomeInsuranceFormPage() {
 
                   <div>
                     <label htmlFor="yearBuilt" className={labelClass}>
-                      Year Built
+                      {t.yearBuilt}
                     </label>
                     <input
                       id="yearBuilt"
@@ -240,20 +319,20 @@ export default function HomeInsuranceFormPage() {
 
                 <div>
                   <label htmlFor="currentCarrier" className={labelClass}>
-                    Current Carrier Name
+                    {t.currentCarrier}
                   </label>
                   <input
                     id="currentCarrier"
                     type="text"
                     name="currentCarrier"
                     className={inputClass}
-                    placeholder="State Farm, Allstate, etc."
+                    placeholder={t.carrierPlaceholder}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="typeOfOwnership" className={labelClass}>
-                    Type of Ownership
+                    {t.ownership}
                   </label>
                   <select
                     id="typeOfOwnership"
@@ -262,24 +341,24 @@ export default function HomeInsuranceFormPage() {
                     defaultValue=""
                     className={inputClass}
                   >
-                    <option value="">Select an option</option>
-                    <option value="Landlord/Second Home">Landlord/Second Home</option>
-                    <option value="Primary Residence">Primary Residence</option>
-                    <option value="Investment Property">Investment Property</option>
-                    <option value="Rental Property">Rental Property</option>
+                    <option value="">{t.selectOption}</option>
+                    <option value="Landlord/Second Home">{t.ownLandlord}</option>
+                    <option value="Primary Residence">{t.ownPrimary}</option>
+                    <option value="Investment Property">{t.ownInvestment}</option>
+                    <option value="Rental Property">{t.ownRental}</option>
                   </select>
                 </div>
 
                 <div>
                   <label htmlFor="remarks" className={labelClass}>
-                    Any Remarks
+                    {t.remarks}
                   </label>
                   <textarea
                     id="remarks"
                     name="remarks"
                     rows={4}
                     className={inputClass}
-                    placeholder="Tell us anything else you'd like us to know..."
+                    placeholder={t.remarksPlaceholder}
                   />
                 </div>
 
@@ -291,14 +370,14 @@ export default function HomeInsuranceFormPage() {
                     <AlertCircle className="mt-0.5 h-5 w-5 flex-shrink-0" />
                     <div>
                       <p className="font-semibold">
-                        We couldn&apos;t send your request.
+                        {t.errorTitle}
                       </p>
                       <p className="mt-1">
-                        Please try again, or call us at{" "}
+                        {t.errorBefore}{" "}
                         <a href={tel} className="font-semibold underline">
                           {COMPANY.phone}
                         </a>{" "}
-                        and we&apos;ll get your quote started right away.
+                        {t.errorAfter}
                       </p>
                     </div>
                   </div>
@@ -314,12 +393,12 @@ export default function HomeInsuranceFormPage() {
                       : "bg-gradient-to-r from-accent-300 via-accent-200 to-accent-300 hover:from-accent-400 hover:via-accent-300 hover:to-accent-400 text-primary-900"
                   )}
                 >
-                  {status === "submitting" ? "Submitting..." : "Submit"}
+                  {status === "submitting" ? t.submitting : t.submit}
                 </button>
 
                 <p className="flex items-center justify-center gap-2 text-sm text-gray-500">
                   <Phone className="h-4 w-4" />
-                  Prefer to talk?{" "}
+                  {t.preferTalk}{" "}
                   <a href={tel} className="font-semibold text-primary-800 hover:underline">
                     {COMPANY.phone}
                   </a>

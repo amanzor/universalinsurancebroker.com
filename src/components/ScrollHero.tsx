@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
+import { useT } from "@/lib/useLang";
 
 /* ------------------------------------------------------------------ */
 /*  Config                                                             */
@@ -37,19 +38,65 @@ const frameSrc = (set: "lg" | "sm", i: number) =>
 const QUOTE_URL =
   "https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1";
 
-const stats = [
-  { value: "10+", label: "Years Experience" },
-  { value: "100+", label: "Insurance Carriers" },
-  { value: "4", label: "Florida Locations" },
-  { value: "100%", label: "Satisfaction" },
-];
+// Stat values and feature icons; their labels live in `copy` (same order).
+const statValues = ["10+", "100+", "4", "100%"];
 
-const heroFeatures = [
-  { icon: Car, label: "Auto Insurance — quotes in under 10 minutes" },
-  { icon: Building2, label: "Commercial Insurance — 10,000+ business types" },
-  { icon: Home, label: "Home Insurance — best-in-class comparisons" },
-  { icon: HeartPulse, label: "Health Insurance — zero cost through ACA" },
-];
+const heroFeatureIcons = [Car, Building2, Home, HeartPulse];
+
+const copy = {
+  en: {
+    sectionLabel: "Universal Insurance Brokers — Protect what matters most",
+    eyebrow: "Universal Insurance Brokers",
+    titleLine1: "Protect What",
+    titleLine2: "Matters Most",
+    subtitle:
+      "Welcome to the future of online insurance. All your policies, under one roof.",
+    scrollCue: "Scroll to explore",
+    midLine1: "100+ carriers.",
+    midLine2: "One broker on your side.",
+    finalHeading: "Coverage for your whole",
+    finalHeadingAccent: "world.",
+    finalText:
+      "Get a real price on your auto insurance in less than 10 minutes. All policies under one roof.",
+    quoteButton: "Get a Free Quote",
+    callButton: "Call Us Now",
+    stats: ["Years Experience", "Insurance Carriers", "Florida Locations", "Satisfaction"],
+    cardTitle: "All Your Insurance, One Place",
+    features: [
+      "Auto Insurance — quotes in under 10 minutes",
+      "Commercial Insurance — 10,000+ business types",
+      "Home Insurance — best-in-class comparisons",
+      "Health Insurance — zero cost through ACA",
+    ],
+    guarantee: "100% Satisfaction Guaranteed — Free rate revisions anytime",
+  },
+  es: {
+    sectionLabel: "Universal Insurance Brokers — Proteja lo que más importa",
+    eyebrow: "Universal Insurance Brokers",
+    titleLine1: "Proteja Lo Que",
+    titleLine2: "Más Importa",
+    subtitle:
+      "Bienvenido al futuro de los seguros en línea. Todas sus pólizas, bajo un mismo techo.",
+    scrollCue: "Desplácese para explorar",
+    midLine1: "100+ aseguradoras.",
+    midLine2: "Un corredor de su lado.",
+    finalHeading: "Cobertura para todo su",
+    finalHeadingAccent: "mundo.",
+    finalText:
+      "Obtenga un precio real para su seguro de auto en menos de 10 minutos. Todas sus pólizas bajo un mismo techo.",
+    quoteButton: "Cotización Gratis",
+    callButton: "Llámenos Ahora",
+    stats: ["Años de Experiencia", "Aseguradoras", "Oficinas en Florida", "Satisfacción"],
+    cardTitle: "Todos Sus Seguros en un Solo Lugar",
+    features: [
+      "Seguro de Auto — cotizaciones en menos de 10 minutos",
+      "Seguro Comercial — más de 10,000 tipos de negocio",
+      "Seguro de Hogar — las mejores comparaciones",
+      "Seguro de Salud — sin costo a través de ACA",
+    ],
+    guarantee: "Satisfacción 100% garantizada — Revisión de tarifas gratis cuando quiera",
+  },
+};
 
 /* ------------------------------------------------------------------ */
 /*  Canvas frame sequence                                              */
@@ -216,6 +263,7 @@ export default function ScrollHero() {
   const sectionRef = useRef<HTMLElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const reduceMotion = useReducedMotion();
+  const t = useT(copy);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -279,7 +327,7 @@ export default function ScrollHero() {
     <section
       ref={sectionRef}
       className="relative h-[420vh] bg-primary-950"
-      aria-label="Universal Insurance Brokers — Protect what matters most"
+      aria-label={t.sectionLabel}
     >
       <div className="sticky top-0 h-[100svh] w-full overflow-hidden">
         {/* Film */}
@@ -326,7 +374,7 @@ export default function ScrollHero() {
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               className="mb-6 text-xs font-semibold uppercase text-ember-300 sm:text-sm"
             >
-              Universal Insurance Brokers
+              {t.eyebrow}
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 40 }}
@@ -334,9 +382,9 @@ export default function ScrollHero() {
               transition={{ duration: 1.1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="text-5xl font-semibold leading-[1.02] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.7)] sm:text-7xl lg:text-8xl"
             >
-              Protect What
+              {t.titleLine1}
               <br />
-              <span className="text-cosmic">Matters Most</span>
+              <span className="text-cosmic">{t.titleLine2}</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 30 }}
@@ -344,8 +392,7 @@ export default function ScrollHero() {
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="mx-auto mt-6 max-w-xl text-lg text-white/85 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] sm:text-xl"
             >
-              Welcome to the future of online insurance. All your policies,
-              under one roof.
+              {t.subtitle}
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -364,7 +411,7 @@ export default function ScrollHero() {
           className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-2 text-white/70"
         >
           <span className="text-[11px] font-medium uppercase tracking-[0.3em]">
-            Scroll to explore
+            {t.scrollCue}
           </span>
           <ChevronDown className="h-5 w-5 animate-bounce" />
         </motion.div>
@@ -376,9 +423,9 @@ export default function ScrollHero() {
           aria-hidden
         >
           <p className="max-w-4xl text-center text-4xl font-semibold leading-tight tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)] sm:text-6xl">
-            100+ carriers.
+            {t.midLine1}
             <br />
-            <span className="text-cosmic">One broker on your side.</span>
+            <span className="text-cosmic">{t.midLine2}</span>
           </p>
         </motion.div>
 
@@ -405,6 +452,7 @@ export default function ScrollHero() {
 /* ------------------------------------------------------------------ */
 
 function QuoteButton() {
+  const t = useT(copy);
   return (
     <a
       href={QUOTE_URL}
@@ -412,7 +460,7 @@ function QuoteButton() {
       rel="noopener noreferrer"
       className="btn-silver-3d group inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-semibold text-primary-900 transition-all duration-300"
     >
-      Get a Free Quote
+      {t.quoteButton}
       <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
     </a>
   );
@@ -429,6 +477,7 @@ function FinalContent({
   cardStyle?: { opacity: MV; x: MV };
   interactive?: MV;
 }) {
+  const t = useT(copy);
   // Only accept clicks once the final scene is visible.
   const pointerEvents = useTransform(interactive ?? ONE, (v) =>
     v > 0.5 ? "auto" : "none",
@@ -446,12 +495,11 @@ function FinalContent({
         <div className="flex flex-col items-center justify-between gap-10 lg:flex-row lg:gap-16">
           <div className="w-full space-y-7 lg:w-1/2">
             <h2 className="text-4xl font-semibold leading-tight tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] sm:text-5xl">
-              Coverage for your whole{" "}
-              <span className="text-cosmic">world.</span>
+              {t.finalHeading}{" "}
+              <span className="text-cosmic">{t.finalHeadingAccent}</span>
             </h2>
             <p className="max-w-lg text-lg text-white/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
-              Get a real price on your auto insurance in less than 10 minutes.
-              All policies under one roof.
+              {t.finalText}
             </p>
             <div className="flex flex-wrap gap-4">
               <QuoteButton />
@@ -460,17 +508,17 @@ function FinalContent({
                 className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-lg font-semibold text-white transition hover:border-white hover:bg-white/10"
               >
                 <Phone className="h-5 w-5" />
-                Call Us Now
+                {t.callButton}
               </a>
             </div>
             <div className="flex flex-wrap items-center gap-8 pt-2">
-              {stats.map((s) => (
-                <div key={s.label} className="text-center">
+              {statValues.map((value, i) => (
+                <div key={i} className="text-center">
                   <p className="text-3xl font-black text-white drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)] sm:text-4xl">
-                    {s.value}
+                    {value}
                   </p>
                   <p className="mt-1 text-xs font-semibold text-white/80">
-                    {s.label}
+                    {t.stats[i]}
                   </p>
                 </div>
               ))}
@@ -487,23 +535,23 @@ function FinalContent({
                 className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ember-300/70 to-transparent"
               />
               <h3 className="mb-6 text-xl font-bold text-white">
-                All Your Insurance, One Place
+                {t.cardTitle}
               </h3>
               <ul className="space-y-5">
-                {heroFeatures.map((feat) => (
-                  <li key={feat.label} className="flex items-start gap-4">
+                {heroFeatureIcons.map((Icon, i) => (
+                  <li key={i} className="flex items-start gap-4">
                     <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-nebula-500/30 to-ember-500/20 text-white ring-1 ring-white/15">
-                      <feat.icon className="h-5 w-5" />
+                      <Icon className="h-5 w-5" />
                     </div>
                     <span className="pt-1.5 text-base leading-relaxed text-white">
-                      {feat.label}
+                      {t.features[i]}
                     </span>
                   </li>
                 ))}
               </ul>
               <div className="mt-6 flex items-center gap-2 border-t border-white/10 pt-6 text-sm text-primary-100">
                 <CheckCircle2 className="h-4 w-4 text-ember-300" />
-                100% Satisfaction Guaranteed — Free rate revisions anytime
+                {t.guarantee}
               </div>
             </div>
           </motion.div>

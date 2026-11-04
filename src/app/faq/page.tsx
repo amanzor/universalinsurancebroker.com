@@ -5,8 +5,28 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Phone, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
-import { faqs } from "@/lib/faqs";
+import { faqsByLang } from "@/lib/faqs";
+import { useLang, useT } from "@/lib/useLang";
 import PolicyAccordion from "@/components/PolicyAccordion";
+
+const copy = {
+  en: {
+    heroTitle: "Frequently Asked Questions",
+    heroText:
+      "Find answers to common questions about our insurance services. Can't find what you're looking for? Give us a call!",
+    ctaTitle: "Still Have Questions?",
+    ctaText: "Our team is ready to help you find the right coverage. Reach out today!",
+    emailUs: "Email Us",
+  },
+  es: {
+    heroTitle: "Preguntas Frecuentes",
+    heroText:
+      "Encuentre respuestas a las preguntas más comunes sobre nuestros servicios de seguros. ¿No encuentra lo que busca? ¡Llámenos!",
+    ctaTitle: "¿Todavía Tiene Preguntas?",
+    ctaText: "Nuestro equipo está listo para ayudarle a encontrar la cobertura adecuada. ¡Comuníquese con nosotros hoy!",
+    emailUs: "Envíenos un Correo",
+  },
+};
 
 
 function FAQItem({ question, answer }: { question: string; answer: string }) {
@@ -44,7 +64,12 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
 }
 
 export default function FAQPage() {
-  const [activeCategory, setActiveCategory] = useState("General");
+  const lang = useLang();
+  const t = useT(copy);
+  const faqs = faqsByLang[lang];
+  // Track the active tab by position so it survives a language switch.
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeCategory = (faqs[activeIndex] ?? faqs[0]).category;
 
   return (
     <>
@@ -61,7 +86,7 @@ export default function FAQPage() {
             transition={{ duration: 0.7 }}
             className="text-4xl font-extrabold text-white sm:text-5xl"
           >
-            Frequently Asked Questions
+            {t.heroTitle}
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -69,8 +94,7 @@ export default function FAQPage() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="mt-6 text-lg text-primary-200 max-w-2xl mx-auto"
           >
-            Find answers to common questions about our insurance services.
-            Can&apos;t find what you&apos;re looking for? Give us a call!
+            {t.heroText}
           </motion.p>
         </div>
       </section>
@@ -85,10 +109,10 @@ export default function FAQPage() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-wrap gap-2 mb-12"
           >
-            {faqs.map((cat) => (
+            {faqs.map((cat, i) => (
               <button
                 key={cat.category}
-                onClick={() => setActiveCategory(cat.category)}
+                onClick={() => setActiveIndex(i)}
                 className={cn(
                   "rounded-full px-5 py-2 text-sm font-medium transition-all duration-200",
                   activeCategory === cat.category
@@ -129,10 +153,10 @@ export default function FAQPage() {
       <section className="bg-gray-50 py-20 md:py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
           <h2 className="text-3xl font-bold text-primary-900 sm:text-4xl">
-            Still Have Questions?
+            {t.ctaTitle}
           </h2>
           <p className="mt-4 text-lg text-gray-600">
-            Our team is ready to help you find the right coverage. Reach out today!
+            {t.ctaText}
           </p>
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
@@ -147,7 +171,7 @@ export default function FAQPage() {
               className="inline-flex items-center gap-2 rounded-full border-2 border-primary-800 px-8 py-4 text-lg font-semibold text-primary-800 transition hover:bg-primary-50"
             >
               <Mail className="h-5 w-5" />
-              Email Us
+              {t.emailUs}
             </a>
           </div>
         </div>

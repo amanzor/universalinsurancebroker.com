@@ -19,6 +19,40 @@ import {
 import { COMPANY } from "@/lib/constants";
 import DealerVentures from "@/components/DealerVentures";
 import ScrollHero from "@/components/ScrollHero";
+import { useLang, useT, useLocalizePath } from "@/lib/useLang";
+
+/* ------------------------------------------------------------------ */
+/*  Copy                                                               */
+/* ------------------------------------------------------------------ */
+
+const copy = {
+  en: {
+    servicesTitle: "Comprehensive Insurance Solutions",
+    servicesSubtitle:
+      "From auto to health, we've got you covered with the best rates from 100+ carriers.",
+    learnMore: "Learn More",
+    whyTitle: (name: string) => `Why Choose ${name}?`,
+    locationsTitle: "Visit Us at Our Florida Offices",
+    getDirections: "Get Directions",
+    reviewTitle: "Your Opinion Matters!",
+    reviewText:
+      "We love hearing from our clients. Your feedback helps us serve you better.",
+    reviewButton: "Leave a Google Review",
+  },
+  es: {
+    servicesTitle: "Soluciones de Seguros Integrales",
+    servicesSubtitle:
+      "Desde auto hasta salud, lo tenemos cubierto con las mejores tarifas de más de 100 aseguradoras.",
+    learnMore: "Más Información",
+    whyTitle: (name: string) => `¿Por Qué Elegir ${name}?`,
+    locationsTitle: "Visítenos en Nuestras Oficinas de Florida",
+    getDirections: "Cómo Llegar",
+    reviewTitle: "¡Su Opinión Es Importante!",
+    reviewText:
+      "Nos encanta saber de nuestros clientes. Sus comentarios nos ayudan a servirle mejor.",
+    reviewButton: "Déjenos una Reseña en Google",
+  },
+};
 
 /* ------------------------------------------------------------------ */
 /*  Animation helpers                                                  */
@@ -48,36 +82,47 @@ function useAnimateInView() {
 const services = [
   {
     icon: Car,
-    title: "Auto Insurance",
+    title: { en: "Auto Insurance", es: "Seguro de Auto" },
     href: "/auto-insurance",
-    description:
-      "On-the-spot quotes in under 10 minutes with 100+ carriers to find you the lowest rate.",
+    description: {
+      en: "On-the-spot quotes in under 10 minutes with 100+ carriers to find you the lowest rate.",
+      es: "Cotizaciones al instante en menos de 10 minutos con más de 100 aseguradoras para encontrarle la tarifa más baja.",
+    },
   },
   {
     icon: Building2,
-    title: "Commercial Insurance",
+    title: { en: "Commercial Insurance", es: "Seguro Comercial" },
     href: "/commercial-insurance",
-    description:
-      "Coverage for 10,000+ business types — general liability, workers comp, commercial auto & more.",
+    description: {
+      en: "Coverage for 10,000+ business types — general liability, workers comp, commercial auto & more.",
+      es: "Cobertura para más de 10,000 tipos de negocio — responsabilidad civil general, compensación laboral, auto comercial y más.",
+    },
   },
   {
     icon: Home,
-    title: "Home Insurance",
+    title: { en: "Home Insurance", es: "Seguro de Hogar" },
     href: "/home-insurance",
-    description:
-      "Homeowners, landlord, and renters insurance with best-in-class quote comparisons.",
+    description: {
+      en: "Homeowners, landlord, and renters insurance with best-in-class quote comparisons.",
+      es: "Seguros para propietarios de vivienda, arrendadores e inquilinos, con las mejores comparaciones de cotizaciones.",
+    },
   },
   {
     icon: HeartPulse,
-    title: "Health Insurance",
+    title: { en: "Health Insurance", es: "Seguro de Salud" },
     href: "/health-insurance",
-    description:
-      "Individual health insurance at zero cost to you through the Affordable Care Act.",
+    description: {
+      en: "Individual health insurance at zero cost to you through the Affordable Care Act.",
+      es: "Seguro de salud individual sin costo para usted a través de la Ley de Cuidado de Salud Asequible (ACA).",
+    },
   },
 ];
 
 function ServicesSection() {
   const { ref, inView } = useAnimateInView();
+  const lang = useLang();
+  const t = useT(copy);
+  const lp = useLocalizePath();
 
   return (
     <section ref={ref} className="bg-white py-24">
@@ -93,15 +138,14 @@ function ServicesSection() {
             transition={spring}
             className="text-3xl font-bold text-primary-900 sm:text-4xl"
           >
-            Comprehensive Insurance Solutions
+            {t.servicesTitle}
           </motion.h2>
           <motion.p
             variants={fadeUp}
             transition={spring}
             className="mx-auto mt-4 max-w-2xl text-lg text-gray-600"
           >
-            From auto to health, we&apos;ve got you covered with the best rates
-            from 100+ carriers.
+            {t.servicesSubtitle}
           </motion.p>
         </motion.div>
 
@@ -113,7 +157,7 @@ function ServicesSection() {
         >
           {services.map((s) => (
             <motion.div
-              key={s.title}
+              key={s.href}
               variants={fadeUp}
               transition={spring}
               whileHover={{ scale: 1.04, y: -4 }}
@@ -123,16 +167,16 @@ function ServicesSection() {
                 <s.icon className="h-7 w-7" />
               </div>
               <h3 className="mt-5 text-xl font-semibold text-primary-900">
-                {s.title}
+                {s.title[lang]}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-gray-600">
-                {s.description}
+                {s.description[lang]}
               </p>
               <Link
-                href={s.href}
+                href={lp(s.href)}
                 className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-400 transition hover:text-accent-700"
               >
-                Learn More <ArrowRight className="h-4 w-4" />
+                {t.learnMore} <ArrowRight className="h-4 w-4" />
               </Link>
             </motion.div>
           ))}
@@ -149,26 +193,43 @@ function ServicesSection() {
 const reasons = [
   {
     icon: Shield,
-    title: "ALL YOUR INSURANCE POLICIES UNDER ONE ROOF",
-    description:
-      "Manage all your insurance — auto, home, commercial, health — in one place with one trusted team.",
+    title: {
+      en: "ALL YOUR INSURANCE POLICIES UNDER ONE ROOF",
+      es: "TODAS SUS PÓLIZAS DE SEGURO BAJO UN MISMO TECHO",
+    },
+    description: {
+      en: "Manage all your insurance — auto, home, commercial, health — in one place with one trusted team.",
+      es: "Administre todos sus seguros — auto, hogar, comercial, salud — en un solo lugar con un equipo de confianza.",
+    },
   },
   {
     icon: Award,
-    title: "100% SATISFACTION GUARANTEED AND FREE RATE REVISIONS",
-    description:
-      "We work for you, not the insurance companies.",
+    title: {
+      en: "100% SATISFACTION GUARANTEED AND FREE RATE REVISIONS",
+      es: "SATISFACCIÓN 100% GARANTIZADA Y REVISIÓN DE TARIFAS GRATIS",
+    },
+    description: {
+      en: "We work for you, not the insurance companies.",
+      es: "Trabajamos para usted, no para las aseguradoras.",
+    },
   },
   {
     icon: Clock,
-    title: "10+ YEARS OF EXPERIENCE IN THE INSURANCE INDUSTRY",
-    description:
-      "Our deep industry knowledge and carrier relationships mean better coverage at lower prices.",
+    title: {
+      en: "10+ YEARS OF EXPERIENCE IN THE INSURANCE INDUSTRY",
+      es: "10+ AÑOS DE EXPERIENCIA EN LA INDUSTRIA DE SEGUROS",
+    },
+    description: {
+      en: "Our deep industry knowledge and carrier relationships mean better coverage at lower prices.",
+      es: "Nuestro profundo conocimiento de la industria y nuestras relaciones con las aseguradoras significan mejor cobertura a menores precios.",
+    },
   },
 ];
 
 function WhyChooseUsSection() {
   const { ref, inView } = useAnimateInView();
+  const lang = useLang();
+  const t = useT(copy);
 
   return (
     <section ref={ref} className="bg-gray-50 py-24">
@@ -180,7 +241,7 @@ function WhyChooseUsSection() {
           transition={spring}
           className="text-center text-3xl font-bold text-primary-900 sm:text-4xl"
         >
-          Why Choose {COMPANY.name}?
+          {t.whyTitle(COMPANY.name)}
         </motion.h2>
 
         <motion.div
@@ -191,7 +252,7 @@ function WhyChooseUsSection() {
         >
           {reasons.map((r) => (
             <motion.div
-              key={r.title}
+              key={r.title.en}
               variants={fadeUp}
               transition={spring}
               className="text-center"
@@ -200,9 +261,9 @@ function WhyChooseUsSection() {
                 <r.icon className="h-8 w-8" />
               </div>
               <h3 className="mt-5 text-xl font-semibold text-primary-900">
-                {r.title}
+                {r.title[lang]}
               </h3>
-              <p className="mt-2 text-gray-600">{r.description}</p>
+              <p className="mt-2 text-gray-600">{r.description[lang]}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -217,6 +278,8 @@ function WhyChooseUsSection() {
 
 function LocationsSection() {
   const { ref, inView } = useAnimateInView();
+  const lang = useLang();
+  const t = useT(copy);
 
   return (
     <section ref={ref} className="bg-white py-24">
@@ -228,7 +291,7 @@ function LocationsSection() {
           transition={spring}
           className="text-center text-3xl font-bold text-primary-900 sm:text-4xl"
         >
-          Visit Us at Our Florida Offices
+          {t.locationsTitle}
         </motion.h2>
 
         <motion.div
@@ -252,7 +315,7 @@ function LocationsSection() {
                   <MapPin className="h-6 w-6" />
                 </div>
                 <h3 className="mt-4 text-lg font-semibold text-primary-900">
-                  {loc.name}
+                  {lang === "es" ? loc.nameEs : loc.name}
                 </h3>
                 <p className="mt-1 text-sm text-gray-600">
                   {loc.address}
@@ -265,7 +328,7 @@ function LocationsSection() {
                   rel="noopener noreferrer"
                   className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-400 transition hover:text-accent-700"
                 >
-                  Get Directions <ExternalLink className="h-4 w-4" />
+                  {t.getDirections} <ExternalLink className="h-4 w-4" />
                 </a>
               </motion.div>
             );
@@ -282,6 +345,7 @@ function LocationsSection() {
 
 function ReviewCTASection() {
   const { ref, inView } = useAnimateInView();
+  const t = useT(copy);
 
   return (
     <section ref={ref} className="bg-gray-50 py-24">
@@ -303,15 +367,14 @@ function ReviewCTASection() {
           transition={spring}
           className="mt-6 text-3xl font-bold text-primary-900 sm:text-4xl"
         >
-          Your Opinion Matters!
+          {t.reviewTitle}
         </motion.h2>
         <motion.p
           variants={fadeUp}
           transition={spring}
           className="mt-4 text-lg text-gray-600"
         >
-          We love hearing from our clients. Your feedback helps us serve you
-          better.
+          {t.reviewText}
         </motion.p>
         <motion.div variants={fadeUp} transition={spring} className="mt-8">
           <a
@@ -320,7 +383,7 @@ function ReviewCTASection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-primary-800 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-primary-900"
           >
-            Leave a Google Review
+            {t.reviewButton}
             <ExternalLink className="h-5 w-5" />
           </a>
         </motion.div>
