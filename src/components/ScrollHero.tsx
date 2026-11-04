@@ -369,7 +369,7 @@ export default function ScrollHero() {
         >
           <div className="max-w-4xl text-center">
             <motion.p
-              initial={{ opacity: 0, y: 20, letterSpacing: "0.6em" }}
+              initial={{ opacity: 0.25, y: 20, letterSpacing: "0.6em" }}
               animate={mounted ? { opacity: 1, y: 0, letterSpacing: "0.35em" } : {}}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
               className="mb-6 text-xs font-semibold uppercase text-ember-300 sm:text-sm"
@@ -377,7 +377,7 @@ export default function ScrollHero() {
               {t.eyebrow}
             </motion.p>
             <motion.h1
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0.25, y: 40 }}
               animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="text-5xl font-semibold leading-[1.02] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.7)] sm:text-7xl lg:text-8xl"
@@ -387,7 +387,7 @@ export default function ScrollHero() {
               <span className="text-cosmic">{t.titleLine2}</span>
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0.25, y: 30 }}
               animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="mx-auto mt-6 max-w-xl text-lg text-white/85 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] sm:text-xl"
@@ -395,7 +395,7 @@ export default function ScrollHero() {
               {t.subtitle}
             </motion.p>
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0.25, y: 30 }}
               animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
               className="mt-10 flex flex-wrap justify-center gap-4"

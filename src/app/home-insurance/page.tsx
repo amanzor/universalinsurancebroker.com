@@ -24,6 +24,13 @@ import { COMPANY } from "@/lib/constants";
 import { useLang, useT, useLocalizePath } from "@/lib/useLang";
 import { faq } from "@/lib/content/home-insurance";
 
+// The intro right below the hero is on screen at load: animate it on mount
+// from partly visible so it paints before hydration (better LCP).
+const introFade = {
+  hidden: { opacity: 0.25, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
+};
+
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
   visible: (i: number) => ({
@@ -344,7 +351,7 @@ export default function HomeInsurancePage() {
         />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.h1
-            initial={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0.25, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 "
@@ -352,7 +359,7 @@ export default function HomeInsurancePage() {
             {t.heroTitle}
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
+            initial={{ opacity: 0.25, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto"
@@ -367,9 +374,8 @@ export default function HomeInsurancePage() {
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
+            animate="visible"
+            variants={introFade}
             custom={0}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">

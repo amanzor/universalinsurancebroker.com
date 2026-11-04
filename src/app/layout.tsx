@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import JsonLd from "@/components/JsonLd";
+import MobileCtaBar from "@/components/MobileCtaBar";
 import { OG_IMAGE, SITE_URL, hreflangAlternates, organizationJsonLd } from "@/lib/seo";
 import { HOME_SEO } from "@/lib/routeSeo";
 
@@ -46,11 +47,12 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="font-sans antialiased">
+      <body className="font-sans antialiased pb-[calc(4.5rem+env(safe-area-inset-bottom))] lg:pb-0">
         <JsonLd data={organizationJsonLd()} />
         <Header />
         <main className="min-h-screen">{children}</main>
         <Footer />
+        <MobileCtaBar />
       </body>
     </html>
   );

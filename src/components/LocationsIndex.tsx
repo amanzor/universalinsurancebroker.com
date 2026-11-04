@@ -35,7 +35,7 @@ export default function LocationsIndex() {
       <section className="bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 pt-32 pb-20 text-white">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.25, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-4xl font-bold tracking-tight sm:text-5xl"
@@ -43,7 +43,7 @@ export default function LocationsIndex() {
             {t.title}
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0.25, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="mx-auto mt-5 max-w-2xl text-lg text-primary-100"
@@ -51,7 +51,7 @@ export default function LocationsIndex() {
             {t.subtitle}
           </motion.p>
           <motion.p
-            initial={{ opacity: 0 }}
+            initial={{ opacity: 0.25 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm font-semibold"
