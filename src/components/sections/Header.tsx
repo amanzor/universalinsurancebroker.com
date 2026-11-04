@@ -158,7 +158,7 @@ export default function Header() {
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <Image
-                src={asset("/images/logo-hd.png")}
+                src={asset("/images/logo.webp")}
                 alt="Universal Insurance Brokers"
                 width={260}
                 height={80}
@@ -322,7 +322,7 @@ export default function Header() {
                   className="flex items-center gap-2"
                   onClick={() => setMobileOpen(false)}
                 >
-                  <Image src={asset("/images/logo-hd.png")} alt="UIB" width={120} height={40} className="h-8 w-auto object-contain" />
+                  <Image src={asset("/images/logo.webp")} alt="UIB" width={120} height={40} className="h-8 w-auto object-contain" />
                 </Link>
                 <button
                   onClick={() => setMobileOpen(false)}
