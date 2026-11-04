@@ -48,6 +48,22 @@
       inset 0 1px 3px rgba(255,255,255,0.9),
       inset 0 -1px 2px rgba(0,0,0,0.06);
   }
+  .text-cosmic {
+    background: linear-gradient(100deg, #c4b5fd 0%, #a78bfa 22%, #93c5fd 45%, #fdba74 70%, #a78bfa 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 6s linear infinite;
+    filter: drop-shadow(0 2px 18px rgba(124, 58, 237, 0.35));
+  }
+  @keyframes shimmer {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .text-cosmic { animation: none; }
+  }
   .heading-silver-light {
     background: linear-gradient(135deg, #c4cbd6 0%, #dce1e8 15%, #f5f7fa 30%, #ffffff 50%, #f5f7fa 70%, #dce1e8 85%, #c4cbd6 100%);
     -webkit-background-clip: text;

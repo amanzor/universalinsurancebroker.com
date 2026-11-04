@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import {
   Car,
@@ -13,15 +12,13 @@ import {
   Award,
   Clock,
   MapPin,
-  Phone,
   Star,
   ArrowRight,
   ExternalLink,
-  CheckCircle2,
 } from "lucide-react";
-import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 import DealerVentures from "@/components/DealerVentures";
+import ScrollHero from "@/components/ScrollHero";
 
 /* ------------------------------------------------------------------ */
 /*  Animation helpers                                                  */
@@ -30,11 +27,6 @@ import DealerVentures from "@/components/DealerVentures";
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0 },
-};
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1 },
 };
 
 const stagger = {
@@ -47,160 +39,6 @@ function useAnimateInView() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   return { ref, inView };
-}
-
-/* ------------------------------------------------------------------ */
-/*  Section 1 — Hero                                                   */
-/* ------------------------------------------------------------------ */
-
-const stats = [
-  { value: "10+", label: "Years Experience" },
-  { value: "100+", label: "Insurance Carriers" },
-  { value: "4", label: "Florida Locations" },
-  { value: "100%", label: "Satisfaction" },
-];
-
-const heroFeatures = [
-  { icon: Car, label: "Auto Insurance — quotes in under 10 minutes" },
-  { icon: Building2, label: "Commercial Insurance — 10,000+ business types" },
-  { icon: Home, label: "Home Insurance — best-in-class comparisons" },
-  { icon: HeartPulse, label: "Health Insurance — zero cost through ACA" },
-];
-
-function HeroSection() {
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    setIsLoaded(true);
-  }, []);
-
-  return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-b from-primary-900 to-primary-950">
-      {/* Hero background video */}
-      <div className="absolute inset-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 h-full w-full object-cover"
-        >
-          <source src={asset("/images/hero-loop.mp4")} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-900/40 via-primary-900/30 to-primary-950/80" />
-      </div>
-      {/* Decorative orbs */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -top-32 -left-32 h-[500px] w-[500px] rounded-full bg-primary-700/20 blur-3xl" />
-        <div className="absolute top-1/3 right-0 h-[400px] w-[400px] rounded-full bg-accent-500/10 blur-3xl" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-6 py-32">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-          {/* Left side — Text & CTAs */}
-          <div className="w-full lg:w-1/2 space-y-8">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-4xl font-semibold leading-tight tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] sm:text-5xl md:text-6xl"
-            >
-              Protect What{" "}
-              <span>Matters Most</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              className="text-lg text-white max-w-lg drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]"
-            >
-              Welcome to the future of online insurance. Get a real price on
-              your auto insurance in less than 10 minutes. All policies under
-              one roof.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.6 }}
-              className="flex flex-wrap gap-4"
-            >
-              <a
-                href="https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-silver-3d inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-semibold text-primary-900 transition-all duration-300 group"
-              >
-                Get a Free Quote
-                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
-                href={`tel:${COMPANY.phone.replace(/[^\d+]/g, "")}`}
-                className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-8 py-4 text-lg font-semibold text-white transition hover:border-white hover:bg-white/10"
-              >
-                <Phone className="h-5 w-5" />
-                Call Us Now
-              </a>
-            </motion.div>
-
-            {/* Stats row + Trust badges */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isLoaded ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.7, delay: 0.8 }}
-              className="flex flex-wrap items-center gap-8 pt-4"
-            >
-              {stats.map((s) => (
-                <div key={s.label} className="text-center">
-                  <p className="text-4xl font-black text-white drop-shadow-[0_3px_12px_rgba(0,0,0,0.85)] drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]">{s.value}</p>
-                  <p className="text-xs text-white mt-1 font-semibold drop-shadow-[0_2px_6px_rgba(0,0,0,0.7)]">{s.label}</p>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Right side — Feature showcase card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={isLoaded ? { opacity: 1, scale: 1 } : {}}
-            transition={{ duration: 1, delay: 0.5 }}
-            className="w-full lg:w-5/12 relative"
-          >
-            <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-8 shadow-2xl">
-              <h3 className="text-xl font-bold text-white mb-6">
-                All Your Insurance, One Place
-              </h3>
-              <ul className="space-y-5">
-                {heroFeatures.map((feat, index) => (
-                  <motion.li
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={isLoaded ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.5, delay: 0.7 + index * 0.15 }}
-                    className="flex items-start gap-4"
-                  >
-                    <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-lg bg-accent-400/20 text-accent-400">
-                      <feat.icon className="h-5 w-5" />
-                    </div>
-                    <span className="text-base text-white leading-relaxed pt-1.5">
-                      {feat.label}
-                    </span>
-                  </motion.li>
-                ))}
-              </ul>
-              <div className="mt-6 pt-6 border-t border-white/10 flex items-center gap-2 text-sm text-primary-100">
-                <CheckCircle2 className="h-4 w-4 text-accent-400" />
-                100% Satisfaction Guaranteed — Free rate revisions anytime
-              </div>
-            </div>
-            <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent-500/10 rounded-full blur-2xl" />
-            <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-primary-500/10 rounded-full blur-2xl" />
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
 }
 
 /* ------------------------------------------------------------------ */
@@ -374,64 +212,6 @@ function WhyChooseUsSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Section 4 — CTA Banner                                             */
-/* ------------------------------------------------------------------ */
-
-function CTABannerSection() {
-  const { ref, inView } = useAnimateInView();
-
-  return (
-    <section
-      ref={ref}
-      className="silver-banner-3d py-20"
-    >
-      <motion.div
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={stagger}
-        className="mx-auto max-w-4xl px-6 text-center"
-      >
-        <motion.h2
-          variants={fadeUp}
-          transition={spring}
-          className="text-3xl font-bold text-white sm:text-4xl"
-        >
-          Ready to Save on Your Insurance?
-        </motion.h2>
-        <motion.p
-          variants={fadeUp}
-          transition={spring}
-          className="mt-4 text-lg text-white/90"
-        >
-          Get your free quote in under 10 minutes. No obligations, no hidden
-          fees.
-        </motion.p>
-        <motion.div
-          variants={fadeUp}
-          transition={spring}
-          className="mt-8 flex flex-col items-center gap-4"
-        >
-          <Link
-            href="/quotes"
-            className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-semibold text-primary-900 shadow-lg transition hover:bg-gray-50"
-          >
-            Quote My Insurance Now!
-            <ArrowRight className="h-5 w-5" />
-          </Link>
-          <a
-            href={`tel:${COMPANY.phone.replace(/[^\d+]/g, "")}`}
-            className="inline-flex items-center gap-2 text-white/90 transition hover:text-white"
-          >
-            <Phone className="h-5 w-5" />
-            Or call us: {COMPANY.phone}
-          </a>
-        </motion.div>
-      </motion.div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
 /*  Section 5 — Locations                                              */
 /* ------------------------------------------------------------------ */
 
@@ -556,7 +336,7 @@ function ReviewCTASection() {
 export default function HomePage() {
   return (
     <main>
-      <HeroSection />
+      <ScrollHero />
       <ServicesSection />
       <WhyChooseUsSection />
       <DealerVentures />
