@@ -1,5 +1,9 @@
 // FAQ content, shared by the FAQ page and its FAQPage structured data.
-export const faqs: { category: string; questions: { q: string; a: string }[] }[] = [
+import type { Lang } from "@/lib/i18n";
+
+export type FaqCategory = { category: string; questions: { q: string; a: string }[] };
+
+export const faqs: FaqCategory[] = [
   {
     category: "General",
     questions: [
@@ -111,3 +115,118 @@ export const faqs: { category: string; questions: { q: string; a: string }[] }[]
     ],
   },
 ];
+
+export const faqsEs: FaqCategory[] = [
+  {
+    category: "General",
+    questions: [
+      {
+        q: "¿Qué tipos de seguro ofrecen?",
+        a: "Ofrecemos una amplia variedad de productos de seguro, incluidos Seguro de Auto, Seguro de Hogar, Seguro Comercial y Seguro de Salud. Como corredores independientes, trabajamos con más de 100 aseguradoras para encontrarle la mejor cobertura a las tarifas más bajas.",
+      },
+      {
+        q: "¿Desde cuándo opera Universal Insurance Brokers?",
+        a: "Universal Insurance Brokers se enorgullece de servir a Florida desde 2016. Con más de 10 años de experiencia en la industria de seguros, hemos construido sólidas relaciones con las aseguradoras y un profundo conocimiento de las necesidades de nuestros clientes.",
+      },
+      {
+        q: "¿Qué áreas atienden?",
+        a: "Atendemos todo el estado de Florida, con oficinas en Boca Raton, Lehigh Acres, Homestead y Hialeah. También podemos atender a nuestros clientes a distancia por teléfono y correo electrónico.",
+      },
+      {
+        q: "¿Qué los diferencia de otras agencias de seguros?",
+        a: "Como corredores independientes, no estamos atados a ninguna compañía de seguros. Comparamos más de 100 aseguradoras para encontrarle la mejor cobertura al precio más competitivo. Además, le ofrecemos 100% de satisfacción garantizada con revisiones de tarifa gratuitas en cualquier momento.",
+      },
+    ],
+  },
+  {
+    category: "Seguro de Auto",
+    questions: [
+      {
+        q: "¿Qué tan rápido puedo obtener una cotización de seguro de auto?",
+        a: "¡Puede obtener un precio real de su seguro de auto en menos de 10 minutos! Le damos cotizaciones al instante comparando simultáneamente las tarifas de más de 100 aseguradoras.",
+      },
+      {
+        q: "¿Qué factores influyen en la tarifa de mi seguro de auto?",
+        a: "Varios factores determinan su tarifa, entre ellos su historial de manejo, su edad, el tipo de vehículo, su ubicación, su puntaje de crédito, los límites de cobertura y el deducible que elija. Le ayudamos a entender cada factor y a encontrar la mejor tarifa.",
+      },
+      {
+        q: "¿Pueden ayudarme si tengo un mal historial de manejo?",
+        a: "¡Por supuesto! Como trabajamos con múltiples aseguradoras, a menudo podemos encontrar tarifas competitivas incluso para conductores con accidentes, multas o un DUI/DWI (manejar bajo la influencia de alcohol o drogas) en su historial. Nos especializamos en encontrar cobertura para todo tipo de conductor.",
+      },
+      {
+        q: "¿Necesito un SR-22?",
+        a: "Si le suspendieron la licencia o fue condenado por ciertas infracciones, es posible que necesite presentar un SR-22. Podemos ayudarle a obtener un seguro con SR-22 de forma rápida y económica.",
+      },
+    ],
+  },
+  {
+    category: "Seguro de Hogar",
+    questions: [
+      {
+        q: "¿Qué cubre el seguro de hogar?",
+        a: "Un seguro de hogar estándar normalmente cubre la vivienda, sus bienes personales, la responsabilidad civil y los gastos de vida adicionales si su casa queda inhabitable. También podemos agregar endosos para inundación, huracán y otras coberturas específicas.",
+      },
+      {
+        q: "¿Necesito seguro contra inundaciones en Florida?",
+        a: "Aunque no siempre es obligatorio, el seguro contra inundaciones es muy recomendable en Florida. Las pólizas de hogar estándar no cubren los daños por inundación. Podemos ayudarle a determinar su riesgo de inundación y a encontrar una cobertura contra inundaciones asequible.",
+      },
+      {
+        q: "¿Ofrecen seguro para inquilinos?",
+        a: "¡Sí! Ofrecemos seguro para inquilinos que protege sus pertenencias personales e incluye cobertura de responsabilidad civil. Es económico y muy recomendable para todos los inquilinos.",
+      },
+    ],
+  },
+  {
+    category: "Seguro Comercial",
+    questions: [
+      {
+        q: "¿Qué tipos de negocios aseguran?",
+        a: "Ofrecemos cobertura para más de 10,000 tipos de negocios, incluidos restaurantes, contratistas, tiendas minoristas, oficinas, compañías de transporte de carga y muchos más. Sin importar su industria, podemos encontrar la cobertura adecuada.",
+      },
+      {
+        q: "¿Qué pólizas comerciales ofrecen?",
+        a: "Ofrecemos, entre otras, Responsabilidad Civil General, Compensación Laboral, Auto Comercial, Propiedad Comercial, Responsabilidad Civil Profesional (E&O, Errores y Omisiones), Póliza Paraguas Comercial y Póliza para Dueños de Negocios (BOP).",
+      },
+      {
+        q: "¿Qué tan rápido puedo obtener una cotización de seguro comercial?",
+        a: "Muchas cotizaciones comerciales se pueden entregar el mismo día. Los riesgos más complejos pueden tardar de 24 a 48 horas, ya que comparamos varias aseguradoras para asegurarnos de que obtenga la mejor cobertura y el mejor precio.",
+      },
+    ],
+  },
+  {
+    category: "Seguro de Salud",
+    questions: [
+      {
+        q: "¿De verdad sus servicios de seguro de salud no tienen costo?",
+        a: "¡Así es! A través de la Ley de Cuidado de Salud Asequible (ACA), nuestros servicios de asesoría en seguros de salud no tienen ningún costo para usted. Le ayudamos a navegar el Mercado de Seguros Médicos y a encontrar el plan que se ajuste a sus necesidades y a su presupuesto.",
+      },
+      {
+        q: "¿Cuándo puedo inscribirme en un seguro de salud?",
+        a: "La inscripción abierta normalmente va del 1 de noviembre al 15 de enero de cada año. Sin embargo, usted podría calificar para un Período de Inscripción Especial por eventos de vida como matrimonio, el nacimiento de un hijo, la pérdida de cobertura o una mudanza.",
+      },
+      {
+        q: "¿Pueden ayudarme con Medicare?",
+        a: "Sí, podemos ayudarle a entender sus opciones de Medicare, incluidos Medicare Advantage, Medicare Suplementario (Medigap) y los planes de medicamentos recetados de la Parte D.",
+      },
+    ],
+  },
+  {
+    category: "Pagos y Reclamaciones",
+    questions: [
+      {
+        q: "¿Qué métodos de pago aceptan?",
+        a: "Los métodos de pago varían según la aseguradora, pero normalmente incluyen tarjetas de crédito/débito, transferencias bancarias electrónicas (EFT), cheques y portales de pago en línea. Le ayudaremos a configurar la opción de pago más conveniente.",
+      },
+      {
+        q: "¿Cómo presento una reclamación?",
+        a: "Puede comunicarse directamente con su aseguradora o llamar a nuestra oficina y le guiaremos en el proceso de reclamación. Estamos aquí para defender sus intereses en cada paso del camino.",
+      },
+      {
+        q: "¿Puedo cambiar mi cobertura antes de que termine la póliza?",
+        a: "¡Sí! Puede hacer cambios a su cobertura en cualquier momento. Comuníquese con nosotros y le ayudaremos a ajustar su póliza a sus necesidades actuales. También ofrecemos revisiones de tarifa gratuitas en cualquier momento.",
+      },
+    ],
+  },
+];
+
+export const faqsByLang: Record<Lang, FaqCategory[]> = { en: faqs, es: faqsEs };
