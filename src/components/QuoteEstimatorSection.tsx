@@ -350,7 +350,7 @@ export default function QuoteEstimatorSection() {
           transition={{ delay: 0.5 }}
           className="text-center text-sm text-primary-600 mt-6"
         >
-          Takes less than 2 minutes • No credit card required • Get quotes from 20+ carriers
+          Takes less than 2 minutes • No credit card required • Get quotes from 100+ carriers
         </motion.p>
       </div>
 
