@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { HeartPulse, Phone, ArrowRight, ShieldCheck, DollarSign } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 
 const fadeIn = {
@@ -20,7 +20,10 @@ export default function HealthInsurancePage() {
     <>
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-primary-900 to-primary-800 text-white py-24 md:py-32">
-        <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5" />
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{ backgroundImage: `url(${asset("/images/pattern.svg")})` }}
+        />
         <div className="container mx-auto px-4 relative z-10 text-center">
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
