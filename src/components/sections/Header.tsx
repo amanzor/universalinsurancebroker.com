@@ -242,11 +242,12 @@ export default function Header() {
           </div>
 
           {/* Right Side */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4">
             <LanguageToggle />
             <a
               href={`tel:${COMPANY.phone.replace(/\D/g, "")}`}
-              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors"
+              aria-label={COMPANY.phone}
+              className="flex items-center gap-2 whitespace-nowrap text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors"
             >
               <motion.span
                 animate={{ scale: [1, 1.15, 1] }}
@@ -254,13 +255,14 @@ export default function Header() {
               >
                 <Phone className="h-4 w-4 text-primary-600" />
               </motion.span>
-              {COMPANY.phone}
+              {/* Number hidden on mid-size screens so the nav fits; icon stays tappable */}
+              <span className="hidden xl:inline">{COMPANY.phone}</span>
             </a>
             <a
               href={QUOTE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-silver-3d relative inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-primary-900 text-sm font-semibold transition-all duration-300 overflow-hidden group"
+              className="btn-silver-3d relative inline-flex items-center gap-2 whitespace-nowrap px-5 py-2.5 rounded-lg text-primary-900 text-sm font-semibold transition-all duration-300 overflow-hidden group"
             >
               <span className="relative z-10">{t.quote}</span>
               <motion.span

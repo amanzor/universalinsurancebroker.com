@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import { faqsByLang } from "@/lib/faqs";
+import { faq as autoFaq } from "@/lib/content/auto-insurance";
+import { faq as homeFaq } from "@/lib/content/home-insurance";
+import { faq as commercialFaq } from "@/lib/content/commercial-insurance";
+import { faq as healthFaq } from "@/lib/content/health-insurance";
+import type { PageFaq } from "@/lib/content/types";
+
+/** Page-specific Q&A shown on each service page. */
+const PAGE_FAQS: Partial<Record<RouteKey, PageFaq>> = {
+  "auto-insurance": autoFaq,
+  "home-insurance": homeFaq,
+  "commercial-insurance": commercialFaq,
+  "health-insurance": healthFaq,
+};
 import type { Lang } from "@/lib/i18n";
 import { breadcrumbJsonLd, pageMetadata, serviceJsonLd } from "@/lib/seo";
 
@@ -162,6 +175,19 @@ export function RouteJsonLd({ route, lang }: { route: RouteKey; lang: Lang }) {
   const data: object[] = [];
   if (c.service) data.push(serviceJsonLd(path, c.service, c.description, lang));
   data.push(breadcrumbJsonLd(path, c.crumb ?? c.service ?? c.title, lang));
+  const pageFaq = PAGE_FAQS[route];
+  if (pageFaq) {
+    data.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      inLanguage: lang === "es" ? "es-US" : "en-US",
+      mainEntity: pageFaq[lang].map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    });
+  }
   if (route === "faq") {
     data.push({
       "@context": "https://schema.org",
