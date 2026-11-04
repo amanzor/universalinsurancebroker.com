@@ -8,6 +8,7 @@ import { submitLead } from "@/lib/leads";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useLang, useLocalizePath, useT } from "@/lib/useLang";
+import { track } from "@/lib/analytics";
 
 const officeSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
 
@@ -270,6 +271,7 @@ function ContactForm() {
       },
     );
     if (result.ok) {
+      track("generate_lead", { form_name: "contact", site_language: isEs ? "es" : "en" });
       setStatus("sent");
       form.reset();
     } else {

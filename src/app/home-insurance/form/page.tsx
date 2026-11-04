@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 import { submitLead } from "@/lib/leads";
 import { useLang, useLocalizePath, useT } from "@/lib/useLang";
+import { track } from "@/lib/analytics";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -144,6 +145,7 @@ export default function HomeInsuranceFormPage() {
       fields,
     );
     if (result.ok) {
+      track("generate_lead", { form_name: "home_quote", site_language: isEs ? "es" : "en" });
       setStatus("sent");
       form.reset();
       window.scrollTo({ top: 0, behavior: "smooth" });
