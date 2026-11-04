@@ -121,6 +121,7 @@ export function organizationJsonLd() {
           "@type": "InsuranceAgency",
           "@id": `${SITE_URL}/#office-${i + 1}`,
           name: `${COMPANY.name} — ${loc.name}`,
+          url: `${SITE_URL}/locations/${loc.city.toLowerCase().replace(/\s+/g, "-")}`,
           telephone: phoneE164(
             loc.city === "Homestead" ? COMPANY.spitzerPhone : COMPANY.phone,
           ),

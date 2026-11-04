@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { localizePath } from "@/lib/i18n";
+import { OFFICES } from "@/lib/locations";
 
 export const dynamic = "force-static";
 
@@ -14,6 +15,8 @@ const routes: { path: string; priority: number; changeFrequency: "weekly" | "mon
   { path: "/faq", priority: 0.7, changeFrequency: "monthly" },
   { path: "/about", priority: 0.6, changeFrequency: "yearly" },
   { path: "/contact", priority: 0.6, changeFrequency: "yearly" },
+  { path: "/locations", priority: 0.7, changeFrequency: "yearly" },
+  ...OFFICES.map((o) => ({ path: `/locations/${o.slug}`, priority: 0.8, changeFrequency: "yearly" as const })),
 ];
 
 const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;

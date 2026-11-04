@@ -33,6 +33,7 @@ const insuranceLinks = [
 
 const companyLinks = [
   { label: { en: "About Us", es: "Nosotros" }, href: "/about" },
+  { label: { en: "Locations", es: "Oficinas" }, href: "/locations" },
   { label: { en: "FAQ", es: "Preguntas Frecuentes" }, href: "/faq" },
   { label: { en: "Contact", es: "Contacto" }, href: "/contact" },
   { label: { en: "Get a Quote", es: "Cotizar Ahora" }, href: QUOTE_URL },
@@ -83,6 +84,8 @@ const offices = [
     state: "FL 33014",
   },
 ];
+
+const officeSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
 
 export default function Footer() {
   const ref = useRef<HTMLElement>(null);
@@ -226,9 +229,12 @@ export default function Footer() {
                 <div key={office.city} className="flex items-start gap-2">
                   <MapPin className="h-4 w-4 text-gray-400 mt-0.5 shrink-0" />
                   <div className="text-sm text-gray-400">
-                    <span className="font-medium text-gray-300">
+                    <Link
+                      href={lp(`/locations/${officeSlug(office.city)}`)}
+                      className="font-medium text-gray-300 hover:text-white underline-offset-2 hover:underline"
+                    >
                       {office.city}:
-                    </span>{" "}
+                    </Link>{" "}
                     {office.address}, {office.state}
                   </div>
                 </div>

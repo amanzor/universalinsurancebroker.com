@@ -6,7 +6,10 @@ import { Phone, Mail, Clock, MapPin, AlertCircle, CheckCircle2 } from "lucide-re
 import { COMPANY } from "@/lib/constants";
 import { submitLead } from "@/lib/leads";
 import { cn } from "@/lib/utils";
-import { useLang, useT } from "@/lib/useLang";
+import Link from "next/link";
+import { useLang, useLocalizePath, useT } from "@/lib/useLang";
+
+const officeSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
 
 const phoneNumbers = [
   { label: { en: "Current Policy", es: "Póliza Actual" }, number: COMPANY.phone },
@@ -40,6 +43,7 @@ const copy = {
 
 export default function ContactPage() {
   const lang = useLang();
+  const lp = useLocalizePath();
   const t = useT(copy);
   return (
     <main className="min-h-screen">
@@ -151,7 +155,12 @@ export default function ContactPage() {
                 <ul className="space-y-4">
                   {COMPANY.locations.map((loc) => (
                     <li key={loc.name}>
-                      <p className="font-medium text-gray-800">{lang === "es" ? loc.nameEs : loc.name}</p>
+                      <Link
+                        href={lp(`/locations/${officeSlug(loc.city)}`)}
+                        className="font-medium text-gray-800 hover:text-primary-700 hover:underline"
+                      >
+                        {lang === "es" ? loc.nameEs : loc.name}
+                      </Link>
                       <p className="text-sm text-gray-500">
                         {loc.address}, {loc.city}, {loc.state} {loc.zip}
                       </p>

@@ -51,6 +51,7 @@ export const NAV_LINKS: {
     { label: { en: "Health Insurance", es: "Seguro de Salud" }, href: "/health-insurance" },
   ]},
   { label: { en: "About Us", es: "Nosotros" }, href: "/about" },
+  { label: { en: "Locations", es: "Oficinas" }, href: "/locations" },
   { label: { en: "FAQ", es: "Preguntas" }, href: "/faq" },
   { label: { en: "Contact", es: "Contacto" }, href: "/contact" },
 ];
