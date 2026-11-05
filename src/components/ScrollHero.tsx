@@ -54,10 +54,9 @@ const copy = {
     scrollCue: "Scroll to explore",
     midLine1: "100+ carriers.",
     midLine2: "One broker on your side.",
-    finalHeading: "Coverage for your whole",
-    finalHeadingAccent: "world.",
-    finalText:
-      "Get a real price on your auto insurance in less than 10 minutes. All policies under one roof.",
+    finalHeading: "Get a real price on your auto insurance in",
+    finalHeadingAccent: "less than 10 minutes.",
+    finalText: "All policies under one roof.",
     quoteButton: "Get a Free Quote",
     callButton: "Call Us Now",
     stats: ["Years Experience", "Insurance Carriers", "Florida Locations", "Satisfaction"],
@@ -80,10 +79,9 @@ const copy = {
     scrollCue: "Desplácese para explorar",
     midLine1: "100+ aseguradoras.",
     midLine2: "Un corredor de su lado.",
-    finalHeading: "Cobertura para todo su",
-    finalHeadingAccent: "mundo.",
-    finalText:
-      "Obtenga un precio real para su seguro de auto en menos de 10 minutos. Todas sus pólizas bajo un mismo techo.",
+    finalHeading: "Obtenga un precio real para su seguro de auto en",
+    finalHeadingAccent: "menos de 10 minutos.",
+    finalText: "Todas sus pólizas bajo un mismo techo.",
     quoteButton: "Cotización Gratis",
     callButton: "Llámenos Ahora",
     stats: ["Años de Experiencia", "Aseguradoras", "Oficinas en Florida", "Satisfacción"],
@@ -343,8 +341,8 @@ export default function ScrollHero() {
           style={{ opacity: nebulaGlow, visibility: nebulaVisibility }}
           className="pointer-events-none absolute inset-0"
         >
-          <div className="absolute -left-[10%] top-[10%] h-[60vmax] w-[60vmax] rounded-full bg-nebula-600/20 blur-[100px] animate-drift will-change-transform" />
-          <div className="absolute -right-[15%] bottom-[-10%] h-[55vmax] w-[55vmax] rounded-full bg-ember-500/15 blur-[100px] animate-drift-slow will-change-transform" />
+          <div className="absolute -left-[10%] top-[10%] h-[60vmax] w-[60vmax] rounded-full bg-primary-500/20 blur-[100px] animate-drift will-change-transform" />
+          <div className="absolute -right-[15%] bottom-[-10%] h-[55vmax] w-[55vmax] rounded-full bg-electric-500/10 blur-[100px] animate-drift-slow will-change-transform" />
         </motion.div>
         <motion.div
           aria-hidden
@@ -372,7 +370,7 @@ export default function ScrollHero() {
               initial={{ opacity: 0.25, y: 20, letterSpacing: "0.6em" }}
               animate={mounted ? { opacity: 1, y: 0, letterSpacing: "0.35em" } : {}}
               transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-              className="mb-6 text-xs font-semibold uppercase text-ember-300 sm:text-sm"
+              className="mb-6 text-xs font-semibold uppercase text-electric-300 sm:text-sm"
             >
               {t.eyebrow}
             </motion.p>
@@ -384,7 +382,7 @@ export default function ScrollHero() {
             >
               {t.titleLine1}
               <br />
-              <span className="text-cosmic">{t.titleLine2}</span>
+              <span className="text-electric">{t.titleLine2}</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0.25, y: 30 }}
@@ -425,7 +423,7 @@ export default function ScrollHero() {
           <p className="max-w-4xl text-center text-4xl font-semibold leading-tight tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.8)] sm:text-6xl">
             {t.midLine1}
             <br />
-            <span className="text-cosmic">{t.midLine2}</span>
+            <span className="text-electric">{t.midLine2}</span>
           </p>
         </motion.div>
 
@@ -440,7 +438,7 @@ export default function ScrollHero() {
         <motion.div
           aria-hidden
           style={{ scaleX: progressScale }}
-          className="absolute bottom-0 left-0 h-[2px] w-full origin-left bg-gradient-to-r from-nebula-500 via-ember-400 to-primary-400"
+          className="absolute bottom-0 left-0 h-[2px] w-full origin-left bg-gradient-to-r from-primary-400 via-electric-400 to-electric-200"
         />
       </div>
     </section>
@@ -458,7 +456,7 @@ function QuoteButton() {
       href={QUOTE_URL}
       target="_blank"
       rel="noopener noreferrer"
-      className="btn-silver-3d group inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-semibold text-primary-900 transition-all duration-300"
+      className="btn-electric group inline-flex items-center gap-2 rounded-full px-8 py-4 text-lg font-semibold transition-all duration-300"
     >
       {t.quoteButton}
       <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -496,9 +494,9 @@ function FinalContent({
           <div className="w-full space-y-7 lg:w-1/2">
             <h2 className="text-4xl font-semibold leading-tight tracking-tight text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)] sm:text-5xl">
               {t.finalHeading}{" "}
-              <span className="text-cosmic">{t.finalHeadingAccent}</span>
+              <span className="text-electric">{t.finalHeadingAccent}</span>
             </h2>
-            <p className="max-w-lg text-lg text-white/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            <p className="max-w-lg text-xl text-white/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               {t.finalText}
             </p>
             <div className="flex flex-wrap gap-4">
@@ -529,10 +527,10 @@ function FinalContent({
             style={cardStyle}
             className="relative hidden w-full sm:block lg:w-5/12"
           >
-            <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-primary-950/40 p-8 shadow-[0_30px_80px_-20px_rgba(76,29,149,0.55)] backdrop-blur-xl">
+            <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-primary-950/40 p-8 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.6)] backdrop-blur-xl">
               <div
                 aria-hidden
-                className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ember-300/70 to-transparent"
+                className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-electric-400/80 to-transparent"
               />
               <h3 className="mb-6 text-xl font-bold text-white">
                 {t.cardTitle}
@@ -540,7 +538,7 @@ function FinalContent({
               <ul className="space-y-5">
                 {heroFeatureIcons.map((Icon, i) => (
                   <li key={i} className="flex items-start gap-4">
-                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-nebula-500/30 to-ember-500/20 text-white ring-1 ring-white/15">
+                    <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-electric-400/15 text-electric-300 ring-1 ring-electric-400/40">
                       <Icon className="h-5 w-5" />
                     </div>
                     <span className="pt-1.5 text-base leading-relaxed text-white">
@@ -550,7 +548,7 @@ function FinalContent({
                 ))}
               </ul>
               <div className="mt-6 flex items-center gap-2 border-t border-white/10 pt-6 text-sm text-primary-100">
-                <CheckCircle2 className="h-4 w-4 text-ember-300" />
+                <CheckCircle2 className="h-4 w-4 text-electric-400" />
                 {t.guarantee}
               </div>
             </div>
@@ -572,7 +570,7 @@ function StarDust() {
       top: (i * 61.3) % 100,
       size: (i % 3) + 1,
       delay: (i % 10) * 0.6,
-      tint: i % 7 === 0 ? "bg-ember-300" : i % 5 === 0 ? "bg-nebula-300" : "bg-white",
+      tint: i % 7 === 0 ? "bg-electric-300" : i % 5 === 0 ? "bg-primary-300" : "bg-white",
     })),
   );
   return (

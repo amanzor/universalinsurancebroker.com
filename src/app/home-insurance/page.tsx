@@ -387,7 +387,7 @@ export default function HomeInsurancePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href={lp("/home-insurance/form")}
-                className="btn-silver-3d inline-flex items-center gap-2 px-8 py-4 rounded-full text-primary-900 font-semibold text-lg transition-all duration-300"
+                className="btn-electric inline-flex items-center gap-2 px-8 py-4 rounded-full text-primary-900 font-semibold text-lg transition-all duration-300"
               >
                 {t.ctaButton}
                 <ArrowRight className="w-5 h-5" />
@@ -714,7 +714,7 @@ export default function HomeInsurancePage() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href={lp("/home-insurance/form")}
-                className="btn-silver-3d inline-flex items-center gap-2 px-8 py-4 rounded-full text-primary-900 font-semibold text-lg transition-all duration-300"
+                className="btn-electric inline-flex items-center gap-2 px-8 py-4 rounded-full text-primary-900 font-semibold text-lg transition-all duration-300"
               >
                 {g.readyButton}
                 <ArrowRight className="w-5 h-5" />

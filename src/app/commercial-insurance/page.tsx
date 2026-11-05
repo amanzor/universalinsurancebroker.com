@@ -589,7 +589,7 @@ export default function CommercialInsurancePage() {
                   href={product.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-silver-3d mt-auto inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 font-semibold text-primary-900 transition-all duration-300"
+                  className="btn-electric mt-auto inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-3.5 font-semibold text-primary-900 transition-all duration-300"
                 >
                   {product.buttonLabel[lang]}
                   <ArrowRight className="h-5 w-5" />

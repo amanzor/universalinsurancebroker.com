@@ -110,7 +110,7 @@ export default function LocationView({ slug }: { slug: string }) {
     <main className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-900 via-primary-800 to-primary-700 pt-32 pb-20 text-white">
-        <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-nebula-500/20 blur-3xl" />
+        <div className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-electric-400/15 blur-3xl" />
         <div className="relative mx-auto max-w-6xl px-6">
           <motion.p
             initial="hidden"
@@ -147,7 +147,7 @@ export default function LocationView({ slug }: { slug: string }) {
           >
             <a
               href={tel}
-              className="btn-silver-3d inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-900"
+              className="btn-electric inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-900"
             >
               <Phone className="h-5 w-5" />
               {t.call} {office.phone}
@@ -200,8 +200,8 @@ export default function LocationView({ slug }: { slug: string }) {
                 </span>
               </div>
             </div>
-            <div className="flex items-start gap-3 rounded-2xl border border-ember-200 bg-ember-200/20 p-5">
-              <Languages className="mt-0.5 h-5 w-5 shrink-0 text-ember-600" />
+            <div className="flex items-start gap-3 rounded-2xl border border-electric-200 bg-electric-100/40 p-5">
+              <Languages className="mt-0.5 h-5 w-5 shrink-0 text-electric-700" />
               <p className="text-sm text-gray-700">
                 <span className="block font-semibold text-primary-900">{t.spanish}</span>
                 {t.spanishNote}
