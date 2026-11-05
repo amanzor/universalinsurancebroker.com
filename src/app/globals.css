@@ -48,21 +48,28 @@
       inset 0 1px 3px rgba(255,255,255,0.9),
       inset 0 -1px 2px rgba(0,0,0,0.06);
   }
-  .text-cosmic {
-    background: linear-gradient(100deg, #c4b5fd 0%, #a78bfa 22%, #93c5fd 45%, #fdba74 70%, #a78bfa 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: shimmer 6s linear infinite;
-    filter: drop-shadow(0 2px 18px rgba(124, 58, 237, 0.35));
+  .text-electric {
+    color: #22e5ff;
+    text-shadow: 0 0 24px rgba(34, 229, 255, 0.45), 0 2px 10px rgba(0, 0, 0, 0.6);
+  }
+  .btn-electric {
+    background: linear-gradient(145deg, #67e8f9, #22e5ff 45%, #00c8e6);
+    color: #0f2440;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.35) inset,
+      0 6px 18px -4px rgba(34, 229, 255, 0.55),
+      0 2px 4px rgba(0,0,0,0.15);
+  }
+  .btn-electric:hover {
+    background: linear-gradient(145deg, #a5f3fc, #67e8f9 45%, #22e5ff);
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.5) inset,
+      0 10px 28px -4px rgba(34, 229, 255, 0.75),
+      0 2px 4px rgba(0,0,0,0.15);
   }
   @keyframes shimmer {
     0% { background-position: 0% 50%; }
     100% { background-position: 200% 50%; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .text-cosmic { animation: none; }
   }
   .heading-silver-light {
     background: linear-gradient(135deg, #c4cbd6 0%, #dce1e8 15%, #f5f7fa 30%, #ffffff 50%, #f5f7fa 70%, #dce1e8 85%, #c4cbd6 100%);

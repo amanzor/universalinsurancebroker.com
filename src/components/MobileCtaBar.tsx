@@ -49,7 +49,7 @@ export default function MobileCtaBar() {
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={visible ? 0 : -1}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-primary-900 py-3 text-sm font-semibold text-white active:bg-primary-800"
+          className="flex flex-1 items-center justify-center gap-2 btn-electric rounded-xl py-3 text-sm font-semibold"
         >
           <FileText className="h-4 w-4" aria-hidden />
           {t.quote}

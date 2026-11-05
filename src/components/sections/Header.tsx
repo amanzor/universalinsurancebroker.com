@@ -262,11 +262,11 @@ export default function Header() {
               href={QUOTE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-silver-3d relative inline-flex items-center gap-2 whitespace-nowrap px-5 py-2.5 rounded-lg text-primary-900 text-sm font-semibold transition-all duration-300 overflow-hidden group"
+              className="btn-electric relative inline-flex items-center gap-2 whitespace-nowrap px-5 py-2.5 rounded-lg text-primary-900 text-sm font-semibold transition-all duration-300 overflow-hidden group"
             >
               <span className="relative z-10">{t.quote}</span>
               <motion.span
-                className="absolute inset-0 bg-accent-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                className="absolute inset-0 bg-electric-200 opacity-0 group-hover:opacity-60 transition-opacity duration-300"
                 style={{ filter: "blur(20px)" }}
               />
             </a>
@@ -428,7 +428,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileOpen(false)}
-                  className="btn-silver-3d block w-full text-center px-5 py-3 rounded-lg text-primary-900 font-semibold transition-all"
+                  className="btn-electric block w-full text-center px-5 py-3 rounded-lg text-primary-900 font-semibold transition-all"
                 >
                   {t.quote}
                 </a>
