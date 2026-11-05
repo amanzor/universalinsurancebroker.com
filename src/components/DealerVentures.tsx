@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
+import { DEALER_VENTURES_URL } from "@/lib/constants";
 import { asset } from "@/lib/utils";
 import LazyVideo from "@/components/LazyVideo";
 import { useT } from "@/lib/useLang";
@@ -13,6 +15,7 @@ const copy = {
     contact:
       "For more info contact our dedicated business development team in the contact section top right.",
     videoLabel: "An agent verifying new car insurance coverage on a tablet",
+    linkLabel: "Visit the Dealer Ventures site (opens in a new tab)",
   },
   es: {
     title: "Alianzas con Concesionarios",
@@ -21,6 +24,7 @@ const copy = {
     contact:
       "Para más información, comuníquese con nuestro equipo de desarrollo de negocios en la sección de contacto, arriba a la derecha.",
     videoLabel: "Un agente verificando la cobertura del seguro de un auto nuevo en una tableta",
+    linkLabel: "Visitar el sitio de Dealer Ventures (se abre en una pestaña nueva)",
   },
 };
 
@@ -46,7 +50,20 @@ export default function DealerVentures() {
           custom={0}
           className="text-3xl md:text-4xl font-bold text-primary-900 mb-8"
         >
-          {t.title}
+          {DEALER_VENTURES_URL ? (
+            <a
+              href={DEALER_VENTURES_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={t.linkLabel}
+              className="group inline-flex items-center gap-3 rounded-lg underline decoration-electric-400 decoration-4 underline-offset-8 transition hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-electric-400"
+            >
+              {t.title}
+              <ExternalLink className="h-6 w-6 text-electric-500 transition group-hover:translate-x-0.5 md:h-7 md:w-7" aria-hidden />
+            </a>
+          ) : (
+            t.title
+          )}
         </motion.h2>
         <motion.div
           initial="hidden"
