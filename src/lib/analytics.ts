@@ -3,7 +3,7 @@
  * previews, GitHub Pages and local builds never pollute the data.
  */
 
-export const GA_ID = "G-1324VLGD6E";
+export const GA_ID = "G-N3LJVN3RX9";
 
 const PROD_HOSTS = ["www.universalinsurancebroker.com", "universalinsurancebroker.com"];
 
