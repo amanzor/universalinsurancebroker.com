@@ -1,4 +1,50 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "segurosuniversalflorida.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/es",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "segurosuniversalflorida.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/es/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.segurosuniversalflorida.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/es",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.segurosuniversalflorida.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/es/:path+",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/google7b43851891cb7037.html",
