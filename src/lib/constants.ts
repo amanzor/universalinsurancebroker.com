@@ -27,6 +27,12 @@ export const COMPANY = {
 export const QUOTE_URL =
   "https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1";
 
+/**
+ * Dealer Ventures site (separate project). Leave empty until it exists:
+ * the home page heading becomes a link only when this is set.
+ */
+export const DEALER_VENTURES_URL = "";
+
 export const TEAM = [
   { name: "Alberto Manzor", role: "CEO", roleEs: "Director Ejecutivo", email: "admin@universalinsurancebroker.com", image: "/images/team/alberto.jpg" },
   { name: "Randy Diaz", role: "COO", roleEs: "Director de Operaciones", email: "randy@universalinsurancebroker.com", image: "/images/team/randy.jpg" },
