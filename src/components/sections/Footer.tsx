@@ -54,7 +54,7 @@ const copy = {
   es: {
     tagline: "Todas Sus Pólizas de Seguro Bajo un Mismo Techo",
     blurb:
-      "Su aliado de confianza en seguros en Florida. Ayudamos a personas y negocios a encontrar la cobertura adecuada a precios competitivos, con un servicio personalizado en el que puede confiar.",
+      "Seguros Universal Florida (Universal Insurance Brokers) es su aliado de confianza en seguros en Florida. Ayudamos a personas y negocios a encontrar la cobertura adecuada a precios competitivos, con un servicio personalizado en el que puede confiar.",
     services: "Seguros",
     company: "Compañía",
     contact: "Contacto",

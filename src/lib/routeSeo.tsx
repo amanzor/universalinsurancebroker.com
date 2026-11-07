@@ -228,8 +228,8 @@ export const HOME_SEO: Record<Lang, { title: string; description: string }> = {
       "Independent Florida insurance broker comparing 100+ carriers for auto, home, business and health insurance. Get a real quote in under 10 minutes.",
   },
   es: {
-    title: "Universal Insurance Brokers | Seguros de Auto, Hogar y Negocio en Florida",
+    title: "Seguros Universal Florida | Universal Insurance Brokers",
     description:
-      "Corredor de seguros independiente en Florida. Comparamos más de 100 aseguradoras de auto, hogar, negocio y salud. Cotización real en menos de 10 minutos. Hablamos español.",
+      "Seguros Universal Florida: corredor de seguros independiente que compara más de 100 aseguradoras de auto, hogar, negocio y salud. Cotización real en menos de 10 minutos.",
   },
 };

@@ -70,8 +70,8 @@ const copy = {
     guarantee: "100% Satisfaction Guaranteed — Free rate revisions anytime",
   },
   es: {
-    sectionLabel: "Universal Insurance Brokers — Proteja lo que más importa",
-    eyebrow: "Universal Insurance Brokers",
+    sectionLabel: "Seguros Universal Florida — Proteja lo que más importa",
+    eyebrow: "Seguros Universal Florida",
     titleLine1: "Proteja Lo Que",
     titleLine2: "Más Importa",
     subtitle:
