@@ -96,6 +96,9 @@ export function organizationJsonLd() {
         "@type": "InsuranceAgency",
         "@id": `${SITE_URL}/#organization`,
         name: COMPANY.name,
+        // Other names the business is known and searched by (Spanish brand
+        // and the short domain), so search engines tie them to this agency.
+        alternateName: ["Seguros Universal Florida", "UIB Insurance"],
         url: SITE_URL,
         logo: `${SITE_URL}/images/logo-square.png`,
         image: `${SITE_URL}${OG_IMAGE.url}`,
