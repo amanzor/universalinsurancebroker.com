@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Testimonials from "@/components/Testimonials";
 import { motion } from "framer-motion";
 import {
   List,
@@ -745,6 +746,8 @@ export default function AutoInsurancePage() {
           </motion.div>
         </div>
       </section>
+
+      <Testimonials topic="auto" variant="topic" />
 
       {/* CTA */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800 text-white">

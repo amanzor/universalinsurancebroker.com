@@ -12,13 +12,14 @@ import {
   Award,
   Clock,
   MapPin,
-  Star,
   ArrowRight,
   ExternalLink,
 } from "lucide-react";
 import { COMPANY } from "@/lib/constants";
 import DealerVentures from "@/components/DealerVentures";
 import ScrollHero from "@/components/ScrollHero";
+import Testimonials from "@/components/Testimonials";
+import { HOME_REVIEW_IDS } from "@/lib/reviews";
 import { useLang, useT, useLocalizePath } from "@/lib/useLang";
 
 /* ------------------------------------------------------------------ */
@@ -35,10 +36,6 @@ const copy = {
     locationsTitle: "Visit Us at Our Florida Offices",
     getDirections: "Get Directions",
     officeDetails: "Office details →",
-    reviewTitle: "Your Opinion Matters!",
-    reviewText:
-      "We love hearing from our clients. Your feedback helps us serve you better.",
-    reviewButton: "Leave a Google Review",
   },
   es: {
     servicesTitle: "Soluciones de Seguros Integrales",
@@ -49,10 +46,6 @@ const copy = {
     locationsTitle: "Visítenos en Nuestras Oficinas de Florida",
     getDirections: "Cómo Llegar",
     officeDetails: "Ver oficina →",
-    reviewTitle: "¡Su Opinión Es Importante!",
-    reviewText:
-      "Nos encanta saber de nuestros clientes. Sus comentarios nos ayudan a servirle mejor.",
-    reviewButton: "Déjenos una Reseña en Google",
   },
 };
 
@@ -349,59 +342,6 @@ function LocationsSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Section 6 — Testimonial / Review CTA                               */
-/* ------------------------------------------------------------------ */
-
-function ReviewCTASection() {
-  const { ref, inView } = useAnimateInView();
-  const t = useT(copy);
-
-  return (
-    <section ref={ref} className="bg-gray-50 py-24">
-      <motion.div
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        variants={stagger}
-        className="mx-auto max-w-3xl px-6 text-center"
-      >
-        <motion.div
-          variants={fadeUp}
-          transition={spring}
-          className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-gold-400/20 text-gold-500"
-        >
-          <Star className="h-8 w-8" />
-        </motion.div>
-        <motion.h2
-          variants={fadeUp}
-          transition={spring}
-          className="mt-6 text-3xl font-bold text-primary-900 sm:text-4xl"
-        >
-          {t.reviewTitle}
-        </motion.h2>
-        <motion.p
-          variants={fadeUp}
-          transition={spring}
-          className="mt-4 text-lg text-gray-600"
-        >
-          {t.reviewText}
-        </motion.p>
-        <motion.div variants={fadeUp} transition={spring} className="mt-8">
-          <a
-            href="https://g.page/r/Ca_MqKD5ujKsEAE/review"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-full bg-primary-800 px-8 py-4 text-lg font-semibold text-white shadow-lg transition hover:bg-primary-900"
-          >
-            {t.reviewButton}
-            <ExternalLink className="h-5 w-5" />
-          </a>
-        </motion.div>
-      </motion.div>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------------ */
 /*  Page                                                               */
 /* ------------------------------------------------------------------ */
 
@@ -413,7 +353,7 @@ export default function HomePage() {
       <WhyChooseUsSection />
       <DealerVentures />
       <LocationsSection />
-      <ReviewCTASection />
+      <Testimonials ids={HOME_REVIEW_IDS} />
     </main>
   );
 }
