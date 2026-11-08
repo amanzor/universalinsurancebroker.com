@@ -190,7 +190,7 @@ const guide = {
     dealerGuideBody2:
       "To make it quick, have the vehicle's VIN, your driver's license and, if you're financing, the lender's information ready. If you're replacing a car, we can also review your current policy so you aren't paying for coverage on a vehicle you no longer own.",
     localBefore:
-      "Whether you're in Boca Raton, Lehigh Acres, Homestead, Hialeah or anywhere else in Florida, our bilingual team can help in English or Spanish. Have a general question? Browse our ",
+      "Whether you're in Hialeah, Doral, Homestead, Boca Raton, Lehigh Acres or anywhere else in Florida, our bilingual team can help in English or Spanish. Have a general question? Browse our ",
     localFaqLink: "insurance FAQ",
     localMiddle: " or ",
     localContactLink: "contact an agent",
@@ -275,7 +275,7 @@ const guide = {
     dealerGuideBody2:
       "Para agilizar el proceso, tenga a mano el número VIN del vehículo, su licencia de conducir y, si va a financiar, la información del prestamista. Si va a reemplazar un auto, también podemos revisar su póliza actual para que no siga pagando cobertura por un vehículo que ya no tiene.",
     localBefore:
-      "Ya sea que viva en Boca Raton, Lehigh Acres, Homestead, Hialeah o en cualquier otro lugar de la Florida, nuestro equipo bilingüe puede ayudarle en español o en inglés. ¿Tiene una pregunta general? Consulte nuestras ",
+      "Ya sea que viva en Hialeah, Doral, Homestead, Boca Raton, Lehigh Acres o en cualquier otro lugar de la Florida, nuestro equipo bilingüe puede ayudarle en español o en inglés. ¿Tiene una pregunta general? Consulte nuestras ",
     localFaqLink: "preguntas frecuentes sobre seguros",
     localMiddle: " o ",
     localContactLink: "comuníquese con un agente",

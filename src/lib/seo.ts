@@ -125,9 +125,7 @@ export function organizationJsonLd() {
           "@id": `${SITE_URL}/#office-${i + 1}`,
           name: `${COMPANY.name} — ${loc.name}`,
           url: `${SITE_URL}/locations/${loc.city.toLowerCase().replace(/\s+/g, "-")}`,
-          telephone: phoneE164(
-            loc.city === "Homestead" ? COMPANY.spitzerPhone : COMPANY.phone,
-          ),
+          telephone: phoneE164(loc.phone),
           address: {
             "@type": "PostalAddress",
             streetAddress: loc.address,
@@ -136,7 +134,8 @@ export function organizationJsonLd() {
             postalCode: loc.zip,
             addressCountry: "US",
           },
-          openingHoursSpecification: openingHours,
+          // Appointment-only locations publish no walk-in hours.
+          ...(loc.appointmentOnly ? {} : { openingHoursSpecification: openingHours }),
         })),
       },
       {

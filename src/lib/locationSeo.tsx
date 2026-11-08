@@ -15,8 +15,8 @@ export function locationsIndexMetadata(lang: Lang): Metadata {
     title: lang === "es" ? "Nuestras Oficinas en Florida" : "Our Florida Office Locations",
     description:
       lang === "es"
-        ? "Visite Universal Insurance Brokers en Boca Raton, Lehigh Acres, Homestead o Hialeah. Agentes bilingües, más de 100 aseguradoras. Lunes a viernes, 9:30 AM a 7 PM."
-        : "Visit Universal Insurance Brokers in Boca Raton, Lehigh Acres, Homestead or Hialeah. Bilingual agents, 100+ carriers. Open Monday to Friday, 9:30 AM to 7 PM.",
+        ? "Universal Insurance Brokers en Hialeah (sin cita, lunes a viernes de 9:30 AM a 7 PM) y con cita previa en Doral, Homestead, Boca Raton y Lehigh Acres. Agentes bilingües, más de 100 aseguradoras."
+        : "Universal Insurance Brokers in Hialeah (walk-ins Monday to Friday, 9:30 AM to 7 PM) and by appointment in Doral, Homestead, Boca Raton and Lehigh Acres. Bilingual agents, 100+ carriers.",
   });
 }
 
@@ -31,8 +31,12 @@ export function locationMetadata(slug: string, lang: Lang): Metadata {
         : `${o.city}, FL Insurance Agency`,
     description:
       lang === "es"
-        ? `Seguros de auto, hogar, negocio y salud en ${o.city}, FL. Visítenos en ${o.address} o llame al ${o.phone}. Hablamos español.`
-        : `Auto, home, business and health insurance in ${o.city}, FL. Visit us at ${o.address} or call ${o.phone}. Bilingual agents, 100+ carriers.`,
+        ? o.appointmentOnly
+          ? `Seguros de auto, hogar, negocio y salud en ${o.city}, FL. Atendemos solo con cita previa en ${o.address}: llame al ${o.phone}. Hablamos español.`
+          : `Seguros de auto, hogar, negocio y salud en ${o.city}, FL. Visítenos sin cita en ${o.address} o llame al ${o.phone}. Hablamos español.`
+        : o.appointmentOnly
+          ? `Auto, home, business and health insurance in ${o.city}, FL. By appointment only at ${o.address}: call ${o.phone}. Bilingual agents, 100+ carriers.`
+          : `Auto, home, business and health insurance in ${o.city}, FL. Walk in at ${o.address} or call ${o.phone}. Bilingual agents, 100+ carriers.`,
   });
 }
 
@@ -59,12 +63,17 @@ export function LocationJsonLd({ slug, lang }: { slug: string; lang: Lang }) {
       postalCode: o.zip,
       addressCountry: "US",
     },
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "09:30",
-      closes: "19:00",
-    },
+    // Appointment-only locations publish no walk-in hours.
+    ...(o.appointmentOnly
+      ? {}
+      : {
+          openingHoursSpecification: {
+            "@type": "OpeningHoursSpecification",
+            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            opens: "09:30",
+            closes: "19:00",
+          },
+        }),
     areaServed: o.areas.map((a) => ({ "@type": "City", name: `${a}, FL` })),
     knowsLanguage: ["en", "es"],
     parentOrganization: { "@id": `${SITE_URL}/#organization` },

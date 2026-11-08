@@ -104,13 +104,13 @@ const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
     en: {
       title: "About Us: Meet Our Team",
       description:
-        "Meet the team at Universal Insurance Brokers, an independent Florida broker serving clients since 2016 from four offices across South and Southwest Florida.",
+        "Meet the team at Universal Insurance Brokers, an independent Florida broker serving clients since 2016 from five locations across South and Southwest Florida.",
       crumb: "About Us",
     },
     es: {
       title: "Nosotros: Conozca a Nuestro Equipo",
       description:
-        "Conozca al equipo de Universal Insurance Brokers, corredor de seguros independiente en Florida desde 2016, con cuatro oficinas en el sur y suroeste de Florida.",
+        "Conozca al equipo de Universal Insurance Brokers, corredor de seguros independiente en Florida desde 2016, con cinco oficinas en el sur y suroeste de Florida.",
       crumb: "Nosotros",
     },
   },
@@ -132,13 +132,13 @@ const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
     en: {
       title: "Contact Us",
       description:
-        "Call, text or email us, or visit our offices in Boca Raton, Lehigh Acres, Homestead and Hialeah. Open Monday to Friday, 9:30 AM to 7 PM.",
+        "Call, text or email us. Walk in to our Hialeah office Monday to Friday, 9:30 AM to 7 PM, or book an appointment in Doral, Homestead, Boca Raton or Lehigh Acres.",
       crumb: "Contact",
     },
     es: {
       title: "Contáctenos",
       description:
-        "Llámenos, envíenos un mensaje de texto o correo, o visite nuestras oficinas en Boca Raton, Lehigh Acres, Homestead y Hialeah. Lunes a viernes, 9:30 AM a 7 PM.",
+        "Llámenos o escríbanos. Visite sin cita nuestra oficina de Hialeah de lunes a viernes, 9:30 AM a 7 PM, o haga una cita en Doral, Homestead, Boca Raton o Lehigh Acres.",
       crumb: "Contacto",
     },
   },

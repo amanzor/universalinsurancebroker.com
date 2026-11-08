@@ -19,6 +19,7 @@ import { COMPANY } from "@/lib/constants";
 import DealerVentures from "@/components/DealerVentures";
 import ScrollHero from "@/components/ScrollHero";
 import Testimonials from "@/components/Testimonials";
+import { OfficeStatusBadge } from "@/components/OfficeStatus";
 import { HOME_REVIEW_IDS } from "@/lib/reviews";
 import { useLang, useT, useLocalizePath } from "@/lib/useLang";
 
@@ -294,7 +295,7 @@ function LocationsSection() {
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           variants={stagger}
-          className="mt-14 grid gap-8 sm:grid-cols-3"
+          className="mt-14 flex flex-wrap justify-center gap-8"
         >
           {COMPANY.locations.map((loc) => {
             const q = encodeURIComponent(
@@ -305,7 +306,7 @@ function LocationsSection() {
                 key={loc.name}
                 variants={fadeUp}
                 transition={spring}
-                className="rounded-2xl border border-gray-100 bg-gray-50 p-8 text-center"
+                className="w-full rounded-2xl border border-gray-100 bg-gray-50 p-8 text-center sm:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)]"
               >
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary-100 text-primary-700">
                   <MapPin className="h-6 w-6" />
@@ -313,6 +314,7 @@ function LocationsSection() {
                 <h3 className="mt-4 text-lg font-semibold text-primary-900">
                   {lang === "es" ? loc.nameEs : loc.name}
                 </h3>
+                <OfficeStatusBadge appointmentOnly={loc.appointmentOnly} className="mt-2" />
                 <p className="mt-1 text-sm text-gray-600">
                   {loc.address}
                   <br />
