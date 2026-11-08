@@ -25,7 +25,7 @@ export const faq: PageFaq = {
     },
     {
       q: "Can you help me in Spanish?",
-      a: "Yes. Our team serves clients in English and Spanish, by phone or at our Florida offices in Boca Raton, Lehigh Acres, Homestead, and Hialeah.",
+      a: "Yes. Our team serves clients in English and Spanish, by phone, online, at our walk-in office in Hialeah, or by appointment in Doral, Homestead, Boca Raton and Lehigh Acres.",
     },
   ],
   es: [
@@ -51,7 +51,7 @@ export const faq: PageFaq = {
     },
     {
       q: "¿Pueden atenderme en español?",
-      a: "Sí. Nuestro equipo atiende a clientes en inglés y en español, por teléfono o en nuestras oficinas de Florida en Boca Raton, Lehigh Acres, Homestead y Hialeah.",
+      a: "Sí. Nuestro equipo atiende a clientes en inglés y en español, por teléfono, en línea, en nuestra oficina de Hialeah sin cita o con cita previa en Doral, Homestead, Boca Raton y Lehigh Acres.",
     },
   ],
 };

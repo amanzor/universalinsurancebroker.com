@@ -4,13 +4,14 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Languages, MapPin, Navigation, Phone } from "lucide-react";
 import { OFFICES, mapsSearchUrl } from "@/lib/locations";
+import { OfficeStatusBadge } from "@/components/OfficeStatus";
 import { useLang, useLocalizePath, useT } from "@/lib/useLang";
 
 const copy = {
   en: {
     title: "Our Florida Offices",
     subtitle:
-      "Four offices across South and Southwest Florida — stop by, call, or get a quote online. Our bilingual team speaks English and Spanish.",
+      "Five locations across South and Southwest Florida. Walk in to our Hialeah office, book an appointment at any other location, or get a quote online. Our bilingual team speaks English and Spanish.",
     details: "Office details",
     directions: "Directions",
     spanish: "Se habla español",
@@ -18,7 +19,7 @@ const copy = {
   es: {
     title: "Nuestras Oficinas en Florida",
     subtitle:
-      "Cuatro oficinas en el sur y suroeste de Florida: visítenos, llámenos o cotice en línea. Nuestro equipo bilingüe habla español e inglés.",
+      "Cinco oficinas en el sur y suroeste de Florida. Visite sin cita nuestra oficina de Hialeah, haga una cita en cualquiera de las demás o cotice en línea. Nuestro equipo bilingüe habla español e inglés.",
     details: "Ver oficina",
     directions: "Cómo llegar",
     spanish: "Hablamos español",
@@ -73,6 +74,7 @@ export default function LocationsIndex() {
               className="flex flex-col rounded-2xl bg-white p-7 shadow-sm ring-1 ring-gray-100"
             >
               <h2 className="text-xl font-bold text-primary-900">{o.name[lang]}</h2>
+              <OfficeStatusBadge appointmentOnly={o.appointmentOnly} className="mt-2 self-start" />
               <p className="mt-3 flex items-start gap-2 text-gray-700">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
                 <span>

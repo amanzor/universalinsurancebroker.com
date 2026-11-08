@@ -5,7 +5,7 @@ export const COMPANY = {
   phone: "(239) 204-2208",
   phoneNew: "(239) 240-2208",
   textOnly: "(786) 636-1030",
-  doralPhone: "(786) 261-6222",
+  doralPhone: "(305) 341-0938",
   spitzerPhone: "(305) 704-7374",
   email: "universalinsurancebroker@gmail.com",
   adminEmail: "admin@universalinsurancebroker.com",
@@ -15,11 +15,17 @@ export const COMPANY = {
     twitter: "https://twitter.com/UniversalInsur3",
     instagram: "https://instagram.com/universalinsurancebroker/",
   },
+  /*
+   * Hialeah is the walk-in office (Mon–Fri, COMPANY.hours). The other
+   * locations are staffed by appointment only. Keep each address and phone
+   * identical to its Google Business Profile.
+   */
   locations: [
-    { name: "Boca Raton Office", nameEs: "Oficina de Boca Raton", address: "3200 N Federal Hwy Suite 224", city: "Boca Raton", state: "FL", zip: "33431" },
-    { name: "Lehigh Acres Office", nameEs: "Oficina de Lehigh Acres", address: "111 Lee Blvd", city: "Lehigh Acres", state: "FL", zip: "33936" },
-    { name: "Spitzer Homestead", nameEs: "Spitzer Homestead", address: "30101 S Dixie Hwy", city: "Homestead", state: "FL", zip: "33033" },
-    { name: "Hialeah Office", nameEs: "Oficina de Hialeah", address: "1943 W 68th St", city: "Hialeah", state: "FL", zip: "33014" },
+    { name: "Hialeah Office", nameEs: "Oficina de Hialeah", address: "1943 W 68th St", city: "Hialeah", state: "FL", zip: "33014", phone: "(239) 204-2208", appointmentOnly: false },
+    { name: "Doral Office", nameEs: "Oficina de Doral", address: "2500 NW 79th Ave Suite 266", city: "Doral", state: "FL", zip: "33122", phone: "(305) 341-0938", appointmentOnly: true },
+    { name: "Spitzer Homestead", nameEs: "Spitzer Homestead", address: "30101 S Dixie Hwy", city: "Homestead", state: "FL", zip: "33033", phone: "(305) 704-7374", appointmentOnly: true },
+    { name: "Boca Raton Office", nameEs: "Oficina de Boca Raton", address: "3200 N Federal Hwy Suite 224", city: "Boca Raton", state: "FL", zip: "33431", phone: "(239) 204-2208", appointmentOnly: true },
+    { name: "Lehigh Acres Office", nameEs: "Oficina de Lehigh Acres", address: "111 Lee Blvd", city: "Lehigh Acres", state: "FL", zip: "33936", phone: "(239) 204-2208", appointmentOnly: true },
   ],
 };
 

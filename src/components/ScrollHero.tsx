@@ -39,7 +39,7 @@ const QUOTE_URL =
   "https://cfd97c1e-303d-4132-818d-6cff751e4bde.quotes.iwantinsurance.com/welcome.aspx?AspxAutoDetectCookieSupport=1";
 
 // Stat values and feature icons; their labels live in `copy` (same order).
-const statValues = ["10+", "100+", "4", "100%"];
+const statValues = ["10+", "100+", "5", "100%"];
 
 const heroFeatureIcons = [Car, Building2, Home, HeartPulse];
 
