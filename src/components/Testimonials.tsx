@@ -8,6 +8,7 @@ import {
   GOOGLE_REVIEWS_URL,
   GOOGLE_WRITE_REVIEW_URL,
   REVIEWS,
+  type OfficeProfile,
   type Review,
 } from "@/lib/reviews";
 
@@ -16,6 +17,7 @@ const copy = {
     eyebrow: "Google Reviews",
     title: "What Our Clients Say",
     autoTitle: "What Our Auto Insurance Clients Say",
+    cityTitle: (city: string) => `What Our ${city} Clients Say`,
     subtitle: "Real reviews from real clients on our Google Business Profile.",
     reviews: "Google reviews",
     stars: "out of 5 stars",
@@ -29,6 +31,7 @@ const copy = {
     eyebrow: "Reseñas de Google",
     title: "Lo Que Dicen Nuestros Clientes",
     autoTitle: "Lo Que Dicen Nuestros Clientes de Seguro de Auto",
+    cityTitle: (city: string) => `Lo Que Dicen Nuestros Clientes de ${city}`,
     subtitle: "Reseñas reales de clientes reales en nuestro perfil de Google.",
     reviews: "reseñas en Google",
     stars: "de 5 estrellas",
@@ -100,24 +103,24 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
   );
 }
 
-function RatingBadge() {
+function RatingBadge({ profile }: { profile: Required<Pick<OfficeProfile, "url" | "rating" | "count">> }) {
   const t = useT(copy);
   return (
     <a
-      href={GOOGLE_REVIEWS_URL}
+      href={profile.url}
       target="_blank"
       rel="noopener noreferrer"
       className="inline-flex items-center gap-4 rounded-2xl border border-gray-200 bg-white px-6 py-4 shadow-sm transition hover:border-electric-400 hover:shadow-md"
     >
-      <span className="text-4xl font-bold text-primary-900">{GOOGLE_RATING.rating.toFixed(1)}</span>
+      <span className="text-4xl font-bold text-primary-900">{profile.rating.toFixed(1)}</span>
       <span className="text-left">
         <Stars className="h-5 w-5" />
         <span className="mt-1 block text-sm text-gray-600">
-          {GOOGLE_RATING.count} {t.reviews}
+          {profile.count} {t.reviews}
         </span>
       </span>
       <span className="sr-only">
-        {GOOGLE_RATING.rating.toFixed(1)} {t.stars} {t.newTab}
+        {profile.rating.toFixed(1)} {t.stars} {t.newTab}
       </span>
     </a>
   );
@@ -127,15 +130,20 @@ function RatingBadge() {
  * Google reviews section.
  * - variant "home": six chosen reviews, rating badge, and a "leave a review" call to action.
  * - variant "topic": up to three reviews tagged with `topic`, for a service page.
+ * - `profile` + `city`: an office page, linking to that office's own Google profile.
  */
 export default function Testimonials({
   ids,
   topic,
   variant = "home",
+  profile = { url: GOOGLE_REVIEWS_URL, writeUrl: GOOGLE_WRITE_REVIEW_URL, ...GOOGLE_RATING },
+  city,
 }: {
   ids?: string[];
   topic?: "auto";
   variant?: "home" | "topic";
+  profile?: OfficeProfile;
+  city?: string;
 }) {
   const t = useT(copy);
   const list = ids
@@ -148,25 +156,29 @@ export default function Testimonials({
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-electric-700">{t.eyebrow}</p>
           <h2 className="mt-3 text-3xl font-bold text-primary-900 sm:text-4xl">
-            {topic === "auto" ? t.autoTitle : t.title}
+            {city ? t.cityTitle(city) : topic === "auto" ? t.autoTitle : t.title}
           </h2>
           {variant === "home" && <p className="mt-3 text-lg text-gray-600">{t.subtitle}</p>}
           <div className="mt-8">
-            <RatingBadge />
+            {profile.rating != null && profile.count != null && (
+              <RatingBadge profile={{ url: profile.url, rating: profile.rating, count: profile.count }} />
+            )}
           </div>
         </div>
 
+        {list.length > 0 && (
         <div className={`mt-12 grid gap-6 sm:grid-cols-2 ${list.length >= 3 ? "lg:grid-cols-3" : ""}`}>
           {list.map((r, i) => (
             <ReviewCard key={r.id} review={r} index={i % 3} />
           ))}
         </div>
+        )}
 
         <div className="mt-12 text-center">
           {variant === "home" && <p className="mx-auto mb-6 max-w-2xl text-gray-600">{t.writeText}</p>}
           <div className="flex flex-wrap items-center justify-center gap-4">
             <a
-              href={GOOGLE_REVIEWS_URL}
+              href={profile.url}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border-2 border-primary-900 px-7 py-3 font-semibold text-primary-900 transition hover:bg-primary-900 hover:text-white"
@@ -174,9 +186,9 @@ export default function Testimonials({
               {t.readAll}
               <ExternalLink className="h-4 w-4" aria-hidden />
             </a>
-            {variant === "home" && (
+            {variant === "home" && profile.writeUrl && (
               <a
-                href={GOOGLE_WRITE_REVIEW_URL}
+                href={profile.writeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-primary-800 px-7 py-3 font-semibold text-white shadow-lg transition hover:bg-primary-900"

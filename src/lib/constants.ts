@@ -9,14 +9,17 @@ export const COMPANY = {
   spitzerPhone: "(305) 704-7374",
   email: "universalinsurancebroker@gmail.com",
   adminEmail: "admin@universalinsurancebroker.com",
+  /** Phone hours (top bar). */
   hours: "9:30 AM - 7:00 PM",
+  /** Hialeah walk-in hours; keep identical to the Hialeah Google Business Profile. */
+  walkInHours: "9:30 AM - 5:30 PM",
   social: {
     facebook: "https://facebook.com/universalinsuranceassociate",
     twitter: "https://twitter.com/UniversalInsur3",
     instagram: "https://instagram.com/universalinsurancebroker/",
   },
   /*
-   * Hialeah is the walk-in office (Mon–Fri, COMPANY.hours). The other
+   * Hialeah is the walk-in office (Mon–Fri, COMPANY.walkInHours). The other
    * locations are staffed by appointment only. Keep each address and phone
    * identical to its Google Business Profile.
    */

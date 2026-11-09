@@ -132,13 +132,13 @@ const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
     en: {
       title: "Contact Us",
       description:
-        "Call, text or email us. Walk in to our Hialeah office Monday to Friday, 9:30 AM to 7 PM, or book an appointment in Doral, Homestead, Boca Raton or Lehigh Acres.",
+        "Call, text or email us. Walk in to our Hialeah office Monday to Friday, 9:30 AM to 5:30 PM, or book an appointment in Doral, Homestead, Boca Raton or Lehigh Acres.",
       crumb: "Contact",
     },
     es: {
       title: "Contáctenos",
       description:
-        "Llámenos o escríbanos. Visite sin cita nuestra oficina de Hialeah de lunes a viernes, 9:30 AM a 7 PM, o haga una cita en Doral, Homestead, Boca Raton o Lehigh Acres.",
+        "Llámenos o escríbanos. Visite sin cita nuestra oficina de Hialeah de lunes a viernes, 9:30 AM a 5:30 PM, o haga una cita en Doral, Homestead, Boca Raton o Lehigh Acres.",
       crumb: "Contacto",
     },
   },

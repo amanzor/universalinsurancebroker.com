@@ -3,6 +3,7 @@ import JsonLd from "@/components/JsonLd";
 import { COMPANY } from "@/lib/constants";
 import { localizePath, type Lang } from "@/lib/i18n";
 import { OFFICES, officeBySlug } from "@/lib/locations";
+import { LOCAL_CONTENT } from "@/lib/content/locations-local";
 import { SITE_URL, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 const phoneE164 = (p: string) =>
@@ -15,8 +16,8 @@ export function locationsIndexMetadata(lang: Lang): Metadata {
     title: lang === "es" ? "Nuestras Oficinas en Florida" : "Our Florida Office Locations",
     description:
       lang === "es"
-        ? "Universal Insurance Brokers en Hialeah (sin cita, lunes a viernes de 9:30 AM a 7 PM) y con cita previa en Doral, Homestead, Boca Raton y Lehigh Acres. Agentes bilingües, más de 100 aseguradoras."
-        : "Universal Insurance Brokers in Hialeah (walk-ins Monday to Friday, 9:30 AM to 7 PM) and by appointment in Doral, Homestead, Boca Raton and Lehigh Acres. Bilingual agents, 100+ carriers.",
+        ? "Universal Insurance Brokers en Hialeah (sin cita, lunes a viernes de 9:30 AM a 5:30 PM) y con cita previa en Doral, Homestead, Boca Raton y Lehigh Acres. Agentes bilingües, más de 100 aseguradoras."
+        : "Universal Insurance Brokers in Hialeah (walk-ins Monday to Friday, 9:30 AM to 5:30 PM) and by appointment in Doral, Homestead, Boca Raton and Lehigh Acres. Bilingual agents, 100+ carriers.",
   });
 }
 
@@ -71,7 +72,7 @@ export function LocationJsonLd({ slug, lang }: { slug: string; lang: Lang }) {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             opens: "09:30",
-            closes: "19:00",
+            closes: "17:30",
           },
         }),
     areaServed: o.areas.map((a) => ({ "@type": "City", name: `${a}, FL` })),
@@ -100,7 +101,18 @@ export function LocationJsonLd({ slug, lang }: { slug: string; lang: Lang }) {
       { "@type": "ListItem", position: 3, name: o.city, item: url },
     ],
   };
-  return <JsonLd data={[agency, crumbs]} />;
+  const local = LOCAL_CONTENT[slug];
+  const faq = local && {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: lang === "es" ? "es-US" : "en-US",
+    mainEntity: local.faq[lang].map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+  return <JsonLd data={faq ? [agency, crumbs, faq] : [agency, crumbs]} />;
 }
 
 export function LocationsIndexJsonLd({ lang }: { lang: Lang }) {

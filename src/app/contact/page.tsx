@@ -29,8 +29,8 @@ const copy = {
     phones: "Phone Numbers",
     email: "Email",
     hours: "Business Hours",
-    weekdays: "Monday – Friday",
-    hoursNote: "Walk-ins at our Hialeah office. All other locations are by appointment only.",
+    weekdays: "Phone: Monday – Friday",
+    hoursNote: `Hialeah office walk-ins: Monday – Friday, ${COMPANY.walkInHours}. All other locations are by appointment only.`,
     offices: "Our Offices",
   },
   es: {
@@ -40,8 +40,8 @@ const copy = {
     phones: "Teléfonos",
     email: "Correo Electrónico",
     hours: "Horario de Atención",
-    weekdays: "Lunes – Viernes",
-    hoursNote: "Atendemos sin cita en nuestra oficina de Hialeah. Las demás oficinas atienden solo con cita previa.",
+    weekdays: "Teléfono: lunes – viernes",
+    hoursNote: `Oficina de Hialeah sin cita: lunes – viernes, ${COMPANY.walkInHours}. Las demás oficinas atienden solo con cita previa.`,
     offices: "Nuestras Oficinas",
   },
 };

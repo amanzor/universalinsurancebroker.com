@@ -23,15 +23,15 @@ const routes: { path: string; priority: number; changeFrequency: "weekly" | "mon
 const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;
 
 // Every page in English and Spanish, each listing its hreflang alternates.
+// No lastmod: stamping every URL with the build date tells search engines
+// nothing, and Google ignores lastmod values that aren't accurate.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const lastModified = new Date();
   return routes.flatMap((r) => {
     const en = localizePath(r.path, "en");
     const es = localizePath(r.path, "es");
     const alternates = { languages: { "en-US": abs(en), "es-US": abs(es) } };
     return [en, es].map((p) => ({
       url: abs(p),
-      lastModified,
       changeFrequency: r.changeFrequency,
       priority: r.priority,
       alternates,
