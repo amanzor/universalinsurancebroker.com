@@ -103,7 +103,7 @@ function ReviewCard({ review, index }: { review: Review; index: number }) {
   );
 }
 
-function RatingBadge({ profile }: { profile: OfficeProfile }) {
+function RatingBadge({ profile }: { profile: Required<Pick<OfficeProfile, "url" | "rating" | "count">> }) {
   const t = useT(copy);
   return (
     <a
@@ -160,15 +160,19 @@ export default function Testimonials({
           </h2>
           {variant === "home" && <p className="mt-3 text-lg text-gray-600">{t.subtitle}</p>}
           <div className="mt-8">
-            <RatingBadge profile={profile} />
+            {profile.rating != null && profile.count != null && (
+              <RatingBadge profile={{ url: profile.url, rating: profile.rating, count: profile.count }} />
+            )}
           </div>
         </div>
 
+        {list.length > 0 && (
         <div className={`mt-12 grid gap-6 sm:grid-cols-2 ${list.length >= 3 ? "lg:grid-cols-3" : ""}`}>
           {list.map((r, i) => (
             <ReviewCard key={r.id} review={r} index={i % 3} />
           ))}
         </div>
+        )}
 
         <div className="mt-12 text-center">
           {variant === "home" && <p className="mx-auto mb-6 max-w-2xl text-gray-600">{t.writeText}</p>}

@@ -16,8 +16,8 @@ export function locationsIndexMetadata(lang: Lang): Metadata {
     title: lang === "es" ? "Nuestras Oficinas en Florida" : "Our Florida Office Locations",
     description:
       lang === "es"
-        ? "Universal Insurance Brokers en Hialeah (sin cita, lunes a viernes de 9:30 AM a 7 PM) y con cita previa en Doral, Homestead, Boca Raton y Lehigh Acres. Agentes bilingües, más de 100 aseguradoras."
-        : "Universal Insurance Brokers in Hialeah (walk-ins Monday to Friday, 9:30 AM to 7 PM) and by appointment in Doral, Homestead, Boca Raton and Lehigh Acres. Bilingual agents, 100+ carriers.",
+        ? "Universal Insurance Brokers en Hialeah (sin cita, lunes a viernes de 9:30 AM a 5:30 PM) y con cita previa en Doral, Homestead, Boca Raton y Lehigh Acres. Agentes bilingües, más de 100 aseguradoras."
+        : "Universal Insurance Brokers in Hialeah (walk-ins Monday to Friday, 9:30 AM to 5:30 PM) and by appointment in Doral, Homestead, Boca Raton and Lehigh Acres. Bilingual agents, 100+ carriers.",
   });
 }
 
@@ -72,7 +72,7 @@ export function LocationJsonLd({ slug, lang }: { slug: string; lang: Lang }) {
             "@type": "OpeningHoursSpecification",
             dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
             opens: "09:30",
-            closes: "19:00",
+            closes: "17:30",
           },
         }),
     areaServed: o.areas.map((a) => ({ "@type": "City", name: `${a}, FL` })),

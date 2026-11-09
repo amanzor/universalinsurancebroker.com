@@ -99,7 +99,15 @@ export const REVIEWS: Review[] = [
  * for another office to show a reviews section on that office's page and to
  * point its "Get Directions" button at the profile.
  */
-export type OfficeProfile = { url: string; writeUrl?: string; rating: number; count: number; reviewIds?: string[] };
+export type OfficeProfile = {
+  url: string;
+  writeUrl?: string;
+  /** Rating and review count as shown on the profile; leave out until known. */
+  rating?: number;
+  count?: number;
+  /** Reviews from this profile (ids in REVIEWS) to show on the office page. */
+  reviewIds?: string[];
+};
 
 export const OFFICE_PROFILES: Record<string, OfficeProfile> = {
   doral: {
@@ -108,6 +116,16 @@ export const OFFICE_PROFILES: Record<string, OfficeProfile> = {
     rating: GOOGLE_RATING.rating,
     count: GOOGLE_RATING.count,
     reviewIds: ["alex-z", "eddie-w", "efrain-h", "josh-a", "david-d", "deanna-e"],
+  },
+  "lehigh-acres": {
+    url: "https://g.page/r/CepMmoQJVNsYEAI",
+    writeUrl: "https://g.page/r/CepMmoQJVNsYEAI/review",
+    rating: 4.9,
+    count: 134,
+  },
+  "boca-raton": {
+    url: "https://g.page/r/CVUEYP0LPBnBEAI",
+    writeUrl: "https://g.page/r/CVUEYP0LPBnBEAI/review",
   },
 };
 

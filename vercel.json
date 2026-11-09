@@ -43,6 +43,50 @@
       ],
       "destination": "https://www.universalinsurancebroker.com/es/:path+",
       "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "doralinsurancebroker.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/doral",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "doralinsurancebroker.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.doralinsurancebroker.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/doral",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.doralinsurancebroker.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
     }
   ],
   "rewrites": [

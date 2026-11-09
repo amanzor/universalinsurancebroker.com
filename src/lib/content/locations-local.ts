@@ -51,12 +51,12 @@ export const LOCAL_CONTENT: Record<string, LocalContent> = {
     },
     faq: {
       en: [
-        { q: "Do I need an appointment at the Hialeah office?", a: "No. Our Hialeah office welcomes walk-ins Monday to Friday, 9:30 AM to 7:00 PM. You can also call ahead or start your quote online." },
+        { q: "Do I need an appointment at the Hialeah office?", a: "No. Our Hialeah office welcomes walk-ins Monday to Friday, 9:30 AM to 5:30 PM. You can also call ahead or start your quote online." },
         { q: "Can you help if I need an SR-22 or have a suspended license?", a: "Yes. We work with carriers that file SR-22 and FR-44 certificates with the state and can tell you what's needed to get your license reinstated and your vehicle insured." },
         { q: "Can I do everything in Spanish?", a: "Yes. Our whole team is bilingual, so quotes, paperwork, policy changes and claims questions can all be handled in Spanish." },
       ],
       es: [
-        { q: "¿Necesito una cita para visitar la oficina de Hialeah?", a: "No. Nuestra oficina de Hialeah atiende sin cita de lunes a viernes, de 9:30 AM a 7:00 PM. También puede llamar antes o comenzar su cotización en línea." },
+        { q: "¿Necesito una cita para visitar la oficina de Hialeah?", a: "No. Nuestra oficina de Hialeah atiende sin cita de lunes a viernes, de 9:30 AM a 5:30 PM. También puede llamar antes o comenzar su cotización en línea." },
         { q: "¿Pueden ayudarme si necesito un SR-22 o tengo la licencia suspendida?", a: "Sí. Trabajamos con aseguradoras que presentan los certificados SR-22 y FR-44 ante el estado y le explicamos qué necesita para recuperar su licencia y asegurar su vehículo." },
         { q: "¿Puedo hacer todo en español?", a: "Sí. Todo nuestro equipo es bilingüe, así que las cotizaciones, los documentos, los cambios de póliza y las preguntas sobre reclamos se pueden atender en español." },
       ],

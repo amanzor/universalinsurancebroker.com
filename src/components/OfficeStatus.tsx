@@ -7,14 +7,14 @@ import { useT } from "@/lib/useLang";
 export const officeStatusCopy = {
   en: {
     walkIn: "Walk-ins welcome",
-    walkInHours: `Monday – Friday, ${COMPANY.hours}`,
+    walkInHours: `Monday – Friday, ${COMPANY.walkInHours}`,
     appointment: "By appointment only",
     appointmentHours: "Call to schedule a visit, or get your quote online",
     book: "Call to book an appointment",
   },
   es: {
     walkIn: "Sin cita previa",
-    walkInHours: `Lunes – Viernes, ${COMPANY.hours}`,
+    walkInHours: `Lunes – Viernes, ${COMPANY.walkInHours}`,
     appointment: "Solo con cita previa",
     appointmentHours: "Llame para programar una visita o cotice en línea",
     book: "Llame para hacer una cita",

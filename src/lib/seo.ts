@@ -83,7 +83,7 @@ const openingHours = {
   "@type": "OpeningHoursSpecification",
   dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
   opens: "09:30",
-  closes: "19:00",
+  closes: "17:30",
 };
 
 /** Organization-level structured data (InsuranceAgency) with each office. */

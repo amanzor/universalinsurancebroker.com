@@ -119,8 +119,10 @@ export default function LocationView({ slug }: { slug: string }) {
   // Prefer the office's own Google profile (reviews, hours, directions) when we have it.
   const directionsUrl = profile?.url ?? mapsSearchUrl(office);
   // Section backgrounds alternate; the reviews band (when present) shifts the pattern by one.
-  const bgA = profile ? "bg-white" : "bg-gray-50";
-  const bgB = profile ? "bg-gray-50" : "bg-white";
+  // Only this office's own reviews/rating are shown; never another office's.
+  const showReviews = !!profile && (profile.rating != null || (profile.reviewIds?.length ?? 0) > 0);
+  const bgA = showReviews ? "bg-white" : "bg-gray-50";
+  const bgB = showReviews ? "bg-gray-50" : "bg-white";
 
   return (
     <main className="min-h-screen">
@@ -296,9 +298,9 @@ export default function LocationView({ slug }: { slug: string }) {
         </section>
       )}
 
-      {profile && (
+      {showReviews && profile && (
         <Testimonials
-          ids={profile.reviewIds}
+          ids={profile.reviewIds ?? []}
           variant="home"
           profile={profile}
           city={office.city}
