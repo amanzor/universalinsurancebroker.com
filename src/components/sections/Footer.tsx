@@ -253,10 +253,10 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-gray-400 shrink-0" />
                 <a
-                  href="mailto:universalinsurancebroker@gmail.com"
+                  href={`mailto:${COMPANY.email}`}
                   className="text-sm text-gray-400 hover:text-white transition-colors"
                 >
-                  universalinsurancebroker@gmail.com
+                  {COMPANY.email}
                 </a>
               </div>
             </div>
