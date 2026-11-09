@@ -7,7 +7,14 @@ export const COMPANY = {
   textOnly: "(786) 636-1030",
   doralPhone: "(305) 341-0938",
   spitzerPhone: "(305) 704-7374",
-  email: "universalinsurancebroker@gmail.com",
+  /** Public email shown on the site and in Google's business data. */
+  email: "quotes@universalinsurancebroker.com",
+  /**
+   * Where website form submissions are delivered (via FormSubmit). Kept on the
+   * already-activated Gmail inbox; switching it to another address requires
+   * clicking FormSubmit's one-time activation email sent to that address.
+   */
+  leadInbox: "universalinsurancebroker@gmail.com",
   adminEmail: "admin@universalinsurancebroker.com",
   /** Phone hours (top bar). */
   hours: "9:30 AM - 7:00 PM",
