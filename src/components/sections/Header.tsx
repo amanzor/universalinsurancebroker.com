@@ -37,8 +37,9 @@ export default function Header() {
   const lang = useLang();
   const lp = useLocalizePath();
   const t = {
-    en: { quote: "Get a Quote", toggleMenu: "Toggle menu", closeMenu: "Close menu", hours: "Mon–Fri" },
-    es: { quote: "Cotizar Ahora", toggleMenu: "Abrir o cerrar menú", closeMenu: "Cerrar menú", hours: "Lun–Vie" },
+    // Phone hours; walk-in vs. appointment details live on each office page.
+    en: { quote: "Get a Quote", toggleMenu: "Toggle menu", closeMenu: "Close menu", hours: "Call us Mon–Fri" },
+    es: { quote: "Cotizar Ahora", toggleMenu: "Abrir o cerrar menú", closeMenu: "Cerrar menú", hours: "Llámenos Lun–Vie" },
   }[lang];
 
   useEffect(() => {

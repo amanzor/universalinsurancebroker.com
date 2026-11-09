@@ -93,5 +93,23 @@ export const REVIEWS: Review[] = [
   },
 ];
 
+/**
+ * Each office's own Google Business Profile. The reviews in REVIEWS come from
+ * the Doral profile. Add an entry (profile link + its rating and review count)
+ * for another office to show a reviews section on that office's page and to
+ * point its "Get Directions" button at the profile.
+ */
+export type OfficeProfile = { url: string; writeUrl?: string; rating: number; count: number; reviewIds?: string[] };
+
+export const OFFICE_PROFILES: Record<string, OfficeProfile> = {
+  doral: {
+    url: GOOGLE_REVIEWS_URL,
+    writeUrl: GOOGLE_WRITE_REVIEW_URL,
+    rating: GOOGLE_RATING.rating,
+    count: GOOGLE_RATING.count,
+    reviewIds: ["alex-z", "eddie-w", "efrain-h", "josh-a", "david-d", "deanna-e"],
+  },
+};
+
 /** The six shown on the home page, in display order. */
 export const HOME_REVIEW_IDS = ["alex-z", "eddie-w", "efrain-h", "josh-a", "david-d", "deanna-e"];

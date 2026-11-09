@@ -3,6 +3,7 @@ import JsonLd from "@/components/JsonLd";
 import { COMPANY } from "@/lib/constants";
 import { localizePath, type Lang } from "@/lib/i18n";
 import { OFFICES, officeBySlug } from "@/lib/locations";
+import { LOCAL_CONTENT } from "@/lib/content/locations-local";
 import { SITE_URL, breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 const phoneE164 = (p: string) =>
@@ -100,7 +101,18 @@ export function LocationJsonLd({ slug, lang }: { slug: string; lang: Lang }) {
       { "@type": "ListItem", position: 3, name: o.city, item: url },
     ],
   };
-  return <JsonLd data={[agency, crumbs]} />;
+  const local = LOCAL_CONTENT[slug];
+  const faq = local && {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    inLanguage: lang === "es" ? "es-US" : "en-US",
+    mainEntity: local.faq[lang].map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+  return <JsonLd data={faq ? [agency, crumbs, faq] : [agency, crumbs]} />;
 }
 
 export function LocationsIndexJsonLd({ lang }: { lang: Lang }) {
