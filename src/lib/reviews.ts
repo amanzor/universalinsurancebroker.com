@@ -138,11 +138,35 @@ export const REVIEWS: Review[] = [
     text: "Call Uri and his team for everything. They go above and beyond for real!!!",
     translation: "Llamen a Uri y a su equipo para todo. ¡De verdad hacen más de lo que se espera!",
   },
+
+  // ── Boca Raton Google Business Profile ──
+  {
+    id: "boca-chaya-b",
+    name: "Chaya B.",
+    lang: "en",
+    text: "I recommend Uriel to everyone who needs sufficient and quick response and support my experience is amazing !",
+    translation:
+      "Recomiendo a Uriel a todos los que necesiten una respuesta y un apoyo rápidos y eficaces. ¡Mi experiencia ha sido increíble!",
+  },
+  {
+    id: "boca-tamara-m",
+    name: "Tamara M.",
+    lang: "en",
+    text: "Great quotes on insurance and service from the staff",
+    translation: "Excelentes cotizaciones de seguros y muy buen servicio del personal.",
+  },
+  {
+    id: "boca-elie",
+    name: "Elie",
+    lang: "en",
+    text: "Great company. Great people. Fair, honest. What else do you need these days? Highly recommend",
+    translation: "Gran compañía. Gran gente. Justos y honestos. ¿Qué más se necesita hoy en día? Muy recomendados.",
+  },
 ];
 
 /**
  * Each office's own Google Business Profile. REVIEWS holds reviews from the
- * Doral profile (ids without a prefix) and the Lehigh Acres profile ("lehigh-"). Add an entry (profile link + its rating and review count)
+ * Doral profile (ids without a prefix), Lehigh Acres ("lehigh-") and Boca Raton ("boca-"). Add an entry (profile link + its rating and review count)
  * for another office to show a reviews section on that office's page and to
  * point its "Get Directions" button at the profile.
  */
@@ -174,6 +198,9 @@ export const OFFICE_PROFILES: Record<string, OfficeProfile> = {
   "boca-raton": {
     url: "https://g.page/r/CVUEYP0LPBnBEAI",
     writeUrl: "https://g.page/r/CVUEYP0LPBnBEAI/review",
+    rating: 5.0,
+    count: 105,
+    reviewIds: ["boca-chaya-b", "boca-tamara-m", "boca-elie"],
   },
 };
 
