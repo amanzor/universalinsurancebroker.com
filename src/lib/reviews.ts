@@ -91,11 +91,58 @@ export const REVIEWS: Review[] = [
     text: "Great customer service Great prices this place is the best",
     translation: "Excelente atención al cliente, excelentes precios. Este lugar es el mejor.",
   },
+
+  // ── Lehigh Acres Google Business Profile ──
+  {
+    id: "lehigh-vivian-g",
+    name: "Vivian G.",
+    lang: "en",
+    text: "Thank you Alberto and Randy for your professional services and requoting our home insurance that was up for renewal. Highly recommend.",
+    translation:
+      "Gracias a Alberto y Randy por sus servicios profesionales y por volver a cotizar nuestro seguro de hogar, que estaba por renovarse. Muy recomendados.",
+  },
+  {
+    id: "lehigh-fernando-p",
+    name: "Fernando P.",
+    lang: "es",
+    text: "Uri y Albert definitivamente me dieron una excelente atención! Buen precio en mi seguro de auto! Recomendados al 100",
+    translation: "Uri and Albert definitely gave me excellent service! Good price on my auto insurance! 100% recommended.",
+  },
+  {
+    id: "lehigh-alex-p",
+    name: "Alex P.",
+    lang: "en",
+    text: "I received a great quote from these guys and saved $100 per month over my insurance.",
+    translation: "Recibí una excelente cotización de ellos y ahorré $100 al mes en mi seguro.",
+  },
+  {
+    id: "lehigh-wally-s",
+    name: "Wally S.",
+    lang: "en",
+    text: "Uri and Amanda are professional, courteous and busy yet they were still attentive to my needs and inquiries so much so that I knew I was going to become a client right away",
+    translation:
+      "Uri y Amanda son profesionales, corteses y, aunque estaban ocupados, estuvieron atentos a mis necesidades y preguntas, tanto que supe enseguida que me iba a hacer cliente.",
+  },
+  {
+    id: "lehigh-michael-m",
+    name: "Michael M.",
+    lang: "en",
+    text: "Uri is first class when it comes to client service and attention to detail. He really leaves no stone unturned and will go above and beyond",
+    translation:
+      "Uri es de primera en servicio al cliente y atención a los detalles. No deja nada sin revisar y siempre hace más de lo esperado.",
+  },
+  {
+    id: "lehigh-brandon",
+    name: "Brandon",
+    lang: "en",
+    text: "Call Uri and his team for everything. They go above and beyond for real!!!",
+    translation: "Llamen a Uri y a su equipo para todo. ¡De verdad hacen más de lo que se espera!",
+  },
 ];
 
 /**
- * Each office's own Google Business Profile. The reviews in REVIEWS come from
- * the Doral profile. Add an entry (profile link + its rating and review count)
+ * Each office's own Google Business Profile. REVIEWS holds reviews from the
+ * Doral profile (ids without a prefix) and the Lehigh Acres profile ("lehigh-"). Add an entry (profile link + its rating and review count)
  * for another office to show a reviews section on that office's page and to
  * point its "Get Directions" button at the profile.
  */
@@ -122,6 +169,7 @@ export const OFFICE_PROFILES: Record<string, OfficeProfile> = {
     writeUrl: "https://g.page/r/CepMmoQJVNsYEAI/review",
     rating: 4.9,
     count: 134,
+    reviewIds: ["lehigh-vivian-g", "lehigh-fernando-p", "lehigh-alex-p", "lehigh-wally-s", "lehigh-michael-m", "lehigh-brandon"],
   },
   "boca-raton": {
     url: "https://g.page/r/CVUEYP0LPBnBEAI",
