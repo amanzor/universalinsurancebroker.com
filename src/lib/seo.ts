@@ -118,7 +118,13 @@ export function organizationJsonLd() {
           },
         },
         knowsLanguage: ["en", "es"],
-        areaServed: { "@type": "State", name: "Florida" },
+        areaServed: [
+          { "@type": "State", name: "Florida" },
+          ...COMPANY.counties.map((name) => ({
+            "@type": "AdministrativeArea",
+            name: `${name}, Florida`,
+          })),
+        ],
         priceRange: "$$",
         address: {
           "@type": "PostalAddress",
@@ -144,6 +150,7 @@ export function organizationJsonLd() {
             postalCode: loc.zip,
             addressCountry: "US",
           },
+          geo: { "@type": "GeoCoordinates", latitude: loc.lat, longitude: loc.lng },
           // Appointment-only locations publish no walk-in hours.
           ...(loc.appointmentOnly ? {} : { openingHoursSpecification: openingHours }),
         })),

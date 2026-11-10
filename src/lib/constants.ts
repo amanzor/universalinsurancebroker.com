@@ -24,14 +24,17 @@ export const COMPANY = {
   /*
    * Hialeah is the walk-in office (Mon–Fri, COMPANY.walkInHours). The other
    * locations are staffed by appointment only. Keep each address and phone
-   * identical to its Google Business Profile.
+   * identical to its Google Business Profile. lat/lng are from the U.S.
+   * Census Bureau geocoder for each address (used in structured data).
    */
+  /** Florida counties the agency focuses on (structured data areaServed). */
+  counties: ["Miami-Dade County", "Broward County", "Palm Beach County", "Lee County", "Collier County"],
   locations: [
-    { name: "Hialeah Office", nameEs: "Oficina de Hialeah", address: "1943 W 68th St", city: "Hialeah", state: "FL", zip: "33014", phone: "(239) 204-2208", appointmentOnly: false },
-    { name: "Doral Office", nameEs: "Oficina de Doral", address: "2500 NW 79th Ave Suite 266", city: "Doral", state: "FL", zip: "33122", phone: "(305) 341-0938", appointmentOnly: true },
-    { name: "Spitzer Homestead", nameEs: "Spitzer Homestead", address: "30101 S Dixie Hwy", city: "Homestead", state: "FL", zip: "33033", phone: "(305) 704-7374", appointmentOnly: true },
-    { name: "Boca Raton Office", nameEs: "Oficina de Boca Raton", address: "3200 N Federal Hwy Suite 224", city: "Boca Raton", state: "FL", zip: "33431", phone: "(239) 204-2208", appointmentOnly: true },
-    { name: "Lehigh Acres Office", nameEs: "Oficina de Lehigh Acres", address: "111 Lee Blvd", city: "Lehigh Acres", state: "FL", zip: "33936", phone: "(239) 204-2208", appointmentOnly: true },
+    { name: "Hialeah Office", nameEs: "Oficina de Hialeah", address: "1943 W 68th St", city: "Hialeah", state: "FL", zip: "33014", phone: "(239) 204-2208", appointmentOnly: false, lat: 25.884595, lng: -80.322346 },
+    { name: "Doral Office", nameEs: "Oficina de Doral", address: "2500 NW 79th Ave Suite 266", city: "Doral", state: "FL", zip: "33122", phone: "(305) 341-0938", appointmentOnly: true, lat: 25.797384, lng: -80.325023 },
+    { name: "Spitzer Homestead", nameEs: "Spitzer Homestead", address: "30101 S Dixie Hwy", city: "Homestead", state: "FL", zip: "33033", phone: "(305) 704-7374", appointmentOnly: true, lat: 25.487615, lng: -80.457967 },
+    { name: "Boca Raton Office", nameEs: "Oficina de Boca Raton", address: "3200 N Federal Hwy Suite 224", city: "Boca Raton", state: "FL", zip: "33431", phone: "(239) 204-2208", appointmentOnly: true, lat: 26.379862, lng: -80.07638 },
+    { name: "Lehigh Acres Office", nameEs: "Oficina de Lehigh Acres", address: "111 Lee Blvd", city: "Lehigh Acres", state: "FL", zip: "33936", phone: "(239) 204-2208", appointmentOnly: true, lat: 26.605162, lng: -81.640078 },
   ],
 };
 
