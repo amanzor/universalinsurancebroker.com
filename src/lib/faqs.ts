@@ -89,7 +89,7 @@ export const faqs: FaqCategory[] = [
       },
       {
         q: "When can I enroll in health insurance?",
-        a: "Open enrollment typically runs from November 1 to January 15 each year. However, you may qualify for a Special Enrollment Period due to life events such as marriage, birth of a child, loss of coverage, or moving.",
+        a: "Open Enrollment starts November 1 each year; enroll by December 15 for coverage starting January 1, and check HealthCare.gov for that year's final deadline. However, you may qualify for a Special Enrollment Period due to life events such as marriage, birth of a child, loss of coverage, or moving.",
       },
       {
         q: "Can you help me with Medicare?",
@@ -202,7 +202,7 @@ export const faqsEs: FaqCategory[] = [
       },
       {
         q: "¿Cuándo puedo inscribirme en un seguro de salud?",
-        a: "La inscripción abierta normalmente va del 1 de noviembre al 15 de enero de cada año. Sin embargo, usted podría calificar para un Período de Inscripción Especial por eventos de vida como matrimonio, el nacimiento de un hijo, la pérdida de cobertura o una mudanza.",
+        a: "La Inscripción Abierta empieza el 1 de noviembre de cada año; inscríbase a más tardar el 15 de diciembre para tener cobertura desde el 1 de enero y revise en HealthCare.gov la fecha límite final de ese año. Sin embargo, usted podría calificar para un Período de Inscripción Especial por eventos de vida como matrimonio, el nacimiento de un hijo, la pérdida de cobertura o una mudanza.",
       },
       {
         q: "¿Pueden ayudarme con Medicare?",

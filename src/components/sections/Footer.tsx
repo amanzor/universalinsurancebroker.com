@@ -35,6 +35,7 @@ const companyLinks = [
   { label: { en: "About Us", es: "Nosotros" }, href: "/about" },
   { label: { en: "Locations", es: "Oficinas" }, href: "/locations" },
   { label: { en: "FAQ", es: "Preguntas Frecuentes" }, href: "/faq" },
+  { label: { en: "Insurance Guides", es: "Guías de Seguros" }, href: "/guides" },
   { label: { en: "Contact", es: "Contacto" }, href: "/contact" },
   { label: { en: "Get a Quote", es: "Cotizar Ahora" }, href: QUOTE_URL },
 ];

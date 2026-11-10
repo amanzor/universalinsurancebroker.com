@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import RelatedGuides from "@/components/RelatedGuides";
 import { motion } from "framer-motion";
 import {
   Home,
@@ -775,7 +776,9 @@ export default function HomeInsurancePage() {
         </div>
       </section>
 
-
+      <RelatedGuides
+        slugs={["florida-hurricane-deductibles", "florida-flood-insurance", "florida-condo-insurance"]}
+      />
     </>
   );
 }

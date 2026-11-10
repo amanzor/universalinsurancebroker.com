@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import RelatedGuides from "@/components/RelatedGuides";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   HeartPulse,
@@ -77,7 +78,7 @@ const copy = {
     enrollCards: [
       {
         title: "Open Enrollment",
-        text: "In Florida, Open Enrollment for Marketplace plans through HealthCare.gov generally runs from November 1 to January 15. This is when anyone can sign up for a new plan, switch plans, or update their current coverage for the coming year. The date you enroll can affect when your coverage begins, so we recommend not waiting until the last week.",
+        text: "In Florida, Open Enrollment for Marketplace plans through HealthCare.gov starts on November 1. Enroll by December 15 to have coverage starting January 1, and check HealthCare.gov for this year's final deadline, since the dates have changed in recent years. This is when anyone can sign up for a new plan, switch plans, or update their current coverage for the coming year, so we recommend not waiting until the last week.",
       },
       {
         title: "Special Enrollment Periods",
@@ -188,7 +189,7 @@ const copy = {
     enrollCards: [
       {
         title: "Inscripción Abierta",
-        text: "En Florida, la Inscripción Abierta para los planes del Mercado a través de HealthCare.gov generalmente va del 1 de noviembre al 15 de enero. En este período cualquier persona puede inscribirse en un plan nuevo, cambiar de plan o actualizar su cobertura para el próximo año. La fecha en que se inscribe puede afectar cuándo comienza su cobertura, así que le recomendamos no esperar a la última semana.",
+        text: "En Florida, la Inscripción Abierta para los planes del Mercado a través de HealthCare.gov empieza el 1 de noviembre. Inscríbase a más tardar el 15 de diciembre para tener cobertura desde el 1 de enero, y revise HealthCare.gov para conocer la fecha límite final de este año, ya que las fechas han cambiado en los últimos años. En este período cualquier persona puede inscribirse en un plan nuevo, cambiar de plan o actualizar su cobertura para el próximo año, así que le recomendamos no esperar a la última semana.",
       },
       {
         title: "Períodos de Inscripción Especial",
@@ -691,6 +692,8 @@ export default function HealthInsurancePage() {
           </motion.div>
         </div>
       </section>
+
+      <RelatedGuides slugs={["florida-aca-open-enrollment"]} className="bg-gray-50" />
 
       {/* CTA */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800 text-white">
