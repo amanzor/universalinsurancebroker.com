@@ -22,6 +22,8 @@ const quoteTool = (url: URL) =>
  * - content_group = "English" / "Spanish" for every page
  * - phone_click, quote_click, email_click and language_switch from any link
  * Lead form submissions are tracked in the forms via track("generate_lead").
+ * Team members mark their own browsers as internal with ?internal=1 (see the
+ * init script); those visits carry traffic_type=internal for GA4's filter.
  */
 export default function Analytics() {
   const pathname = usePathname() || "/";
@@ -77,6 +79,15 @@ export default function Analytics() {
 function gtag(){dataLayer.push(arguments);}
 window.gtag = gtag;
 gtag('js', new Date());
+// Team devices: opening any page with ?internal=1 marks this browser as
+// internal (?internal=0 undoes it). GA4's "Internal Traffic" data filter
+// then keeps those visits out of the reports.
+try {
+  var q = new URLSearchParams(location.search).get('internal');
+  if (q === '1') localStorage.setItem('uib_internal', '1');
+  if (q === '0') localStorage.removeItem('uib_internal');
+  if (localStorage.getItem('uib_internal') === '1') gtag('set', { traffic_type: 'internal' });
+} catch (e) {}
 gtag('config', '${GA_ID}', { content_group: location.pathname === '/es' || location.pathname.indexOf('/es/') === 0 ? 'Spanish' : 'English' });`}
       </Script>
     </>
