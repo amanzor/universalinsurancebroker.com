@@ -15,7 +15,11 @@ import {
   Navigation,
   Phone,
 } from "lucide-react";
-import { COMPANY, QUOTE_URL } from "@/lib/constants";
+import { QUOTE_URL } from "@/lib/constants";
+import { OfficeStatusBadge, officeStatusCopy } from "@/components/OfficeStatus";
+import Testimonials from "@/components/Testimonials";
+import { LOCAL_CONTENT } from "@/lib/content/locations-local";
+import { OFFICE_PROFILES } from "@/lib/reviews";
 import { OFFICES, fullAddress, mapsEmbedUrl, mapsSearchUrl, officeBySlug } from "@/lib/locations";
 import { useLang, useLocalizePath, useT } from "@/lib/useLang";
 
@@ -43,8 +47,8 @@ const copy = {
     directions: "Get Directions",
     quote: "Get a Free Quote",
     visit: "Visit our office",
+    visitAppt: "Meet with us",
     hoursTitle: "Office hours",
-    hours: "Monday – Friday",
     spanish: "Se habla español",
     spanishNote: "Our bilingual team can help you in English or Spanish.",
     focusTitle: (city: string) => `How we help in ${city}`,
@@ -62,8 +66,10 @@ const copy = {
     mapTitle: (city: string) => `Map of our ${city} office`,
     ctaTitle: "Ready to compare your options?",
     ctaText: "Call us, stop by the office, or start your quote online — it only takes a few minutes.",
+    ctaTextAppt: "Call to book an appointment, or start your quote online — it only takes a few minutes.",
     contact: "Contact Us",
     allOffices: "All locations",
+    faqTitle: (city: string) => `${city} insurance questions`,
   },
   es: {
     eyebrow: "Agencia de seguros en",
@@ -72,8 +78,8 @@ const copy = {
     directions: "Cómo Llegar",
     quote: "Cotización Gratis",
     visit: "Visite nuestra oficina",
+    visitAppt: "Reúnase con nosotros",
     hoursTitle: "Horario de atención",
-    hours: "Lunes – Viernes",
     spanish: "Hablamos español",
     spanishNote: "Nuestro equipo bilingüe le atiende en español o en inglés.",
     focusTitle: (city: string) => `Cómo le ayudamos en ${city}`,
@@ -91,8 +97,10 @@ const copy = {
     mapTitle: (city: string) => `Mapa de nuestra oficina de ${city}`,
     ctaTitle: "¿Listo para comparar sus opciones?",
     ctaText: "Llámenos, visite la oficina o comience su cotización en línea; solo toma unos minutos.",
+    ctaTextAppt: "Llame para hacer una cita o comience su cotización en línea; solo toma unos minutos.",
     contact: "Contáctenos",
     allOffices: "Todas las oficinas",
+    faqTitle: (city: string) => `Preguntas sobre seguros en ${city}`,
   },
 };
 
@@ -100,11 +108,21 @@ const serviceIcons = [Car, Home, Building2, HeartPulse];
 
 export default function LocationView({ slug }: { slug: string }) {
   const t = useT(copy);
+  const s = useT(officeStatusCopy);
   const lang = useLang();
   const lp = useLocalizePath();
   const office = officeBySlug(slug)!;
   const tel = `tel:${office.phone.replace(/\D/g, "")}`;
   const others = OFFICES.filter((o) => o.slug !== slug);
+  const local = LOCAL_CONTENT[slug];
+  const profile = OFFICE_PROFILES[slug];
+  // Prefer the office's own Google profile (reviews, hours, directions) when we have it.
+  const directionsUrl = profile?.url ?? mapsSearchUrl(office);
+  // Section backgrounds alternate; the reviews band (when present) shifts the pattern by one.
+  // Only this office's own reviews/rating are shown; never another office's.
+  const showReviews = !!profile && (profile.rating != null || (profile.reviewIds?.length ?? 0) > 0);
+  const bgA = showReviews ? "bg-white" : "bg-gray-50";
+  const bgB = showReviews ? "bg-gray-50" : "bg-white";
 
   return (
     <main className="min-h-screen">
@@ -120,6 +138,9 @@ export default function LocationView({ slug }: { slug: string }) {
           >
             {t.eyebrow} {office.city}, FL
           </motion.p>
+          <motion.div initial="hidden" animate="visible" variants={heroFade} className="mb-4">
+            <OfficeStatusBadge appointmentOnly={office.appointmentOnly} tone="dark" className="text-sm" />
+          </motion.div>
           <motion.h1
             initial="hidden"
             animate="visible"
@@ -150,10 +171,10 @@ export default function LocationView({ slug }: { slug: string }) {
               className="btn-electric inline-flex items-center gap-2 rounded-full px-6 py-3 font-semibold text-primary-900"
             >
               <Phone className="h-5 w-5" />
-              {t.call} {office.phone}
+              {office.appointmentOnly ? s.book : `${t.call} ${office.phone}`}
             </a>
             <a
-              href={mapsSearchUrl(office)}
+              href={directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 px-6 py-3 font-semibold text-white transition hover:border-white hover:bg-white/10"
@@ -175,7 +196,7 @@ export default function LocationView({ slug }: { slug: string }) {
             variants={fadeUp}
             className="space-y-5 lg:col-span-2"
           >
-            <h2 className="text-2xl font-bold text-primary-900">{t.visit}</h2>
+            <h2 className="text-2xl font-bold text-primary-900">{office.appointmentOnly ? t.visitAppt : t.visit}</h2>
             <div className="rounded-2xl border border-gray-100 bg-gray-50 p-6 shadow-sm">
               <p className="flex items-start gap-3 text-gray-700">
                 <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
@@ -195,8 +216,10 @@ export default function LocationView({ slug }: { slug: string }) {
               <div className="mt-4 flex items-start gap-3 text-gray-700">
                 <Clock className="mt-0.5 h-5 w-5 shrink-0 text-primary-600" />
                 <span>
-                  <span className="block font-semibold text-primary-900">{t.hoursTitle}</span>
-                  {t.hours}: {COMPANY.hours}
+                  <span className="block font-semibold text-primary-900">
+                    {office.appointmentOnly ? s.appointment : t.hoursTitle}
+                  </span>
+                  {office.appointmentOnly ? s.appointmentHours : s.walkInHours}
                 </span>
               </div>
             </div>
@@ -251,8 +274,41 @@ export default function LocationView({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* What to know locally */}
+      {local && (
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-6xl px-6">
+            <h2 className="text-2xl font-bold text-primary-900 sm:text-3xl">{local.sectionsTitle[lang]}</h2>
+            <div className="mt-8 grid gap-8 md:grid-cols-3">
+              {local.sections[lang].map((sec, i) => (
+                <motion.div
+                  key={sec.h}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  custom={i}
+                >
+                  <h3 className="text-lg font-semibold text-primary-900">{sec.h}</h3>
+                  <p className="mt-3 leading-relaxed text-gray-700">{sec.p}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {showReviews && profile && (
+        <Testimonials
+          ids={profile.reviewIds ?? []}
+          variant="home"
+          profile={profile}
+          city={office.city}
+        />
+      )}
+
       {/* Services */}
-      <section className="bg-white py-16">
+      <section className={`${bgA} py-16`}>
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-2xl font-bold text-primary-900 sm:text-3xl">{t.servicesTitle}</h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -286,7 +342,7 @@ export default function LocationView({ slug }: { slug: string }) {
       </section>
 
       {/* Areas served + other offices */}
-      <section className="bg-gray-50 py-16">
+      <section className={`${bgB} py-16`}>
         <div className="mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-2">
           <div>
             <h2 className="text-2xl font-bold text-primary-900">{t.areasTitle(office.city)}</h2>
@@ -313,7 +369,8 @@ export default function LocationView({ slug }: { slug: string }) {
                   >
                     <span>
                       <span className="block font-semibold text-primary-900">{o.name[lang]}</span>
-                      <span className="text-sm text-gray-600">{fullAddress(o)}</span>
+                      <span className="block text-sm text-gray-600">{fullAddress(o)}</span>
+                      <OfficeStatusBadge appointmentOnly={o.appointmentOnly} className="mt-2" />
                     </span>
                     <ArrowRight className="h-4 w-4 shrink-0 text-primary-600 transition-transform group-hover:translate-x-1" />
                   </Link>
@@ -330,11 +387,31 @@ export default function LocationView({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* Local FAQ */}
+      {local && (
+        <section className={`${bgA} py-16`}>
+          <div className="mx-auto max-w-3xl px-6">
+            <h2 className="text-2xl font-bold text-primary-900 sm:text-3xl">{t.faqTitle(office.city)}</h2>
+            <div className="mt-6 divide-y divide-gray-200 rounded-2xl border border-gray-200">
+              {local.faq[lang].map((item) => (
+                <details key={item.q} className="group p-5 [&_summary::-webkit-details-marker]:hidden">
+                  <summary className="flex cursor-pointer items-center justify-between gap-4 font-semibold text-primary-900">
+                    {item.q}
+                    <ArrowRight className="h-4 w-4 shrink-0 text-primary-600 transition-transform group-open:rotate-90" />
+                  </summary>
+                  <p className="mt-3 leading-relaxed text-gray-700">{item.a}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* CTA */}
-      <section className="bg-white py-16">
+      <section className={`${bgB} py-16`}>
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2 className="text-3xl font-bold text-primary-900">{t.ctaTitle}</h2>
-          <p className="mt-3 text-gray-600">{t.ctaText}</p>
+          <p className="mt-3 text-gray-600">{office.appointmentOnly ? t.ctaTextAppt : t.ctaText}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <a
               href={QUOTE_URL}

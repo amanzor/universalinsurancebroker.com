@@ -1,4 +1,94 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "segurosuniversalflorida.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/es",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "segurosuniversalflorida.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/es/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.segurosuniversalflorida.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/es",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.segurosuniversalflorida.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/es/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "doralinsurancebroker.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/doral",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "doralinsurancebroker.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.doralinsurancebroker.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/doral",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.doralinsurancebroker.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/google7b43851891cb7037.html",

@@ -54,7 +54,7 @@ const copy = {
   es: {
     tagline: "Todas Sus Pólizas de Seguro Bajo un Mismo Techo",
     blurb:
-      "Su aliado de confianza en seguros en Florida. Ayudamos a personas y negocios a encontrar la cobertura adecuada a precios competitivos, con un servicio personalizado en el que puede confiar.",
+      "Seguros Universal Florida (Universal Insurance Brokers) es su aliado de confianza en seguros en Florida. Ayudamos a personas y negocios a encontrar la cobertura adecuada a precios competitivos, con un servicio personalizado en el que puede confiar.",
     services: "Seguros",
     company: "Compañía",
     contact: "Contacto",
@@ -253,10 +253,10 @@ export default function Footer() {
               <div className="flex items-center gap-2">
                 <Mail className="h-4 w-4 text-gray-400 shrink-0" />
                 <a
-                  href="mailto:universalinsurancebroker@gmail.com"
+                  href={`mailto:${COMPANY.email}`}
                   className="text-sm text-gray-400 hover:text-white transition-colors"
                 >
-                  universalinsurancebroker@gmail.com
+                  {COMPANY.email}
                 </a>
               </div>
             </div>
@@ -268,7 +268,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
           <p>
-            &copy; 2016 Universal Insurance Brokers&trade;. {t.rights}{" "}
+            &copy; 2016–{new Date().getFullYear()} Universal Insurance Brokers&trade;. {t.rights}{" "}
             <Link href={lp("/privacy")} className="underline-offset-2 hover:text-white hover:underline">
               {t.privacy}
             </Link>

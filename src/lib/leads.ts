@@ -10,7 +10,7 @@ import { COMPANY } from "@/lib/constants";
  * delivered. After activating, FormSubmit's email includes a random alias
  * that can replace the address below so it isn't exposed in page source.
  */
-export const LEAD_INBOX = COMPANY.email;
+export const LEAD_INBOX = COMPANY.leadInbox;
 const ENDPOINT = `https://formsubmit.co/ajax/${LEAD_INBOX}`;
 
 export type LeadResult = { ok: true } | { ok: false; error: string };

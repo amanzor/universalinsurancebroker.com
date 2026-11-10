@@ -17,7 +17,7 @@ export const faqs: FaqCategory[] = [
       },
       {
         q: "What areas do you serve?",
-        a: "We serve all of Florida with office locations in Boca Raton, Lehigh Acres, Homestead, and Hialeah. We can also assist clients remotely via phone and email.",
+        a: "We serve all of Florida. Our Hialeah office welcomes walk-ins Monday to Friday, and our Doral, Homestead, Boca Raton and Lehigh Acres locations meet clients by appointment only. We can also help you remotely by phone, email or online.",
       },
       {
         q: "What makes you different from other insurance agencies?",
@@ -130,7 +130,7 @@ export const faqsEs: FaqCategory[] = [
       },
       {
         q: "¿Qué áreas atienden?",
-        a: "Atendemos todo el estado de Florida, con oficinas en Boca Raton, Lehigh Acres, Homestead y Hialeah. También podemos atender a nuestros clientes a distancia por teléfono y correo electrónico.",
+        a: "Atendemos todo el estado de Florida. Nuestra oficina de Hialeah recibe clientes sin cita de lunes a viernes, y nuestras oficinas de Doral, Homestead, Boca Raton y Lehigh Acres atienden solo con cita previa. También podemos ayudarle a distancia por teléfono, correo electrónico o en línea.",
       },
       {
         q: "¿Qué los diferencia de otras agencias de seguros?",

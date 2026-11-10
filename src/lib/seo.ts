@@ -83,7 +83,7 @@ const openingHours = {
   "@type": "OpeningHoursSpecification",
   dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
   opens: "09:30",
-  closes: "19:00",
+  closes: "17:30",
 };
 
 /** Organization-level structured data (InsuranceAgency) with each office. */
@@ -96,6 +96,9 @@ export function organizationJsonLd() {
         "@type": "InsuranceAgency",
         "@id": `${SITE_URL}/#organization`,
         name: COMPANY.name,
+        // Other names the business is known and searched by (Spanish brand
+        // and the short domain), so search engines tie them to this agency.
+        alternateName: ["Seguros Universal Florida", "UIB Insurance"],
         url: SITE_URL,
         logo: `${SITE_URL}/images/logo-square.png`,
         image: `${SITE_URL}${OG_IMAGE.url}`,
@@ -122,9 +125,7 @@ export function organizationJsonLd() {
           "@id": `${SITE_URL}/#office-${i + 1}`,
           name: `${COMPANY.name} — ${loc.name}`,
           url: `${SITE_URL}/locations/${loc.city.toLowerCase().replace(/\s+/g, "-")}`,
-          telephone: phoneE164(
-            loc.city === "Homestead" ? COMPANY.spitzerPhone : COMPANY.phone,
-          ),
+          telephone: phoneE164(loc.phone),
           address: {
             "@type": "PostalAddress",
             streetAddress: loc.address,
@@ -133,7 +134,8 @@ export function organizationJsonLd() {
             postalCode: loc.zip,
             addressCountry: "US",
           },
-          openingHoursSpecification: openingHours,
+          // Appointment-only locations publish no walk-in hours.
+          ...(loc.appointmentOnly ? {} : { openingHoursSpecification: openingHours }),
         })),
       },
       {

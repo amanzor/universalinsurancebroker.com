@@ -366,7 +366,7 @@ const copy = {
     stepsText:
       "Buying business insurance directly means repeating the same paperwork with each company. Working with a broker is simpler:",
     stepsLocal:
-      "Our licensed agents work with business owners throughout Florida from our offices in Boca Raton, Lehigh Acres, Homestead and Hialeah, and our team speaks English and Spanish.",
+      "Our licensed agents work with business owners throughout Florida from our walk-in office in Hialeah and by appointment in Doral, Homestead, Boca Raton and Lehigh Acres, and our team speaks English and Spanish.",
     stepsCta: "Start a commercial quote",
     faqTitle: "Common Questions",
     faqText: "Quick answers about business insurance in Florida.",
@@ -409,7 +409,7 @@ const copy = {
     stepsText:
       "Comprar un seguro comercial directamente significa repetir el mismo papeleo con cada compañía. Trabajar con un corredor es más sencillo:",
     stepsLocal:
-      "Nuestros agentes con licencia atienden a dueños de negocio en toda Florida desde nuestras oficinas en Boca Raton, Lehigh Acres, Homestead y Hialeah, y nuestro equipo habla inglés y español.",
+      "Nuestros agentes con licencia atienden a dueños de negocio en toda Florida desde nuestra oficina de Hialeah, abierta sin cita, y con cita previa en Doral, Homestead, Boca Raton y Lehigh Acres, y nuestro equipo habla inglés y español.",
     stepsCta: "Comience una cotización comercial",
     faqTitle: "Preguntas Frecuentes",
     faqText: "Respuestas rápidas sobre seguros para negocios en Florida.",

@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useLang, useLocalizePath, useT } from "@/lib/useLang";
 import { track } from "@/lib/analytics";
+import { OfficeStatusBadge } from "@/components/OfficeStatus";
 
 const officeSlug = (city: string) => city.toLowerCase().replace(/\s+/g, "-");
 
@@ -16,6 +17,7 @@ const phoneNumbers = [
   { label: { en: "Current Policy", es: "Póliza Actual" }, number: COMPANY.phone },
   { label: { en: "New Quotes", es: "Nuevas Cotizaciones" }, number: COMPANY.phoneNew },
   { label: { en: "Text Only", es: "Solo Mensajes de Texto" }, number: COMPANY.textOnly },
+  { label: { en: "Doral", es: "Doral" }, number: COMPANY.doralPhone },
   { label: { en: "Homestead - Spitzer", es: "Homestead - Spitzer" }, number: COMPANY.spitzerPhone },
 ];
 
@@ -27,7 +29,8 @@ const copy = {
     phones: "Phone Numbers",
     email: "Email",
     hours: "Business Hours",
-    weekdays: "Monday – Friday",
+    weekdays: "Phone: Monday – Friday",
+    hoursNote: `Hialeah office walk-ins: Monday – Friday, ${COMPANY.walkInHours}. All other locations are by appointment only.`,
     offices: "Our Offices",
   },
   es: {
@@ -37,7 +40,8 @@ const copy = {
     phones: "Teléfonos",
     email: "Correo Electrónico",
     hours: "Horario de Atención",
-    weekdays: "Lunes – Viernes",
+    weekdays: "Teléfono: lunes – viernes",
+    hoursNote: `Oficina de Hialeah sin cita: lunes – viernes, ${COMPANY.walkInHours}. Las demás oficinas atienden solo con cita previa.`,
     offices: "Nuestras Oficinas",
   },
 };
@@ -145,6 +149,7 @@ export default function ContactPage() {
                 <p className="text-sm text-gray-600">
                   {t.weekdays}: {COMPANY.hours}
                 </p>
+                <p className="mt-2 text-sm text-gray-600">{t.hoursNote}</p>
               </div>
 
               {/* Offices */}
@@ -165,6 +170,7 @@ export default function ContactPage() {
                       <p className="text-sm text-gray-500">
                         {loc.address}, {loc.city}, {loc.state} {loc.zip}
                       </p>
+                      <OfficeStatusBadge appointmentOnly={loc.appointmentOnly} className="mt-1.5" />
                     </li>
                   ))}
                 </ul>

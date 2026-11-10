@@ -197,7 +197,7 @@ const guide = {
       "Wind mitigation and/or 4-point inspection reports, if you have them",
     ],
     readyOffices:
-      "We help homeowners throughout Florida, with offices in Boca Raton, Lehigh Acres, Homestead, and Hialeah, and our team speaks English and Spanish.",
+      "We help homeowners throughout Florida, with a walk-in office in Hialeah and appointment-only locations in Doral, Homestead, Boca Raton and Lehigh Acres, and our team speaks English and Spanish.",
     readyButton: "Start Your Home Quote",
     faqTitle: "Common Questions",
     faqIntro: "Quick answers about home insurance in Florida.",
@@ -296,7 +296,7 @@ const guide = {
       "Informes de mitigación de viento y/o de inspección de 4 puntos, si los tiene",
     ],
     readyOffices:
-      "Ayudamos a propietarios en toda Florida, con oficinas en Boca Raton, Lehigh Acres, Homestead y Hialeah, y nuestro equipo habla español e inglés.",
+      "Ayudamos a propietarios en toda Florida, con una oficina sin cita en Hialeah y oficinas con cita previa en Doral, Homestead, Boca Raton y Lehigh Acres, y nuestro equipo habla español e inglés.",
     readyButton: "Comience su Cotización de Hogar",
     faqTitle: "Preguntas Frecuentes",
     faqIntro: "Respuestas rápidas sobre el seguro de hogar en Florida.",
