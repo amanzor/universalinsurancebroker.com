@@ -64,6 +64,7 @@ export function LocationJsonLd({ slug, lang }: { slug: string; lang: Lang }) {
       postalCode: o.zip,
       addressCountry: "US",
     },
+    geo: { "@type": "GeoCoordinates", latitude: o.lat, longitude: o.lng },
     // Appointment-only locations publish no walk-in hours.
     ...(o.appointmentOnly
       ? {}
@@ -75,7 +76,10 @@ export function LocationJsonLd({ slug, lang }: { slug: string; lang: Lang }) {
             closes: "17:30",
           },
         }),
-    areaServed: o.areas.map((a) => ({ "@type": "City", name: `${a}, FL` })),
+    areaServed: [
+      { "@type": "AdministrativeArea", name: `${o.county}, Florida` },
+      ...o.areas.map((a) => ({ "@type": "City", name: `${a}, FL` })),
+    ],
     knowsLanguage: ["en", "es"],
     parentOrganization: { "@id": `${SITE_URL}/#organization` },
     hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(

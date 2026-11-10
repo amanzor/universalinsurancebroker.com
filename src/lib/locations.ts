@@ -17,6 +17,8 @@ export type Office = {
   phone: string;
   /** True when the location is staffed by appointment only (no walk-ins). */
   appointmentOnly: boolean;
+  lat: number;
+  lng: number;
   county: string;
   /** Nearby communities the office serves. */
   areas: string[];
@@ -35,7 +37,7 @@ const loc = (city: string) => {
 const office = (
   slug: string,
   city: string,
-  extra: Omit<Office, "slug" | "city" | "name" | "address" | "state" | "zip" | "phone" | "appointmentOnly">,
+  extra: Omit<Office, "slug" | "city" | "name" | "address" | "state" | "zip" | "phone" | "appointmentOnly" | "lat" | "lng">,
 ): Office => {
   const l = loc(city);
   return {
@@ -47,6 +49,8 @@ const office = (
     zip: l.zip,
     phone: l.phone,
     appointmentOnly: l.appointmentOnly,
+    lat: l.lat,
+    lng: l.lng,
     ...extra,
   };
 };
