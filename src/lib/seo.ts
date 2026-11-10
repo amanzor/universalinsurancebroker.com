@@ -107,6 +107,16 @@ export function organizationJsonLd() {
         telephone: phoneE164(COMPANY.phone),
         email: COMPANY.email,
         foundingDate: "2016",
+        hasCredential: {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "license",
+          name: `Florida insurance agency license ${COMPANY.license}`,
+          identifier: COMPANY.license,
+          recognizedBy: {
+            "@type": "GovernmentOrganization",
+            name: "Florida Department of Financial Services",
+          },
+        },
         knowsLanguage: ["en", "es"],
         areaServed: { "@type": "State", name: "Florida" },
         priceRange: "$$",

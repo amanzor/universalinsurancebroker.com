@@ -49,7 +49,7 @@ const copy = {
     company: "Company",
     contact: "Contact Info",
     rights: "All Rights Reserved.",
-    licensed: "Licensed Insurance Broker - State of Florida",
+    licensed: `Licensed Insurance Agency - State of Florida · License #${COMPANY.license}`,
     privacy: "Privacy Policy",
   },
   es: {
@@ -60,7 +60,7 @@ const copy = {
     company: "Compañía",
     contact: "Contacto",
     rights: "Todos los derechos reservados.",
-    licensed: "Corredor de Seguros con Licencia - Estado de Florida",
+    licensed: `Agencia de Seguros con Licencia - Estado de Florida · Licencia #${COMPANY.license}`,
     privacy: "Política de Privacidad",
   },
 };
