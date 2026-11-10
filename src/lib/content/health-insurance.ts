@@ -5,7 +5,7 @@ export const faq: PageFaq = {
   en: [
     {
       q: "When is open enrollment for health insurance in Florida?",
-      a: "Open Enrollment for Marketplace (ACA) plans in Florida through HealthCare.gov generally runs from November 1 to January 15. The date you enroll can affect when your coverage starts, so it is a good idea to apply early and ask us about start dates for your situation.",
+      a: "Open Enrollment for Marketplace (ACA) plans in Florida through HealthCare.gov starts on November 1. Enroll by December 15 to have coverage starting January 1; HealthCare.gov publishes each year's final deadline, which has changed in recent years. It is a good idea to apply early and ask us about start dates for your situation.",
     },
     {
       q: "Can I get health insurance outside of open enrollment?",
@@ -31,7 +31,7 @@ export const faq: PageFaq = {
   es: [
     {
       q: "¿Cuándo es la inscripción abierta del seguro médico en Florida?",
-      a: "La Inscripción Abierta para los planes del Mercado de Seguros Médicos (ACA) en Florida a través de HealthCare.gov generalmente va del 1 de noviembre al 15 de enero. La fecha en que se inscribe puede afectar cuándo comienza su cobertura, así que le recomendamos solicitar con tiempo y consultarnos sobre las fechas de inicio en su caso.",
+      a: "La Inscripción Abierta para los planes del Mercado de Seguros Médicos (ACA) en Florida a través de HealthCare.gov empieza el 1 de noviembre. Inscríbase a más tardar el 15 de diciembre para tener cobertura desde el 1 de enero; HealthCare.gov publica la fecha límite final de cada año, que ha cambiado en los últimos años. Le recomendamos solicitar con tiempo y consultarnos sobre las fechas de inicio en su caso.",
     },
     {
       q: "¿Puedo obtener seguro médico fuera de la inscripción abierta?",

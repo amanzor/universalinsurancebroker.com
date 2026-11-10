@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import RelatedGuides from "@/components/RelatedGuides";
 import Testimonials from "@/components/Testimonials";
 import { motion } from "framer-motion";
 import {
@@ -748,6 +749,8 @@ export default function AutoInsurancePage() {
       </section>
 
       <Testimonials topic="auto" variant="topic" />
+
+      <RelatedGuides slugs={["florida-car-insurance-requirements", "florida-flood-insurance"]} />
 
       {/* CTA */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800 text-white">

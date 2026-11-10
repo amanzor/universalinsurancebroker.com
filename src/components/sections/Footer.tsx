@@ -35,6 +35,7 @@ const companyLinks = [
   { label: { en: "About Us", es: "Nosotros" }, href: "/about" },
   { label: { en: "Locations", es: "Oficinas" }, href: "/locations" },
   { label: { en: "FAQ", es: "Preguntas Frecuentes" }, href: "/faq" },
+  { label: { en: "Insurance Guides", es: "Guías de Seguros" }, href: "/guides" },
   { label: { en: "Contact", es: "Contacto" }, href: "/contact" },
   { label: { en: "Get a Quote", es: "Cotizar Ahora" }, href: QUOTE_URL },
 ];
@@ -48,7 +49,7 @@ const copy = {
     company: "Company",
     contact: "Contact Info",
     rights: "All Rights Reserved.",
-    licensed: "Licensed Insurance Broker - State of Florida",
+    licensed: `Licensed Insurance Agency - State of Florida · License #${COMPANY.license}`,
     privacy: "Privacy Policy",
   },
   es: {
@@ -59,7 +60,7 @@ const copy = {
     company: "Compañía",
     contact: "Contacto",
     rights: "Todos los derechos reservados.",
-    licensed: "Corredor de Seguros con Licencia - Estado de Florida",
+    licensed: `Agencia de Seguros con Licencia - Estado de Florida · Licencia #${COMPANY.license}`,
     privacy: "Política de Privacidad",
   },
 };

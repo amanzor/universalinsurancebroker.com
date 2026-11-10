@@ -9,6 +9,8 @@ export const COMPANY = {
   spitzerPhone: "(305) 704-7374",
   /** Public email shown on the site and in Google's business data. */
   email: "quotes@universalinsurancebroker.com",
+  /** Florida Department of Financial Services agency license. */
+  license: "L099044",
   adminEmail: "admin@universalinsurancebroker.com",
   /** Phone hours (top bar). */
   hours: "9:30 AM - 7:00 PM",
@@ -65,6 +67,7 @@ export const NAV_LINKS: {
     { label: { en: "Commercial Insurance", es: "Seguro Comercial" }, href: "/commercial-insurance" },
     { label: { en: "Home Insurance", es: "Seguro de Hogar" }, href: "/home-insurance" },
     { label: { en: "Health Insurance", es: "Seguro de Salud" }, href: "/health-insurance" },
+    { label: { en: "Florida Insurance Guides", es: "Guías de Seguros en Florida" }, href: "/guides" },
   ]},
   { label: { en: "About Us", es: "Nosotros" }, href: "/about" },
   { label: { en: "Locations", es: "Oficinas" }, href: "/locations" },

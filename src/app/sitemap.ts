@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/lib/seo";
 import { localizePath } from "@/lib/i18n";
 import { OFFICES } from "@/lib/locations";
+import { GUIDES } from "@/lib/content/guides";
 
 export const dynamic = "force-static";
 
@@ -18,6 +19,8 @@ const routes: { path: string; priority: number; changeFrequency: "weekly" | "mon
   { path: "/locations", priority: 0.7, changeFrequency: "yearly" },
   { path: "/privacy", priority: 0.2, changeFrequency: "yearly" },
   ...OFFICES.map((o) => ({ path: `/locations/${o.slug}`, priority: 0.8, changeFrequency: "yearly" as const })),
+  { path: "/guides", priority: 0.7, changeFrequency: "monthly" },
+  ...GUIDES.map((g) => ({ path: `/guides/${g.slug}`, priority: 0.7, changeFrequency: "yearly" as const })),
 ];
 
 const abs = (path: string) => `${SITE_URL}${path === "/" ? "" : path}`;

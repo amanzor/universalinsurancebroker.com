@@ -31,7 +31,7 @@ export const LOCAL_CONTENT: Record<string, LocalContent> = {
         },
         {
           h: "Health plans with help in Spanish",
-          p: "Florida has one of the largest Affordable Care Act Marketplace enrollments in the country, and many families qualify for financial help that lowers their monthly premium. Our agents walk you through the options in Spanish or English during Open Enrollment, which usually runs from November 1 to January 15, or during a Special Enrollment Period if you have a qualifying life event.",
+          p: "Florida has one of the largest Affordable Care Act Marketplace enrollments in the country, and many families qualify for financial help that lowers their monthly premium. Our agents walk you through the options in Spanish or English during Open Enrollment, which starts November 1 (enroll by December 15 for coverage starting January 1), or during a Special Enrollment Period if you have a qualifying life event.",
         },
       ],
       es: [
@@ -45,7 +45,7 @@ export const LOCAL_CONTENT: Record<string, LocalContent> = {
         },
         {
           h: "Planes de salud con ayuda en español",
-          p: "Florida tiene una de las mayores inscripciones en el Mercado de Seguros Médicos (ACA) del país, y muchas familias califican para ayuda financiera que reduce su prima mensual. Nuestros agentes le explican las opciones en español o inglés durante la Inscripción Abierta, que normalmente va del 1 de noviembre al 15 de enero, o durante un Período de Inscripción Especial si tiene un cambio de vida que califique.",
+          p: "Florida tiene una de las mayores inscripciones en el Mercado de Seguros Médicos (ACA) del país, y muchas familias califican para ayuda financiera que reduce su prima mensual. Nuestros agentes le explican las opciones en español o inglés durante la Inscripción Abierta, que empieza el 1 de noviembre (inscríbase a más tardar el 15 de diciembre para tener cobertura desde el 1 de enero), o durante un Período de Inscripción Especial si tiene un cambio de vida que califique.",
         },
       ],
     },
