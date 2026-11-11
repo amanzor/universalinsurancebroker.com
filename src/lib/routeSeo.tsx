@@ -30,6 +30,8 @@ type RouteCopy = {
   service?: string;
   /** Breadcrumb label (defaults to `service`). */
   crumb?: string;
+  /** Keep out of search results (utility pages such as /review). */
+  noindex?: boolean;
 };
 
 export type RouteKey =
@@ -41,7 +43,8 @@ export type RouteKey =
   | "faq"
   | "contact"
   | "home-insurance/form"
-  | "privacy";
+  | "privacy"
+  | "review";
 
 const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
   "auto-insurance": {
@@ -142,6 +145,20 @@ const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
       crumb: "Contacto",
     },
   },
+  review: {
+    en: {
+      title: "Leave Us a Google Review",
+      description: "Thank you for choosing Universal Insurance Brokers. Pick the office that helped you and leave a Google review in about a minute.",
+      crumb: "Leave a Review",
+      noindex: true,
+    },
+    es: {
+      title: "Déjenos una Reseña en Google",
+      description: "Gracias por elegir Universal Insurance Brokers. Elija la oficina que lo atendió y deje su reseña en Google en un minuto.",
+      crumb: "Deje una Reseña",
+      noindex: true,
+    },
+  },
   privacy: {
     en: {
       title: "Privacy Policy",
@@ -177,6 +194,7 @@ export function routeMetadata(route: RouteKey, lang: Lang): Metadata {
     lang,
     title: c.title,
     description: c.description,
+    noindex: c.noindex,
     // The quote form sits under the home-insurance layout, which sets its own
     // title, so the root "%s | brand" template must be applied explicitly.
     absoluteTitle: route === "home-insurance/form",
