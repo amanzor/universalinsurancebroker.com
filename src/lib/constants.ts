@@ -46,7 +46,7 @@ export const QUOTE_URL =
  * Dealer Ventures site (separate project). Leave empty until it exists:
  * the home page heading becomes a link only when this is set.
  */
-export const DEALER_VENTURES_URL = "";
+export const DEALER_VENTURES_URL = "https://universaldealerservices.com";
 
 export const TEAM = [
   { name: "Alberto Manzor", role: "CEO", roleEs: "Director Ejecutivo", email: "admin@universalinsurancebroker.com", image: "/images/team/alberto.jpg" },

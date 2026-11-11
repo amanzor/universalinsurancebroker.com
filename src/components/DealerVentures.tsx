@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { DEALER_VENTURES_URL } from "@/lib/constants";
 import { asset } from "@/lib/utils";
 import LazyVideo from "@/components/LazyVideo";
@@ -11,18 +11,18 @@ const copy = {
   en: {
     title: "Dealer Ventures",
     intro:
-      "Our agency is dedicated to help Auto Dealers spot vehicles and increase product penetration. Some of our offices are located inside dealers where we help streamline sales process and provide one of the best in class customer retention.",
-    contact:
-      "For more info contact our dedicated business development team in the contact section top right.",
+      "For auto dealerships: our licensed, bilingual agents work inside your store, shop every customer's insurance across any carrier at delivery, and verify coverage before the keys move. The savings free up monthly budget your F&I office can put toward back-end products, and it costs your dealership nothing. We pay rent for the desk.",
+    contact: "Dealer principals, GMs and F&I directors: see how the program and the 60-day pilot work.",
+    cta: "See the dealer program",
     videoLabel: "An agent verifying new car insurance coverage on a tablet",
     linkLabel: "Visit the Dealer Ventures site (opens in a new tab)",
   },
   es: {
     title: "Alianzas con Concesionarios",
     intro:
-      "Nuestra agencia se dedica a ayudar a los concesionarios de autos a asegurar vehículos al momento y aumentar la penetración de productos. Algunas de nuestras oficinas están ubicadas dentro de concesionarios, donde ayudamos a agilizar el proceso de venta y ofrecemos una retención de clientes de las mejores de su clase.",
-    contact:
-      "Para más información, comuníquese con nuestro equipo de desarrollo de negocios en la sección de contacto, arriba a la derecha.",
+      "Para concesionarios de autos: nuestros agentes bilingües con licencia trabajan dentro de su concesionario, cotizan el seguro de cada cliente con cualquier aseguradora al momento de la entrega y verifican la cobertura antes de entregar las llaves. El ahorro libera presupuesto mensual que su oficina de F&I puede destinar a productos adicionales, y no le cuesta nada a su concesionario. Nosotros le pagamos renta por el espacio.",
+    contact: "Dueños, gerentes generales y directores de F&I: vea cómo funcionan el programa y el piloto de 60 días.",
+    cta: "Ver el programa para concesionarios",
     videoLabel: "Un agente verificando la cobertura del seguro de un auto nuevo en una tableta",
     linkLabel: "Visitar el sitio de Dealer Ventures (se abre en una pestaña nueva)",
   },
@@ -79,6 +79,16 @@ export default function DealerVentures() {
           <p className="text-base text-primary-700">
             {t.contact}
           </p>
+          {DEALER_VENTURES_URL && (
+            <a
+              href={DEALER_VENTURES_URL}
+              target="_blank"
+              rel="noopener"
+              className="btn-electric mt-6 inline-flex items-center gap-2 rounded-full px-7 py-3 font-semibold"
+            >
+              {t.cta} <ArrowRight className="h-5 w-5" aria-hidden />
+            </a>
+          )}
         </motion.div>
 
         {/* Video */}
