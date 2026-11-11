@@ -87,6 +87,226 @@
       ],
       "destination": "https://www.universalinsurancebroker.com/:path+",
       "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "universalinsurancehialeah.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/hialeah",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "universalinsurancehialeah.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.universalinsurancehialeah.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/hialeah",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.universalinsurancehialeah.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "universalinsurancedoral.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/doral",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "universalinsurancedoral.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.universalinsurancedoral.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/doral",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.universalinsurancedoral.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "universalinsurancelehigh.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/lehigh-acres",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "universalinsurancelehigh.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.universalinsurancelehigh.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/lehigh-acres",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.universalinsurancelehigh.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insurancelehighacres.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/lehigh-acres",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "insurancelehighacres.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.insurancelehighacres.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/lehigh-acres",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.insurancelehighacres.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "insurancecoconutcreek.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/boca-raton",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "insurancecoconutcreek.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.insurancecoconutcreek.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/locations/boca-raton",
+      "permanent": true
+    },
+    {
+      "source": "/:path+",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.insurancecoconutcreek.com"
+        }
+      ],
+      "destination": "https://www.universalinsurancebroker.com/:path+",
+      "permanent": true
     }
   ],
   "rewrites": [
