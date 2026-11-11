@@ -206,3 +206,23 @@ export const OFFICE_PROFILES: Record<string, OfficeProfile> = {
 
 /** The six shown on the home page, in display order. */
 export const HOME_REVIEW_IDS = ["alex-z", "eddie-w", "efrain-h", "josh-a", "david-d", "deanna-e"];
+
+/*
+ * Review requests. Each office gets a short link, /review/<slug>, that
+ * vercel.json redirects to that office's Google "write a review" dialog. Printed
+ * QR codes and text messages use the short link, so a Google link can change
+ * without reprinting anything. `writeUrl: null` means we don't have that
+ * office's review link yet; its short link sends people to /review instead.
+ */
+export const REVIEW_OFFICES: { slug: string; writeUrl: string | null }[] = [
+  { slug: "hialeah", writeUrl: null },
+  { slug: "doral", writeUrl: GOOGLE_WRITE_REVIEW_URL },
+  { slug: "boca-raton", writeUrl: OFFICE_PROFILES["boca-raton"].writeUrl ?? null },
+  { slug: "lehigh-acres", writeUrl: OFFICE_PROFILES["lehigh-acres"].writeUrl ?? null },
+];
+
+/** Until we have Hialeah's review link: its Google Maps listing, which has a "Write a review" button. */
+export const hialeahReviewFallback =
+  "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Universal Insurance Brokers, 1943 W 68th St, Hialeah, FL 33014");
+
+export const reviewShortPath = (slug: string) => `/review/${slug}`;

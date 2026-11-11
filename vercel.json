@@ -307,6 +307,46 @@
       ],
       "destination": "https://www.universalinsurancebroker.com/:path+",
       "permanent": true
+    },
+    {
+      "source": "/review/hialeah",
+      "destination": "https://www.google.com/maps/search/?api=1&query=Universal%20Insurance%20Brokers%2C%201943%20W%2068th%20St%2C%20Hialeah%2C%20FL%2033014",
+      "permanent": false
+    },
+    {
+      "source": "/review/hialeah/",
+      "destination": "https://www.google.com/maps/search/?api=1&query=Universal%20Insurance%20Brokers%2C%201943%20W%2068th%20St%2C%20Hialeah%2C%20FL%2033014",
+      "permanent": false
+    },
+    {
+      "source": "/review/doral",
+      "destination": "https://g.page/r/Ca_MqKD5ujKsEAE/review",
+      "permanent": false
+    },
+    {
+      "source": "/review/doral/",
+      "destination": "https://g.page/r/Ca_MqKD5ujKsEAE/review",
+      "permanent": false
+    },
+    {
+      "source": "/review/boca-raton",
+      "destination": "https://g.page/r/CVUEYP0LPBnBEAI/review",
+      "permanent": false
+    },
+    {
+      "source": "/review/boca-raton/",
+      "destination": "https://g.page/r/CVUEYP0LPBnBEAI/review",
+      "permanent": false
+    },
+    {
+      "source": "/review/lehigh-acres",
+      "destination": "https://g.page/r/CepMmoQJVNsYEAI/review",
+      "permanent": false
+    },
+    {
+      "source": "/review/lehigh-acres/",
+      "destination": "https://g.page/r/CepMmoQJVNsYEAI/review",
+      "permanent": false
     }
   ],
   "rewrites": [
