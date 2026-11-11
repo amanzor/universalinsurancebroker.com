@@ -16,6 +16,8 @@ const copy = {
     cta: "See the dealer program",
     videoLabel: "An agent verifying new car insurance coverage on a tablet",
     linkLabel: "Visit the Dealer Ventures site (opens in a new tab)",
+    href: `${DEALER_VENTURES_URL}/`,
+    hrefLang: "en",
   },
   es: {
     title: "Alianzas con Concesionarios",
@@ -25,6 +27,9 @@ const copy = {
     cta: "Ver el programa para concesionarios",
     videoLabel: "Un agente verificando la cobertura del seguro de un auto nuevo en una tableta",
     linkLabel: "Visitar el sitio de Dealer Ventures (se abre en una pestaña nueva)",
+    // Spanish visitors go straight to the Spanish dealer page.
+    href: `${DEALER_VENTURES_URL}/es/`,
+    hrefLang: "es",
   },
 };
 
@@ -52,7 +57,8 @@ export default function DealerVentures() {
         >
           {DEALER_VENTURES_URL ? (
             <a
-              href={DEALER_VENTURES_URL}
+              href={t.href}
+              hrefLang={t.hrefLang}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={t.linkLabel}
@@ -81,7 +87,8 @@ export default function DealerVentures() {
           </p>
           {DEALER_VENTURES_URL && (
             <a
-              href={DEALER_VENTURES_URL}
+              href={t.href}
+              hrefLang={t.hrefLang}
               target="_blank"
               rel="noopener"
               className="btn-electric mt-6 inline-flex items-center gap-2 rounded-full px-7 py-3 font-semibold"
