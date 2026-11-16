@@ -156,9 +156,10 @@ function useFrameSequence(
   // page for bandwidth:
   //   1. now: only the frame that is on screen
   //   2. after the page has loaded: every 8th frame (coarse but scrubbable)
-  //   3. once the visitor starts scrolling (or after a few idle seconds):
-  //      the remaining frames, a few at a time
-  // With Data Saver on, stage 3 is skipped.
+  //   3. once the visitor starts scrolling (on larger screens, also after a
+  //      few idle seconds): the remaining frames, a few at a time
+  // Phones wait for a scroll, so a visitor who never scrolls doesn't spend
+  // several MB of mobile data. With Data Saver on, stage 3 is skipped.
   useEffect(() => {
     const set = window.innerWidth < 768 ? "sm" : "lg";
     let cancelled = false;
@@ -223,7 +224,7 @@ function useFrameSequence(
         if (window.scrollY > 0) startRest();
         else {
           window.addEventListener("scroll", startRest, { passive: true });
-          timers.push(window.setTimeout(startRest, 4000));
+          if (set === "lg") timers.push(window.setTimeout(startRest, 4000));
         }
       });
     };
@@ -374,8 +375,11 @@ export default function ScrollHero() {
             >
               {t.eyebrow}
             </motion.p>
+            {/* The headline is the page's largest element: keep it fully
+                visible from the first paint (only the slide animates) so
+                phones see it before the scripts load. */}
             <motion.h1
-              initial={{ opacity: 0.25, y: 40 }}
+              initial={{ opacity: 1, y: 40 }}
               animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.1, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
               className="text-5xl font-semibold leading-[1.02] tracking-tight text-white drop-shadow-[0_4px_30px_rgba(0,0,0,0.7)] sm:text-7xl lg:text-8xl"
@@ -385,7 +389,7 @@ export default function ScrollHero() {
               <span className="text-electric">{t.titleLine2}</span>
             </motion.h1>
             <motion.p
-              initial={{ opacity: 0.25, y: 30 }}
+              initial={{ opacity: 1, y: 30 }}
               animate={mounted ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
               className="mx-auto mt-6 max-w-xl text-lg text-white/85 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] sm:text-xl"

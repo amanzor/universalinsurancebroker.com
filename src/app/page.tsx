@@ -172,7 +172,9 @@ function ServicesSection() {
                 href={lp(s.href)}
                 className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent-400 transition hover:text-accent-700"
               >
-                {t.learnMore} <ArrowRight className="h-4 w-4" />
+                {t.learnMore}
+                <span className="sr-only">: {s.title[lang]}</span>
+                <ArrowRight className="h-4 w-4" aria-hidden />
               </Link>
             </motion.div>
           ))}
