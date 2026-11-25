@@ -91,15 +91,15 @@ const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
   },
   "health-insurance": {
     en: {
-      title: "Florida Health Insurance & ACA Plans",
+      title: "Florida Health Insurance: Free Help with ACA Plans",
       description:
-        "Free help choosing an Affordable Care Act health plan in Florida. We compare marketplace plans from major carriers and guide you from enrollment to claims.",
+        "Free help choosing an ACA (Obamacare) health plan in Florida. Open Enrollment runs to Jan 15; enroll by Dec 15 for Jan 1 coverage. Bilingual agents.",
       service: "Health Insurance",
     },
     es: {
-      title: "Seguro de Salud y Planes ACA en Florida",
+      title: "Seguros de Salud en Florida: Planes ACA (Obamacare) con Ayuda Gratis",
       description:
-        "Ayuda gratuita para elegir un plan de salud de la Ley de Cuidado de Salud Asequible (ACA) en Florida. Comparamos planes del mercado y le guiamos en todo.",
+        "Seguros médicos en Florida con ayuda gratis: planes ACA (Obamacare), muchos con ayuda para bajar la prima. Inscripción abierta hasta el 15 de enero.",
       service: "Seguro de Salud",
     },
   },

@@ -23,6 +23,8 @@ import { cn, asset } from "@/lib/utils";
 import { COMPANY } from "@/lib/constants";
 import { useT, useLang, useLocalizePath } from "@/lib/useLang";
 import { faq } from "@/lib/content/health-insurance";
+import { EnrollmentHero } from "@/components/EnrollmentNotice";
+import { useEnrollmentPhase } from "@/lib/enrollment";
 
 // The intro right below the hero is on screen at load: animate it on mount
 // from partly visible so it paints before hydration (better LCP).
@@ -320,6 +322,7 @@ function FaqItem({ id, question, answer }: { id: string; question: string; answe
 
 export default function HealthInsurancePage() {
   const t = useT(copy);
+  const enrollment = useEnrollmentPhase();
   const lang = useLang();
   const lp = useLocalizePath();
 
@@ -348,6 +351,7 @@ export default function HealthInsurancePage() {
           >
             {t.heroSubtitle}
           </motion.p>
+          {enrollment.phase && <EnrollmentHero phase={enrollment.phase} mounted={enrollment.mounted} />}
         </div>
       </section>
 
