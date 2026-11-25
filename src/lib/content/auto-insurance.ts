@@ -27,6 +27,10 @@ export const faq: PageFaq = {
       q: "Will using a broker cost me more?",
       a: "Generally, no. As an independent broker, we are typically paid by the insurance company we place your policy with, so there is no extra fee for our help comparing quotes. Because we can shop your policy across many carriers instead of just one, a broker can often help you find a better combination of price and coverage.",
     },
+    {
+      q: "Do you insure work trucks and other commercial vehicles?",
+      a: "Yes. We quote commercial auto insurance for work trucks, vans and other vehicles used for a business, and compare prices across several carriers. Tell us how the vehicle is used and who drives it, because a personal auto policy may not cover business use.",
+    },
   ],
   es: [
     {
@@ -34,7 +38,7 @@ export const faq: PageFaq = {
       a: "Sí. Bajo el sistema sin culpa de la Florida, su propia Protección contra Lesiones Personales (PIP) generalmente paga una parte de sus gastos médicos y de los salarios perdidos después de un accidente, sin importar quién lo causó. Sin culpa no significa que nadie sea responsable: el conductor culpable todavía puede ser responsable por los daños al vehículo y, en algunos casos, por lesiones graves; por eso la cobertura de responsabilidad civil es importante.",
     },
     {
-      q: "¿Cuál es el seguro de auto mínimo requerido en la Florida?",
+      q: "¿Cuál es el seguro de carro mínimo obligatorio en Florida?",
       a: "La mayoría de los conductores en la Florida deben tener al menos $10,000 de Protección contra Lesiones Personales (PIP) y $10,000 de Responsabilidad Civil por Daños a la Propiedad (PDL) en cualquier vehículo registrado en el estado. El mínimo solo cumple con la ley; puede no ser suficiente para protegerlo en un accidente grave. Un agente puede explicarle límites más altos y coberturas adicionales para que usted decida qué se ajusta a su situación y a su presupuesto.",
     },
     {
@@ -52,6 +56,10 @@ export const faq: PageFaq = {
     {
       q: "¿Usar un corredor de seguros me cuesta más?",
       a: "Generalmente, no. Como corredor independiente, normalmente recibimos el pago de la aseguradora con la que colocamos su póliza, por lo que no hay un cargo adicional por ayudarle a comparar cotizaciones. Como podemos cotizar su póliza con muchas aseguradoras en lugar de una sola, un corredor a menudo puede ayudarle a encontrar una mejor combinación de precio y cobertura.",
+    },
+    {
+      q: "¿Ofrecen seguro de auto comercial para camionetas y vehículos de trabajo?",
+      a: "Sí. Cotizamos seguro de auto comercial para camionetas, vans y otros vehículos que se usan para un negocio, y comparamos precios con varias aseguradoras. Díganos cómo usa el vehículo y quién lo maneja, porque una póliza de auto personal puede no cubrir el uso comercial.",
     },
   ],
 };

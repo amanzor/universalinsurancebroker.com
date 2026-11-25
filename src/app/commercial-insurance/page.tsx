@@ -373,7 +373,7 @@ const copy = {
     faqMore: "See more answers on our FAQ page",
   },
   es: {
-    heroTitle: "Seguros Comerciales y para Negocios",
+    heroTitle: "Seguros Comerciales en Florida",
     heroSubtitle:
       "Cobertura integral para todo tipo de negocio — desde empresas nuevas hasta compañías establecidas",
     ctaTitle: "Proteja su Negocio Hoy",

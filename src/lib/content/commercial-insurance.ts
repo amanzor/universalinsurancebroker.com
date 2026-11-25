@@ -42,7 +42,7 @@ export const faq: PageFaq = {
       a: "La responsabilidad civil general generalmente cubre reclamaciones porque su negocio causó lesiones corporales o daños a la propiedad de otra persona — por ejemplo, un cliente que se resbala en su tienda o un empleado que daña la propiedad de un cliente. La responsabilidad profesional, también llamada Errores y Omisiones (E&O), generalmente cubre reclamaciones porque su asesoría o sus servicios profesionales le causaron una pérdida económica a un cliente, como un error, un descuido o un plazo incumplido. Muchos negocios de servicios tienen ambas, porque cada una cubre riesgos que la otra normalmente excluye.",
     },
     {
-      q: "¿Puedo obtener un certificado de seguro rápidamente?",
+      q: "¿Qué tan rápido puedo obtener un certificado de seguro comercial?",
       a: "En la mayoría de los casos, sí. Una vez que su póliza esté activa, normalmente podemos preparar con rapidez un certificado de seguro (COI) para un arrendador, contratista general o cliente, y podemos incluirlo como asegurado adicional cuando su póliza y la aseguradora lo permitan. Solo envíenos el nombre y la dirección del titular del certificado y cualquier texto que exija su contrato.",
     },
     {
