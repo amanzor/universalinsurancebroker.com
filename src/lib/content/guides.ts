@@ -1029,6 +1029,153 @@ export const GUIDES: Guide[] = [
       },
     },
   },
+  /* ──────────────────────────────────────────────────────────────── */
+  {
+    slug: "florida-financed-car-insurance",
+    related: "/auto-insurance",
+    copy: {
+      en: {
+        title: "Insurance for a Financed Car in Florida: What the Lender Requires",
+        description:
+          "Financing or leasing a car in Florida? The state minimum isn't enough for the lender. What full coverage means, deductible limits, loss payee, GAP and proof at the dealership.",
+        intro:
+          "Florida only requires $10,000 of PIP and $10,000 of property damage to register a car, but a bank or leasing company that owns part of your car wants more. Here's what lenders usually require, what happens if you skip it, and how to have proof ready before you go to the dealership.",
+        takeaways: [
+          "Almost every lender and leasing company requires comprehensive and collision (often called \"full coverage\"), not just the state minimum.",
+          "Lenders usually set a maximum deductible and must be listed on your policy as loss payee.",
+          "If your coverage lapses, the lender can buy insurance on the car and add it to your loan. It protects only the lender and usually costs much more.",
+          "Call your insurer or broker before you go to the dealership, so you can drive away with proof that shows your new car.",
+        ],
+        sections: [
+          {
+            h: "What lenders usually require",
+            p: ["Your loan or lease contract lists the exact rules, but most include:"],
+            list: [
+              "Florida's required Personal Injury Protection (PIP) and Property Damage Liability (PDL).",
+              "Comprehensive coverage, for theft, fire, storms, flooding and other damage that isn't a crash.",
+              "Collision coverage, for damage to your car in an accident.",
+              "A maximum deductible for comprehensive and collision. Check the number in your contract before choosing a higher deductible to save money.",
+              "The lender listed as loss payee, so an insurance check for a total loss goes toward paying off the loan.",
+            ],
+          },
+          {
+            h: "Leased cars usually need more",
+            p: [
+              "Leasing companies often require Bodily Injury Liability limits well above anything Florida requires, and sometimes list themselves as an additional insured. Your lease agreement lists the exact limits. Look for them before you sign so the quote you get matches what the lease asks for.",
+            ],
+          },
+          {
+            h: "What happens if you don't keep the coverage",
+            p: [
+              "If your insurance lapses or drops comprehensive and collision, most loan contracts let the lender buy coverage on the car and charge you for it. The Consumer Financial Protection Bureau calls this force-placed insurance. It protects only the lender, not you, and it is usually much more expensive than a policy you buy yourself. Some lenders also charge for vendor's single interest (VSI) insurance, which likewise protects the lender's interest in the car, not you.",
+              "If you already have your own coverage, send proof to the lender right away so they don't place a duplicate policy.",
+            ],
+          },
+          {
+            h: "GAP coverage",
+            p: [
+              "New cars can be worth less than the loan balance for the first few years. GAP covers some or all of that difference after a total loss. It's sold by dealers, lenders and some insurers, so compare the price and what it covers before you buy, and read the contract for what it excludes.",
+            ],
+          },
+          {
+            h: "Getting proof before you drive away",
+            p: [
+              "The dealership and the tag agency need proof of insurance that shows your new car. Many policies give you a short period to add a newly purchased car, but the deadline depends on your policy, and the dealer still needs proof on the day you take the car. The easiest way is to call your insurer or broker before you go, give them the VIN as soon as you have it, and ask for an updated ID card or binder.",
+            ],
+          },
+        ],
+        faq: [
+          {
+            q: "Is the Florida minimum enough for a financed car?",
+            a: "No. Florida's minimum ($10,000 PIP and $10,000 property damage) lets you register the car, but lenders and leasing companies almost always also require comprehensive and collision, a maximum deductible, and that they be listed as loss payee.",
+          },
+          {
+            q: "What does \"full coverage\" mean?",
+            a: "It isn't an official term. It usually means the state-required coverages plus comprehensive and collision. Many drivers also add Bodily Injury Liability and Uninsured Motorist coverage, which the minimum doesn't include.",
+          },
+          {
+            q: "Can I lower my payment with a higher deductible?",
+            a: "Often, yes, but only up to the maximum deductible your lender allows. A higher deductible also means more out of pocket after a claim.",
+          },
+          {
+            q: "Can you quote insurance for a car I'm about to buy?",
+            a: "Yes. Call us with the year, make and model (and the VIN if you have it) and the lender's requirements. We compare carriers and can send proof of insurance to the dealership, in English or Spanish.",
+          },
+        ],
+        relatedLabel: "Get a quote for your financed car",
+      },
+      es: {
+        title: "Seguro para auto financiado en Florida: lo que exige el banco",
+        description:
+          "¿Financia o arrienda un auto en Florida? El mínimo del estado no le basta al banco. Qué es la cobertura completa, deducibles, beneficiario, GAP y el comprobante en el concesionario.",
+        intro:
+          "Florida solo exige $10,000 de PIP y $10,000 de daños a la propiedad para registrar un auto, pero un banco o una compañía de arrendamiento que es dueña de parte de su auto pide más. Aquí le explicamos qué suelen exigir, qué pasa si no lo cumple y cómo tener el comprobante listo antes de ir al concesionario.",
+        takeaways: [
+          "Casi todos los bancos y compañías de arrendamiento exigen cobertura amplia y de choque (lo que muchos llaman \"cobertura completa\"), no solo el mínimo del estado.",
+          "El banco normalmente fija un deducible máximo y debe aparecer en su póliza como beneficiario de pérdida.",
+          "Si su seguro vence, el banco puede comprar un seguro para el auto y sumarlo a su préstamo. Protege solo al banco y suele costar mucho más.",
+          "Llame a su aseguradora o a su corredor antes de ir al concesionario, para salir con un comprobante que muestre su auto nuevo.",
+        ],
+        sections: [
+          {
+            h: "Lo que suelen exigir los bancos",
+            p: ["Su contrato de préstamo o de arrendamiento indica las reglas exactas, pero la mayoría incluye:"],
+            list: [
+              "La Protección contra Lesiones Personales (PIP) y la Responsabilidad por Daños a la Propiedad (PDL) que exige Florida.",
+              "Cobertura amplia (comprehensive), para robo, incendio, tormentas, inundaciones y otros daños que no son un choque.",
+              "Cobertura de choque (collision), para los daños a su auto en un accidente.",
+              "Un deducible máximo para la cobertura amplia y de choque. Revise el número en su contrato antes de elegir un deducible más alto para ahorrar.",
+              "El banco como beneficiario de pérdida, para que el pago del seguro por una pérdida total se use para pagar el préstamo.",
+            ],
+          },
+          {
+            h: "Los autos arrendados (lease) suelen necesitar más",
+            p: [
+              "Las compañías de arrendamiento muchas veces exigen límites de Responsabilidad por Lesiones Corporales mucho más altos de lo que pide Florida, y a veces se ponen como asegurado adicional. Su contrato de arrendamiento indica los límites exactos. Búsquelos antes de firmar para que la cotización coincida con lo que pide el contrato.",
+            ],
+          },
+          {
+            h: "Qué pasa si no mantiene la cobertura",
+            p: [
+              "Si su seguro vence o le quita la cobertura amplia y de choque, la mayoría de los contratos permiten que el banco compre un seguro para el auto y se lo cobre a usted. La Oficina para la Protección Financiera del Consumidor (CFPB) lo llama seguro impuesto (force-placed). Protege solo al banco, no a usted, y suele costar mucho más que una póliza que usted compre. Algunos bancos también cobran un seguro de interés único del vendedor (VSI), que igualmente protege el interés del banco en el auto, no a usted.",
+              "Si ya tiene su propia cobertura, envíele el comprobante al banco de inmediato para que no le pongan una póliza duplicada.",
+            ],
+          },
+          {
+            h: "La cobertura GAP",
+            p: [
+              "Un auto nuevo puede valer menos de lo que se debe del préstamo durante los primeros años. El GAP cubre parte o toda esa diferencia después de una pérdida total. Lo venden concesionarios, bancos y algunas aseguradoras, así que compare el precio y lo que cubre antes de comprarlo, y lea en el contrato lo que excluye.",
+            ],
+          },
+          {
+            h: "El comprobante antes de salir del concesionario",
+            p: [
+              "El concesionario y la oficina de placas necesitan un comprobante de seguro que muestre su auto nuevo. Muchas pólizas le dan un plazo corto para agregar un auto recién comprado, pero ese plazo depende de su póliza, y el concesionario igual necesita el comprobante el día que se lleva el auto. Lo más fácil es llamar a su aseguradora o a su corredor antes de ir, darles el VIN en cuanto lo tenga y pedir una tarjeta o binder actualizado.",
+            ],
+          },
+        ],
+        faq: [
+          {
+            q: "¿El mínimo de Florida alcanza para un auto financiado?",
+            a: "No. El mínimo de Florida ($10,000 de PIP y $10,000 de daños a la propiedad) le permite registrar el auto, pero los bancos y las compañías de arrendamiento casi siempre exigen además cobertura amplia y de choque, un deducible máximo y aparecer como beneficiario de pérdida.",
+          },
+          {
+            q: "¿Qué significa \"cobertura completa\"?",
+            a: "No es un término oficial. Normalmente significa las coberturas que exige el estado más la cobertura amplia y de choque. Muchos conductores también agregan Responsabilidad por Lesiones Corporales y cobertura contra Conductores sin Seguro, que el mínimo no incluye.",
+          },
+          {
+            q: "¿Puedo bajar mi pago con un deducible más alto?",
+            a: "Muchas veces sí, pero solo hasta el deducible máximo que permite su banco. Un deducible más alto también significa pagar más de su bolsillo después de un reclamo.",
+          },
+          {
+            q: "¿Pueden cotizarme el seguro de un auto que voy a comprar?",
+            a: "Sí. Llámenos con el año, la marca y el modelo (y el VIN si lo tiene) y los requisitos del banco. Comparamos aseguradoras y podemos enviarle el comprobante de seguro al concesionario, en español o en inglés.",
+          },
+        ],
+        relatedLabel: "Cotice el seguro de su auto financiado",
+      },
+    },
+  },
 ];
 
 export const guideBySlug = (slug: string) => GUIDES.find((g) => g.slug === slug);
