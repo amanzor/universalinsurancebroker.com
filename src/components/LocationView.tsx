@@ -14,6 +14,7 @@ import {
   MapPin,
   Navigation,
   Phone,
+  Sailboat,
 } from "lucide-react";
 import { QUOTE_URL } from "@/lib/constants";
 import { OfficeStatusBadge, officeStatusCopy } from "@/components/OfficeStatus";
@@ -58,6 +59,7 @@ const copy = {
       { href: "/home-insurance", title: "Home Insurance", text: "Homeowners, condo, renters and landlord coverage." },
       { href: "/commercial-insurance", title: "Business Insurance", text: "Liability, workers' comp, commercial auto and more." },
       { href: "/health-insurance", title: "Health Insurance", text: "Free help choosing and enrolling in an ACA plan." },
+      { href: "/guides/florida-boat-insurance", title: "Boat Insurance", text: "Boats, jet skis and yachts, with hurricane plans explained." },
     ],
     areasTitle: (city: string) => `Areas we serve near ${city}`,
     areasNote: (county: string) =>
@@ -89,6 +91,7 @@ const copy = {
       { href: "/home-insurance", title: "Seguro de Hogar", text: "Coberturas de propietario, condominio, inquilino y arrendador." },
       { href: "/commercial-insurance", title: "Seguro Comercial", text: "Responsabilidad civil, compensación laboral, auto comercial y más." },
       { href: "/health-insurance", title: "Seguro de Salud", text: "Ayuda gratuita para elegir e inscribirse en un plan ACA." },
+      { href: "/guides/florida-boat-insurance", title: "Seguro de Botes", text: "Botes, motos acuáticas y yates, con planes para huracanes." },
     ],
     areasTitle: (city: string) => `Zonas que atendemos cerca de ${city}`,
     areasNote: (county: string) =>
@@ -104,7 +107,7 @@ const copy = {
   },
 };
 
-const serviceIcons = [Car, Home, Building2, HeartPulse];
+const serviceIcons = [Car, Home, Building2, HeartPulse, Sailboat];
 
 export default function LocationView({ slug }: { slug: string }) {
   const t = useT(copy);
@@ -311,7 +314,7 @@ export default function LocationView({ slug }: { slug: string }) {
       <section className={`${bgA} py-16`}>
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-2xl font-bold text-primary-900 sm:text-3xl">{t.servicesTitle}</h2>
-          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {t.services.map((s, i) => {
               const Icon = serviceIcons[i];
               return (

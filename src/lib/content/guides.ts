@@ -870,6 +870,165 @@ export const GUIDES: Guide[] = [
       },
     },
   },
+  /* ──────────────────────────────────────────────────────────────── */
+  {
+    slug: "florida-boat-insurance",
+    related: "/contact",
+    copy: {
+      en: {
+        title: "Florida Boat Insurance: Coverage, Hurricanes and Quotes",
+        description:
+          "Boat and personal watercraft insurance in Florida: what it covers, agreed vs. actual cash value, hurricane plans, and why your homeowners policy isn't enough.",
+        intro:
+          "From the canals of Cape Coral and the Caloosahatchee to Biscayne Bay and the Intracoastal, Florida is built for boating. Here's what a boat insurance policy covers, how hurricane season affects it, and what to look at when you compare quotes.",
+        takeaways: [
+          "Florida doesn't require insurance on most recreational boats, but lenders and marinas usually do, and one accident can cost far more than the boat is worth.",
+          "Agreed value pays a set amount after a total loss; actual cash value subtracts depreciation.",
+          "Most Florida boat policies have a separate named-storm deductible and ask for a hurricane plan.",
+          "A homeowners policy usually gives a boat little or no coverage, and almost never enough liability.",
+        ],
+        sections: [
+          {
+            h: "What boat insurance covers",
+            p: ["A boat policy combines protection for the boat itself with protection for you when something goes wrong on the water. Depending on the policy and carrier, coverage can include:"],
+            list: [
+              "Physical damage to the hull, motor and permanently attached equipment from accidents, theft, fire, storms and vandalism.",
+              "Liability if you injure someone or damage another boat, a dock or other property, including your passengers and people being towed.",
+              "Uninsured boater coverage, for your injuries when the other boater has no insurance.",
+              "Medical payments for you and your passengers.",
+              "On-water towing and assistance, fuel spill liability and wreck removal.",
+              "Your trailer, fishing gear and other personal property on board.",
+            ],
+          },
+          {
+            h: "Agreed value or actual cash value",
+            p: [
+              "With agreed value coverage, you and the insurer agree on the boat's value when the policy starts, and that's what you're paid if it's a total loss. With actual cash value, the payout is the boat's market value at the time of the loss, after depreciation, which is usually less and is often the only option for older boats.",
+              "Agreed value usually costs more but removes the surprise after a loss. We'll show you both when a carrier offers them.",
+            ],
+          },
+          {
+            h: "Hurricane season and your boat",
+            p: [
+              "Most Florida boat policies have a separate named-storm or hurricane deductible, often a percentage of the boat's insured value rather than a flat amount. Many carriers also ask for a written hurricane plan: where the boat will be kept, and whether it will be hauled out, moved or secured when a storm threatens.",
+              "Many policies help pay part of the cost of hauling out or moving your boat ahead of a named storm. Read the deductible and the plan requirements before June, not when a storm is already in the forecast.",
+            ],
+          },
+          {
+            h: "Why your homeowners policy isn't enough",
+            p: [
+              "Homeowners policies usually cover small boats only up to a low dollar limit, often exclude theft away from home and damage on the water, and typically leave out liability for larger or faster boats and personal watercraft. If you finance the boat, the lender will also want proof of a separate policy that names it.",
+            ],
+          },
+          {
+            h: "What affects your price",
+            p: ["Boat insurance rates depend on:"],
+            list: [
+              "The boat's type, length, age, value and horsepower.",
+              "Where and how it's stored: on a lift, in a marina slip, on a trailer or in dry storage.",
+              "Where you navigate: inland waters, the Intracoastal, coastal waters or offshore.",
+              "Your boating experience and claims history. A boating safety course can earn a discount with many carriers.",
+            ],
+          },
+        ],
+        faq: [
+          {
+            q: "Is boat insurance required in Florida?",
+            a: "Florida law doesn't require insurance on most recreational boats, but your lender will if the boat is financed, and most marinas require liability coverage before you can rent a slip. Florida does require motorized boats to be registered, and anyone born on or after January 1, 1988 needs a Boating Safety Education ID Card to operate a boat with 10 horsepower or more.",
+          },
+          {
+            q: "Do you insure jet skis and other personal watercraft?",
+            a: "Yes. Personal watercraft can be insured with similar coverages, including liability, physical damage and medical payments. Because they're often ridden by friends and family, it's worth checking who the policy covers as an operator.",
+          },
+          {
+            q: "Does boat insurance cover hurricane damage?",
+            a: "Usually yes, subject to a separate named-storm deductible, and some carriers require a hurricane plan or limit coverage if the boat isn't secured as planned. We'll walk you through those terms before you buy.",
+          },
+          {
+            q: "Can I get a boat insurance quote in Lehigh Acres, Cape Coral or Fort Myers?",
+            a: "Yes. Our Lehigh Acres office serves Lee County boaters by appointment, and we quote boat and personal watercraft insurance throughout Florida by phone or online. Have the boat's year, make, model, length, engine and value ready.",
+          },
+        ],
+        relatedLabel: "Get a boat insurance quote",
+      },
+      es: {
+        title: "Seguro de Botes en Florida: Coberturas, Huracanes y Cotizaciones",
+        description:
+          "Seguro de botes y motos acuáticas en Florida: qué cubre, valor acordado vs. valor real, planes para huracanes y por qué su póliza de hogar no es suficiente.",
+        intro:
+          "Desde los canales de Cape Coral y el río Caloosahatchee hasta la Bahía de Biscayne y el Intracostero, Florida está hecha para navegar. Le explicamos qué cubre una póliza de bote, cómo influye la temporada de huracanes y qué revisar al comparar cotizaciones.",
+        takeaways: [
+          "Florida no exige seguro para la mayoría de los botes recreativos, pero los bancos y las marinas casi siempre lo piden, y un solo accidente puede costar mucho más de lo que vale el bote.",
+          "El valor acordado paga una cantidad fija tras una pérdida total; el valor real en efectivo descuenta la depreciación.",
+          "La mayoría de las pólizas de bote en Florida tienen un deducible aparte por tormenta con nombre y piden un plan para huracanes.",
+          "Una póliza de hogar normalmente cubre poco o nada de un bote, y casi nunca la responsabilidad civil suficiente.",
+        ],
+        sections: [
+          {
+            h: "Qué cubre el seguro de botes",
+            p: ["Una póliza de bote combina la protección del bote con la protección para usted cuando algo sale mal en el agua. Según la póliza y la aseguradora, puede incluir:"],
+            list: [
+              "Daños físicos al casco, al motor y al equipo fijo por accidentes, robo, incendio, tormentas y vandalismo.",
+              "Responsabilidad civil si lesiona a alguien o daña otro bote, un muelle u otra propiedad, incluidos sus pasajeros y las personas que remolca.",
+              "Cobertura contra navegantes sin seguro, para sus lesiones cuando el otro navegante no tiene seguro.",
+              "Gastos médicos para usted y sus pasajeros.",
+              "Remolque y asistencia en el agua, responsabilidad por derrames de combustible y remoción de restos.",
+              "Su remolque, equipo de pesca y otros artículos personales a bordo.",
+            ],
+          },
+          {
+            h: "Valor acordado o valor real en efectivo",
+            p: [
+              "Con la cobertura de valor acordado, usted y la aseguradora fijan el valor del bote al comenzar la póliza, y eso es lo que recibe si hay pérdida total. Con el valor real en efectivo, el pago es el valor de mercado del bote al momento de la pérdida, después de la depreciación, que normalmente es menor y muchas veces es la única opción para botes más antiguos.",
+              "El valor acordado suele costar más, pero evita sorpresas después de una pérdida. Le mostramos ambas opciones cuando la aseguradora las ofrece.",
+            ],
+          },
+          {
+            h: "La temporada de huracanes y su bote",
+            p: [
+              "La mayoría de las pólizas de bote en Florida tienen un deducible aparte por tormenta con nombre o huracán, muchas veces un porcentaje del valor asegurado del bote en lugar de una cantidad fija. Muchas aseguradoras también piden un plan escrito para huracanes: dónde estará el bote y si lo sacarán del agua, lo moverán o lo asegurarán cuando se acerque una tormenta.",
+              "Muchas pólizas ayudan a pagar parte del costo de sacar o mover el bote antes de una tormenta con nombre. Revise el deducible y los requisitos del plan antes de junio, no cuando la tormenta ya está en el pronóstico.",
+            ],
+          },
+          {
+            h: "Por qué su póliza de hogar no es suficiente",
+            p: [
+              "Las pólizas de hogar normalmente cubren botes pequeños solo hasta un límite bajo, muchas veces excluyen el robo fuera de la casa y los daños en el agua, y generalmente no incluyen la responsabilidad civil para botes más grandes o rápidos ni para motos acuáticas. Si financia el bote, el banco también le pedirá una póliza aparte que lo incluya.",
+            ],
+          },
+          {
+            h: "Qué influye en el precio",
+            p: ["El costo del seguro de bote depende de:"],
+            list: [
+              "El tipo, largo, año, valor y caballos de fuerza del bote.",
+              "Dónde y cómo lo guarda: en un elevador, en una marina, en un remolque o en almacenamiento seco.",
+              "Dónde navega: aguas interiores, el Intracostero, aguas costeras o mar adentro.",
+              "Su experiencia y su historial de reclamos. Con muchas aseguradoras, un curso de seguridad náutica le da un descuento.",
+            ],
+          },
+        ],
+        faq: [
+          {
+            q: "¿Es obligatorio el seguro de botes en Florida?",
+            a: "La ley de Florida no exige seguro para la mayoría de los botes recreativos, pero el banco lo pedirá si el bote está financiado, y la mayoría de las marinas exigen responsabilidad civil para rentar un espacio. Florida sí exige registrar los botes con motor, y toda persona nacida a partir del 1 de enero de 1988 necesita la Tarjeta de Educación en Seguridad Náutica para manejar un bote de 10 caballos de fuerza o más.",
+          },
+          {
+            q: "¿Aseguran motos acuáticas (jet skis)?",
+            a: "Sí. Las motos acuáticas se pueden asegurar con coberturas similares, como responsabilidad civil, daños físicos y gastos médicos. Como muchas veces las manejan amigos y familiares, conviene revisar a quién cubre la póliza como conductor.",
+          },
+          {
+            q: "¿El seguro de bote cubre daños por huracán?",
+            a: "Normalmente sí, con un deducible aparte por tormenta con nombre, y algunas aseguradoras exigen un plan para huracanes o limitan la cobertura si el bote no se asegura como se planeó. Le explicamos esas condiciones antes de que compre.",
+          },
+          {
+            q: "¿Puedo cotizar un seguro de bote en Lehigh Acres, Cape Coral o Fort Myers?",
+            a: "Sí. Nuestra oficina de Lehigh Acres atiende a los navegantes del condado de Lee con cita previa, y cotizamos seguros de botes y motos acuáticas en todo Florida por teléfono o en línea. Tenga a mano el año, la marca, el modelo, el largo, el motor y el valor del bote.",
+          },
+        ],
+        relatedLabel: "Cotice su seguro de bote",
+      },
+    },
+  },
 ];
 
 export const guideBySlug = (slug: string) => GUIDES.find((g) => g.slug === slug);
