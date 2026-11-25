@@ -707,14 +707,14 @@ export const GUIDES: Guide[] = [
     related: "/health-insurance",
     copy: {
       en: {
-        title: "Florida ACA Open Enrollment: Dates and How to Get Help",
+        title: "Florida ACA Open Enrollment 2027: Deadlines and Free Help",
         description:
-          "When Florida's Affordable Care Act Open Enrollment starts, the December 15 deadline for January 1 coverage, special enrollment periods and free help in English and Spanish.",
+          "Florida ACA Open Enrollment for 2027 runs Nov 1, 2026 to Jan 15, 2027. Enroll by Dec 15 for Jan 1 coverage. Special enrollment and free help in English and Spanish.",
         intro:
           "Florida uses HealthCare.gov, the federal Health Insurance Marketplace, for Affordable Care Act (ACA) plans. Here's when you can enroll, what you'll need, and how to get help choosing a plan at no extra cost.",
         takeaways: [
           "Open Enrollment starts November 1.",
-          "Enroll by December 15 for coverage that starts January 1. Check HealthCare.gov for this year's final deadline, since dates have changed in recent years.",
+          "For 2027 coverage, Open Enrollment runs November 1, 2026 through January 15, 2027. Enroll by December 15 for coverage that starts January 1; enroll December 16 to January 15 and it starts February 1.",
           "Outside Open Enrollment you need a qualifying life event to enroll.",
           "Enrolling through a licensed agent doesn't cost you more: the premium is the same.",
         ],
@@ -728,7 +728,7 @@ export const GUIDES: Guide[] = [
           {
             h: "When you can enroll",
             p: [
-              "Open Enrollment for the coming year starts on November 1. To have coverage that starts on January 1, enroll by December 15. HealthCare.gov publishes the final deadline for each year, and it has changed in recent years, so check it rather than counting on a January deadline.",
+              "Open Enrollment for the coming year starts on November 1. For 2027 coverage it runs through January 15, 2027, as published on HealthCare.gov. To have coverage that starts on January 1, enroll by December 15; if you enroll between December 16 and January 15, coverage starts February 1. The dates have changed in recent years, so check HealthCare.gov each fall.",
               "During Open Enrollment you can also switch plans or update your information. If you already have a Marketplace plan, review it every year: premiums, networks and your financial help can all change.",
             ],
           },
@@ -788,14 +788,14 @@ export const GUIDES: Guide[] = [
         relatedLabel: "Get free help with Florida health insurance",
       },
       es: {
-        title: "Inscripción Abierta del ACA en Florida: Fechas y Cómo Obtener Ayuda",
+        title: "Inscripción Abierta del ACA en Florida 2027: Fechas Límite y Ayuda Gratis",
         description:
-          "Cuándo empieza la Inscripción Abierta de la Ley de Cuidado de Salud Asequible en Florida, la fecha límite del 15 de diciembre para cobertura desde el 1 de enero, los períodos especiales y ayuda gratis en español.",
+          "La Inscripción Abierta del ACA en Florida para 2027 va del 1 de nov. de 2026 al 15 de ene. de 2027. Inscríbase antes del 15 de dic. para cobertura desde el 1 de enero. Ayuda gratis.",
         intro:
           "Florida usa HealthCare.gov, el Mercado de Seguros Médicos federal, para los planes de la Ley de Cuidado de Salud Asequible (ACA). Aquí le explicamos cuándo puede inscribirse, qué necesita y cómo obtener ayuda para elegir un plan sin costo adicional.",
         takeaways: [
           "La Inscripción Abierta empieza el 1 de noviembre.",
-          "Inscríbase a más tardar el 15 de diciembre para tener cobertura desde el 1 de enero. Revise HealthCare.gov para conocer la fecha límite final de este año, ya que las fechas han cambiado en los últimos años.",
+          "Para la cobertura de 2027, la Inscripción Abierta va del 1 de noviembre de 2026 al 15 de enero de 2027. Inscríbase a más tardar el 15 de diciembre para tener cobertura desde el 1 de enero; si se inscribe del 16 de diciembre al 15 de enero, empieza el 1 de febrero.",
           "Fuera de la Inscripción Abierta necesita un evento de vida que califique para inscribirse.",
           "Inscribirse con un agente con licencia no le cuesta más: la prima es la misma.",
         ],
@@ -809,7 +809,7 @@ export const GUIDES: Guide[] = [
           {
             h: "Cuándo puede inscribirse",
             p: [
-              "La Inscripción Abierta para el próximo año empieza el 1 de noviembre. Para tener cobertura desde el 1 de enero, inscríbase a más tardar el 15 de diciembre. HealthCare.gov publica la fecha límite final de cada año, y ha cambiado en los últimos años, así que revísela en lugar de contar con una fecha límite en enero.",
+              "La Inscripción Abierta para el próximo año empieza el 1 de noviembre. Para la cobertura de 2027 dura hasta el 15 de enero de 2027, según HealthCare.gov. Para tener cobertura desde el 1 de enero, inscríbase a más tardar el 15 de diciembre; si se inscribe entre el 16 de diciembre y el 15 de enero, la cobertura empieza el 1 de febrero. Las fechas han cambiado en los últimos años, así que revise HealthCare.gov cada otoño.",
               "Durante la Inscripción Abierta también puede cambiar de plan o actualizar su información. Si ya tiene un plan del Mercado, revíselo cada año: las primas, las redes de médicos y su ayuda financiera pueden cambiar.",
             ],
           },

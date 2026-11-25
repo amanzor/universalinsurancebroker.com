@@ -26,6 +26,8 @@ const TwitterX = ({ className }: { className?: string }) => (
 import { COMPANY, NAV_LINKS, QUOTE_URL } from "@/lib/constants";
 import { useLang, useLocalizePath } from "@/lib/useLang";
 import LanguageToggle from "@/components/LanguageToggle";
+import { EnrollmentBar } from "@/components/EnrollmentNotice";
+import { useEnrollmentPhase } from "@/lib/enrollment";
 import { cn, asset } from "@/lib/utils";
 
 export default function Header() {
@@ -36,6 +38,7 @@ export default function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const lang = useLang();
   const lp = useLocalizePath();
+  const enrollment = useEnrollmentPhase();
   const t = {
     // Phone hours; walk-in vs. appointment details live on each office page.
     en: { quote: "Get a Quote", toggleMenu: "Toggle menu", closeMenu: "Close menu", hours: "Call us Mon–Fri" },
@@ -68,22 +71,28 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* ─── Top Bar ─── */}
       <div className="bg-primary-900 text-white text-sm">
-        <div className="mx-auto max-w-7xl flex items-center justify-between px-4 py-2">
-          <div className="flex items-center gap-6">
-            <span className="hidden sm:flex items-center gap-1.5">
-              <Clock className="h-3.5 w-3.5 text-primary-300" />
-              {t.hours} {COMPANY.hours}
-            </span>
-            <a
-              href={`mailto:${COMPANY.email}`}
-              className="hidden md:flex items-center gap-1.5 hover:text-primary-300 transition-colors"
-            >
-              <Mail className="h-3.5 w-3.5 text-primary-300" />
-              {COMPANY.email}
-            </a>
-          </div>
+        <div className="mx-auto max-w-7xl flex items-center justify-between gap-4 px-4 py-2">
+          {enrollment.phase ? (
+            <div className="flex min-w-0 items-center">
+              <EnrollmentBar phase={enrollment.phase} mounted={enrollment.mounted} />
+            </div>
+          ) : (
+            <div className="flex items-center gap-6">
+              <span className="hidden sm:flex items-center gap-1.5">
+                <Clock className="h-3.5 w-3.5 text-primary-300" />
+                {t.hours} {COMPANY.hours}
+              </span>
+              <a
+                href={`mailto:${COMPANY.email}`}
+                className="hidden md:flex items-center gap-1.5 hover:text-primary-300 transition-colors"
+              >
+                <Mail className="h-3.5 w-3.5 text-primary-300" />
+                {COMPANY.email}
+              </a>
+            </div>
+          )}
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-shrink-0 items-center gap-4">
             <a
               href={COMPANY.social.facebook}
               target="_blank"
