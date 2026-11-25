@@ -192,11 +192,13 @@ export const LOCAL_CONTENT: Record<string, LocalContent> = {
         { q: "Is the Boca Raton office open for walk-ins?", a: "Our Boca Raton location meets clients by appointment only. Call (239) 204-2208 to schedule a visit, or start your quote online. For walk-ins, visit our Hialeah office." },
         { q: "Does my condo insurance cover special assessments?", a: "Loss assessment coverage on an HO-6 policy can help with your share of an assessment for a covered loss, such as storm damage to common areas, up to your policy limit. It generally doesn't cover assessments for routine maintenance, upgrades or required reserve funding." },
         { q: "How is a hurricane deductible calculated?", a: "It's usually a percentage of your dwelling (Coverage A) limit. For example, a 2% hurricane deductible on a home insured for $400,000 would be $8,000. The options available depend on the carrier." },
+        { q: "Which Boca Raton ZIP codes do you serve?", a: "All of them, including 33431, 33432, 33433, 33434, 33486, 33487, 33496 and 33498, plus the rest of Palm Beach and Broward counties. We write auto, home, condo and commercial insurance for Boca Raton residents and businesses." },
       ],
       es: [
         { q: "¿La oficina de Boca Raton atiende sin cita?", a: "Nuestra oficina de Boca Raton atiende solo con cita previa. Llame al (239) 204-2208 para programar una visita o comience su cotización en línea. Para atención sin cita, visite nuestra oficina de Hialeah." },
         { q: "¿Mi seguro de condominio cubre las derramas especiales?", a: "La cobertura de evaluación por pérdidas de una póliza HO-6 puede ayudarle con su parte de una derrama por una pérdida cubierta, como daños por tormenta en las áreas comunes, hasta el límite de su póliza. Generalmente no cubre derramas por mantenimiento de rutina, mejoras o fondos de reserva obligatorios." },
         { q: "¿Cómo se calcula el deducible por huracán?", a: "Normalmente es un porcentaje del límite de la vivienda (Cobertura A). Por ejemplo, un deducible por huracán del 2% en una casa asegurada por $400,000 sería de $8,000. Las opciones disponibles dependen de la aseguradora." },
+        { q: "¿Qué códigos postales de Boca Raton atienden?", a: "Todos, incluidos 33431, 33432, 33433, 33434, 33486, 33487, 33496 y 33498, además del resto de los condados de Palm Beach y Broward. Ofrecemos seguros de auto, hogar, condominio y comerciales para residentes y negocios de Boca Raton." },
       ],
     },
   },
@@ -217,6 +219,10 @@ export const LOCAL_CONTENT: Record<string, LocalContent> = {
           h: "Flood and the daily commute",
           p: "Ian showed that flooding can reach well beyond the coast. Standard homeowners policies exclude flood, so we quote both NFIP and private flood options. And if you commute to Fort Myers or Cape Coral every day, reviewing your auto liability limits and Uninsured Motorist coverage is a good idea.",
         },
+        {
+          h: "Business insurance for Lehigh Acres contractors and shops",
+          p: "Lee County's building boom means a lot of contractors, landscapers and service businesses, plus the shops and restaurants that grew up around them. We put together general liability, commercial property, business owner's policies, commercial auto and workers' compensation, and we can usually turn around the certificate of insurance a general contractor or landlord asks for the same day. In Florida, construction businesses generally need workers' compensation with even one employee, and most other businesses once they have four.",
+        },
       ],
       es: [
         {
@@ -231,6 +237,10 @@ export const LOCAL_CONTENT: Record<string, LocalContent> = {
           h: "Inundaciones y el viaje diario",
           p: "Ian demostró que las inundaciones pueden llegar mucho más allá de la costa. Las pólizas de propietario estándar excluyen las inundaciones, así que cotizamos opciones del NFIP y privadas. Y si viaja todos los días a Fort Myers o Cape Coral, es buena idea revisar sus límites de responsabilidad de auto y la cobertura contra Conductores sin Seguro.",
         },
+        {
+          h: "Seguros para contratistas y negocios de Lehigh Acres",
+          p: "El crecimiento de la construcción en el condado de Lee ha traído muchos contratistas, jardineros y negocios de servicios, además de las tiendas y restaurantes que crecieron a su alrededor. Armamos coberturas de responsabilidad general, propiedad comercial, pólizas para dueños de negocio (BOP), auto comercial y compensación laboral, y normalmente podemos entregar el mismo día el certificado de seguro que le pide un contratista general o un arrendador. En Florida, los negocios de construcción generalmente necesitan compensación laboral desde el primer empleado, y la mayoría de los demás negocios a partir de cuatro.",
+        },
       ],
     },
     faq: {
@@ -238,11 +248,13 @@ export const LOCAL_CONTENT: Record<string, LocalContent> = {
         { q: "Is the Lehigh Acres office open for walk-ins?", a: "Our Lehigh Acres location meets clients by appointment only. Call (239) 204-2208 to schedule a visit, or start your quote online." },
         { q: "What is a wind mitigation inspection?", a: "A licensed inspector documents features that help your home resist wind, such as roof shape, roof-deck attachment, roof-to-wall connections and opening protection. Florida insurers are required to offer discounts for qualifying features, and the report is usually valid for five years." },
         { q: "Is it easier to insure a new-construction home?", a: "Usually. Newer homes built to current code with newer roofs often qualify for more carriers and better rates. We'll need details like the year built, roof type and any permits or inspection reports." },
+        { q: "Do you insure businesses and contractors in Lehigh Acres?", a: "Yes. We quote general liability, commercial property, business owner's policies, commercial auto and workers' compensation for Lehigh Acres and Lee County businesses, from one-person contractors to shops and restaurants, and we can issue certificates of insurance quickly." },
       ],
       es: [
         { q: "¿La oficina de Lehigh Acres atiende sin cita?", a: "Nuestra oficina de Lehigh Acres atiende solo con cita previa. Llame al (239) 204-2208 para programar una visita o comience su cotización en línea." },
         { q: "¿Qué es una inspección de mitigación de viento?", a: "Un inspector con licencia documenta las características que ayudan a su casa a resistir el viento, como la forma del techo, la fijación de la cubierta, las conexiones entre el techo y las paredes y la protección de ventanas y puertas. Las aseguradoras de Florida están obligadas a ofrecer descuentos por las características que califiquen, y el informe normalmente es válido por cinco años." },
         { q: "¿Es más fácil asegurar una casa de construcción nueva?", a: "Por lo general, sí. Las casas nuevas construidas con el código actual y con techos nuevos suelen calificar con más aseguradoras y mejores tarifas. Necesitaremos datos como el año de construcción, el tipo de techo y cualquier permiso o informe de inspección." },
+        { q: "¿Aseguran negocios y contratistas en Lehigh Acres?", a: "Sí. Cotizamos responsabilidad general, propiedad comercial, pólizas para dueños de negocio, auto comercial y compensación laboral para negocios de Lehigh Acres y del condado de Lee, desde contratistas independientes hasta tiendas y restaurantes, y podemos emitir certificados de seguro rápidamente." },
       ],
     },
   },

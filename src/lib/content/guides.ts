@@ -11,7 +11,7 @@ import type { Bilingual } from "@/lib/i18n";
 
 export const REVIEWED_ON: Bilingual<string> = { en: "November 2026", es: "noviembre de 2026" };
 /** ISO date of the last review, for structured data. */
-export const REVIEWED_ISO = "2026-11-11";
+export const REVIEWED_ISO = "2026-11-25";
 
 export type GuideSection = { h: string; p: string[]; list?: string[] };
 export type GuideFaq = { q: string; a: string };
@@ -41,9 +41,9 @@ export const GUIDES: Guide[] = [
     related: "/auto-insurance",
     copy: {
       en: {
-        title: "Florida Car Insurance Requirements: What the Law Requires",
+        title: "Florida Car Insurance Requirements (2026): Minimum Coverage Explained",
         description:
-          "What Florida's minimum car insurance covers, why the minimum often isn't enough, and when you need an SR-22 or FR-44.",
+          "Does Florida require car insurance? Yes: $10,000 PIP and $10,000 property damage. What the minimum covers, what lenders require, and SR-22/FR-44 rules.",
         intro:
           "Florida is a no-fault state, and its car insurance rules work differently from most of the country. Here's what you're required to carry, what that coverage actually pays for, and where the gaps are.",
         takeaways: [
@@ -114,13 +114,21 @@ export const GUIDES: Guide[] = [
             q: "Does my Florida policy cover me when I drive in another state?",
             a: "Most Florida auto policies cover you anywhere in the United States and Canada, and many automatically meet another state's minimum limits while you're there. Check your policy or ask us to confirm.",
           },
+          {
+            q: "Does Florida require car insurance?",
+            a: "Yes. Every vehicle registered in Florida with four or more wheels must carry at least $10,000 of Personal Injury Protection (PIP) and $10,000 of Property Damage Liability (PDL), and keep it for as long as the vehicle is registered.",
+          },
+          {
+            q: "What insurance do I need on a leased or financed car in Florida?",
+            a: "The state minimum is the same, but your lender or leasing company will almost always require Collision and Comprehensive as well, often with a maximum deductible, and many leases also require Bodily Injury Liability limits above the minimum. Your contract lists the exact requirements.",
+          },
         ],
         relatedLabel: "Get a Florida auto insurance quote",
       },
       es: {
-        title: "Requisitos del Seguro de Auto en Florida: Lo Que Exige la Ley",
+        title: "Requisitos del Seguro de Auto en Florida (2026): Cobertura Mínima Explicada",
         description:
-          "Qué cubre el seguro de auto mínimo en Florida, por qué el mínimo muchas veces no alcanza y cuándo necesita un SR-22 o FR-44.",
+          "¿Es obligatorio el seguro de auto en Florida? Sí: $10,000 de PIP y $10,000 de daños a la propiedad. Qué cubre el mínimo, qué exige el banco y SR-22/FR-44.",
         intro:
           "Florida es un estado sin culpa (no-fault), y sus reglas de seguro de auto funcionan de forma diferente a las de la mayor parte del país. Aquí le explicamos qué está obligado a tener, qué paga realmente esa cobertura y dónde quedan los vacíos.",
         takeaways: [
@@ -191,6 +199,14 @@ export const GUIDES: Guide[] = [
             q: "¿Mi póliza de Florida me cubre cuando manejo en otro estado?",
             a: "La mayoría de las pólizas de auto de Florida le cubren en cualquier parte de Estados Unidos y Canadá, y muchas cumplen automáticamente los límites mínimos de otro estado mientras está allí. Revise su póliza o pídanos que lo confirmemos.",
           },
+          {
+            q: "¿Es obligatorio el seguro de auto en Florida?",
+            a: "Sí. Todo vehículo de cuatro ruedas o más registrado en Florida debe tener al menos $10,000 de Protección contra Lesiones Personales (PIP) y $10,000 de Responsabilidad por Daños a la Propiedad (PDL), y mantenerlos mientras el vehículo esté registrado.",
+          },
+          {
+            q: "¿Qué seguro necesito para un auto financiado o arrendado (lease) en Florida?",
+            a: "El mínimo del estado es el mismo, pero el banco o la compañía de arrendamiento casi siempre exige además cobertura de Choque (Collision) y Amplia (Comprehensive), muchas veces con un deducible máximo, y muchos contratos de arrendamiento piden límites de Responsabilidad por Lesiones Corporales más altos que el mínimo. Su contrato indica los requisitos exactos.",
+          },
         ],
         relatedLabel: "Cotice su seguro de auto en Florida",
       },
@@ -203,7 +219,7 @@ export const GUIDES: Guide[] = [
     related: "/home-insurance",
     copy: {
       en: {
-        title: "Hurricane Deductibles in Florida, Explained",
+        title: "Florida Hurricane Deductible: How It Works and What You'll Pay",
         description:
           "How Florida hurricane deductibles work: how they're calculated, when they apply, the once-per-season rule and how to choose the right one.",
         intro:
@@ -284,7 +300,7 @@ export const GUIDES: Guide[] = [
         relatedLabel: "Compare Florida home insurance",
       },
       es: {
-        title: "Deducibles por Huracán en Florida, Explicados",
+        title: "Deducible por Huracán en Florida: Cómo Funciona y Cuánto Pagará",
         description:
           "Cómo funcionan los deducibles por huracán en Florida: cómo se calculan, cuándo aplican, la regla de una vez por temporada y cómo elegir el adecuado.",
         intro:
