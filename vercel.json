@@ -347,6 +347,11 @@
       "source": "/review/lehigh-acres/",
       "destination": "https://g.page/r/CepMmoQJVNsYEAI/review",
       "permanent": false
+    },
+    {
+      "source": "/es/home-insurance-quote",
+      "destination": "/es/home-insurance/form",
+      "permanent": true
     }
   ],
   "rewrites": [
