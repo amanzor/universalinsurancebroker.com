@@ -91,8 +91,8 @@ const copy = {
     ctaButton: "Get Your Auto Quote",
   },
   es: {
-    heroTitle: "Seguro de Auto",
-    heroSubtitle: "Cotizaciones al instante en menos de 10 minutos",
+    heroTitle: "Seguro de Auto en Florida",
+    heroSubtitle: "Cotice su seguro de carro en menos de 10 minutos",
     introTitle: "Las Mejores Tarifas de Auto en la Florida",
     introBefore: "En ",
     introAfter:

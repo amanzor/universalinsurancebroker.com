@@ -87,7 +87,7 @@ const copy = {
       "From wind mitigation credits to multi-policy discounts, our team ensures every available savings is applied to your quote.",
   },
   es: {
-    heroTitle: "Seguro de Hogar",
+    heroTitle: "Seguros de Casa y Hogar en Florida",
     heroSubtitle: "Comparación de cotizaciones de hogar de primer nivel",
     ctaTitle: "Obtenga su Cotización de Seguro de Hogar",
     ctaBody:

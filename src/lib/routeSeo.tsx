@@ -55,9 +55,9 @@ const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
       service: "Auto Insurance",
     },
     es: {
-      title: "Seguro de Auto en Florida",
+      title: "Seguros de Auto en Florida: Cotice su Seguro de Carro",
       description:
-        "Obtenga una cotización real de seguro de auto en Florida en menos de 10 minutos. Comparamos más de 100 aseguradoras para encontrarle la mejor tarifa.",
+        "Cotice su seguro de auto (aseguranza de carro) en Florida en menos de 10 minutos. Comparamos más de 100 aseguradoras. Auto personal y comercial, en español.",
       service: "Seguro de Auto",
     },
   },
@@ -69,9 +69,9 @@ const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
       service: "Home Insurance",
     },
     es: {
-      title: "Seguro de Hogar en Florida",
+      title: "Seguros de Casa en Florida: Propietarios, Condominios e Inquilinos",
       description:
-        "Compare seguros de propietario, de arrendador y de inquilino en Florida con aseguradoras de primer nivel. Proteja su casa o sus pertenencias. Cotización gratis.",
+        "Compare seguros de casa en Florida: propietario, condominio, arrendador e inquilino, con opciones de inundación y huracán. Cotización gratis, en español.",
       service: "Seguro de Hogar",
     },
   },
@@ -83,9 +83,9 @@ const ROUTES: Record<RouteKey, Record<Lang, RouteCopy>> = {
       service: "Commercial Insurance",
     },
     es: {
-      title: "Seguro Comercial en Florida",
+      title: "Seguros Comerciales en Florida: Aseguranza para su Negocio",
       description:
-        "Responsabilidad general, compensación laboral, auto comercial, responsabilidad profesional, fianzas y más para más de 10,000 tipos de negocio en Florida.",
+        "Seguros comerciales para más de 10,000 tipos de negocio en Florida: responsabilidad general, compensación laboral, auto comercial y fianzas. Atención en español.",
       service: "Seguro Comercial",
     },
   },
