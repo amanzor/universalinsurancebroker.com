@@ -29,6 +29,7 @@ const insuranceLinks = [
   { label: { en: "Commercial Insurance", es: "Seguro Comercial" }, href: "/commercial-insurance" },
   { label: { en: "Home Insurance", es: "Seguro de Hogar" }, href: "/home-insurance" },
   { label: { en: "Health Insurance", es: "Seguro de Salud" }, href: "/health-insurance" },
+  { label: { en: "Boat Insurance", es: "Seguro de Botes" }, href: "/guides/florida-boat-insurance" },
 ];
 
 const companyLinks = [
