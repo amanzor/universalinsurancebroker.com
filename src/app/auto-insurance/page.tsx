@@ -750,7 +750,7 @@ export default function AutoInsurancePage() {
 
       <Testimonials topic="auto" variant="topic" />
 
-      <RelatedGuides slugs={["florida-car-insurance-requirements", "florida-flood-insurance"]} />
+      <RelatedGuides slugs={["florida-car-insurance-requirements", "florida-financed-car-insurance"]} />
 
       {/* CTA */}
       <section className="py-16 md:py-24 bg-gradient-to-br from-primary-900 to-primary-800 text-white">
